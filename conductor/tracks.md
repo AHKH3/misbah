@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-## [ ] Track: Teacher onboarding and profile activation flow
+## [~] Track: Teacher onboarding and profile activation flow
 *Link: [./conductor/tracks/onboarding_20260120/](./conductor/tracks/onboarding_20260120/)*
