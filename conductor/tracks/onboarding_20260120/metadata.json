@@ -1,0 +1,8 @@
+{
+  "track_id": "onboarding_20260120",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-20T12:00:00Z",
+  "updated_at": "2026-01-20T12:00:00Z",
+  "description": "Build the core teacher onboarding and profile activation flow, including the guided profile form, manual payment proof upload, and the initial admin review interface."
+}
