@@ -1,0 +1,36 @@
+# Misbah — مصباح
+
+## About
+Misbah is a public directory for independent teachers of Quran, Arabic, and Islamic Studies.
+
+## Purpose
+- Help students find qualified independent teachers
+- Provide teachers with visibility without platform intermediation
+- Direct contact between teachers and students
+
+## What Misbah Is
+- A public directory (like Yellow Pages for teachers)
+- SEO-first for discoverability
+- Annual subscription model
+
+## What Misbah Is NOT
+- Not an academy
+- Not a marketplace with transactions
+- Not a booking platform
+- Not an employer
+
+## Available Pages
+- / — Home page with overview
+- /directory — Browse all active teachers
+- /teachers/[id] — Individual teacher profiles
+- /onboarding — Teacher registration (requires auth)
+- /admin — Admin dashboard (protected)
+
+## API
+No public API. All data is displayed on public pages.
+
+## Contact
+For inquiries: [Website contact information]
+
+## Language
+Content available in Arabic and English.

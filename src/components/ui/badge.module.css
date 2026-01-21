@@ -1,0 +1,24 @@
+/* ===========================================================
+   BADGE COMPONENT — Structured Information (Section 5.3)
+   =========================================================== */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-micro);
+    padding: var(--space-micro) var(--space-base);
+    background-color: var(--color-ground);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-badge);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-ink-body);
+    white-space: nowrap;
+}
+
+/* Badge Container */
+.badgeList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-base);
+}

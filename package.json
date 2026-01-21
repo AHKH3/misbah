@@ -1,5 +1,5 @@
 {
-  "name": "temp_app",
+  "name": "misbah",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,6 +24,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.4",
+    "supabase": "^2.72.8",
     "typescript": "^5"
   }
 }

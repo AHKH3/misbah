@@ -1,0 +1,174 @@
+/* ===========================================================
+   ADMIN DASHBOARD STYLES — Clean Monochrome
+   =========================================================== */
+
+.page {
+    min-height: 100vh;
+    padding-block-start: var(--space-lg);
+    padding-block-end: var(--space-2xl);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+/* Header */
+.header {
+    margin-block-end: var(--space-lg);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-base);
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--color-ink-body);
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-lg);
+}
+
+.stat {
+    flex: 1;
+    padding: var(--space-md);
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+    text-align: center;
+}
+
+.statLabel {
+    font-size: 0.875rem;
+    color: var(--color-ink-subtle);
+    margin-block-end: var(--space-micro);
+}
+
+.statValue {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+}
+
+/* Queue */
+.queue {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.queueItem {
+    display: flex;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+}
+
+.queueInfo {
+    flex: 1;
+}
+
+.queueName {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-micro);
+}
+
+.queueMeta {
+    font-size: 0.9375rem;
+    color: var(--color-ink-subtle);
+    margin-block-end: var(--space-base);
+}
+
+.queueDetails {
+    font-size: 0.9375rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+}
+
+.queueActions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-base);
+    justify-content: center;
+}
+
+/* Empty State */
+.emptyState {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--color-ink-subtle);
+    font-size: 1.125rem;
+}
+
+/* Payment Proof */
+.proofLink {
+    display: inline-block;
+    padding: var(--space-base) var(--space-sm);
+    background-color: var(--color-ground);
+    border-radius: var(--radius-badge);
+    font-size: 0.875rem;
+    color: var(--color-ink-body);
+    transition: background-color var(--duration) var(--curve-smooth);
+}
+
+.proofLink:hover {
+    background-color: var(--color-card);
+}
+
+/* Reject Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    padding: var(--space-md);
+    width: 90%;
+    max-width: 400px;
+}
+
+.modalTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-sm);
+}
+
+.modalInput {
+    width: 100%;
+    padding: var(--space-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-badge);
+    margin-block-end: var(--space-sm);
+    min-height: 100px;
+    resize: vertical;
+}
+
+.modalActions {
+    display: flex;
+    gap: var(--space-base);
+    justify-content: flex-end;
+}

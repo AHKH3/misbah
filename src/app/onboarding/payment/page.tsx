@@ -1,65 +1,110 @@
-'use client'
+'use client';
 
-import { useActionState } from 'react'
-import { submitPaymentProof } from './actions'
-import styles from '../onboarding.module.css'
+import { useActionState } from 'react';
+import { useI18n } from '@/lib/i18n';
+import { Button, Card } from '@/components/ui';
+import { submitPaymentProof, type PaymentActionState } from './actions';
+import styles from '../onboarding.module.css';
 
-const initialState = {
-  error: null,
-  success: false
-}
+const initialState: PaymentActionState = {};
 
 export default function PaymentPage() {
-  const [state, formAction, isPending] = useActionState(submitPaymentProof, initialState)
-
-  if (state.success) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.card} style={{ textAlign: 'center', padding: '3rem' }}>
-          <h1 className={styles.title} style={{ color: 'green' }}>Submission Received</h1>
-          <p>Your profile and payment proof have been submitted.</p>
-          <p>An admin will review your application shortly.</p>
-        </div>
-      </div>
-    )
-  }
+  const { locale } = useI18n();
+  const [state, formAction, isPending] = useActionState(submitPaymentProof, initialState);
+  const isAr = locale === 'ar';
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Activate Your Profile</h1>
-      
-      <div className={styles.card}>
-        <h2 className={styles.label} style={{ fontSize: '1.25rem' }}>Monthly Subscription: $10/month</h2>
-        <p style={{ marginBottom: '1rem', lineHeight: '1.5' }}>
-          To activate your profile, please transfer the amount to the following account:
-        </p>
-        <div style={{ background: '#eee', padding: '1rem', borderRadius: '4px', marginBottom: '1rem' }}>
-          <strong>Bank:</strong> Islamic Bank<br/>
-          <strong>Account:</strong> 1234-5678-90<br/>
-          <strong>Name:</strong> Misbah Platform
+    <main className={styles.page}>
+      <div className={styles.container}>
+        {/* Step Indicator */}
+        <div className={styles.stepIndicator}>
+          <div className={`${styles.step} ${styles.stepComplete}`} />
+          <div className={`${styles.step} ${styles.stepActive}`} />
+          <div className={styles.step} />
+          <div className={styles.step} />
         </div>
-        <p>Once transferred, please upload the screenshot of the transaction below.</p>
+
+        {/* Header */}
+        <header className={styles.header}>
+          <h1 className={styles.title}>
+            {isAr ? 'تفعيل الملف الشخصي' : 'Activate Your Profile'}
+          </h1>
+          <p className={styles.subtitle}>
+            {isAr
+              ? 'قم بتحويل رسوم الاشتراك ثم أرفق إثبات الدفع'
+              : 'Transfer the subscription fee and upload payment proof'}
+          </p>
+        </header>
+
+        {/* Pricing Card */}
+        <div className={styles.card}>
+          <div className={styles.cardTitle}>
+            {isAr ? 'الاشتراك السنوي' : 'Annual Subscription'}
+          </div>
+
+          <div style={{ marginBlockEnd: 'var(--space-md)' }}>
+            <div style={{ fontSize: '2rem', fontWeight: 600, color: 'var(--color-ink-strong)' }}>
+              {isAr ? '٣٠٠ جنيه' : '300 EGP'}
+            </div>
+            <div style={{ fontSize: '0.875rem', color: 'var(--color-ink-subtle)' }}>
+              {isAr ? 'السنة الأولى (خصم ٥٠٪)' : 'First year (50% discount)'}
+            </div>
+            <div style={{ fontSize: '0.875rem', color: 'var(--color-ink-subtle)', marginBlockStart: 'var(--space-micro)' }}>
+              {isAr ? 'التجديد: ٦٠٠ جنيه / سنة' : 'Renewal: 600 EGP / year'}
+            </div>
+          </div>
+
+          <div className={styles.cardHint}>
+            {isAr ? 'حوّل المبلغ إلى:' : 'Transfer to:'}
+          </div>
+
+          <div style={{
+            background: 'var(--color-ground)',
+            padding: 'var(--space-sm)',
+            borderRadius: 'var(--radius-badge)',
+            fontSize: '0.9375rem',
+            lineHeight: 1.8
+          }}>
+            <div><strong>{isAr ? 'فودافون كاش:' : 'Vodafone Cash:'}</strong> 01012345678</div>
+          </div>
+        </div>
+
+        {/* Upload Form */}
+        <form action={formAction} className={styles.form}>
+          {state?.error && <div className={styles.error}>{state.error}</div>}
+
+          <div className={styles.formGroup}>
+            <label htmlFor="proof" className={styles.label}>
+              {isAr ? 'أرفق إثبات الدفع' : 'Upload Payment Proof'}
+            </label>
+            <input
+              type="file"
+              id="proof"
+              name="proof"
+              accept="image/*,application/pdf"
+              className={styles.input}
+              required
+            />
+            <p className={styles.cardHint}>
+              {isAr
+                ? 'صورة أو PDF لإيصال التحويل'
+                : 'Screenshot or PDF of transfer receipt'}
+            </p>
+          </div>
+
+          <div className={styles.submitButton}>
+            <Button type="submit" variant="primary" fullWidth disabled={isPending}>
+              {isPending
+                ? isAr
+                  ? 'جاري الرفع...'
+                  : 'Uploading...'
+                : isAr
+                  ? 'إرسال إثبات الدفع'
+                  : 'Submit Payment Proof'}
+            </Button>
+          </div>
+        </form>
       </div>
-
-      <form action={formAction}>
-        {state.error && <div className={styles.error} style={{ marginBottom: '1rem' }}>{typeof state.error === 'string' ? state.error : 'Error uploading file'}</div>}
-
-        <div className={styles.formGroup}>
-          <label htmlFor="proof" className={styles.label}>Upload Payment Proof</label>
-          <input 
-            type="file" 
-            id="proof" 
-            name="proof" 
-            accept="image/*,application/pdf"
-            className={styles.input} 
-            required 
-          />
-        </div>
-
-        <button type="submit" className={styles.button} disabled={isPending}>
-          {isPending ? 'Uploading...' : 'Submit Payment Proof'}
-        </button>
-      </form>
-    </div>
-  )
+    </main>
+  );
 }

@@ -1,5 +1,5 @@
 -- Enable necessary extensions
-create extension if not exists "uuid-ossp";
+-- create extension if not exists "uuid-ossp";
 
 -- Enums
 create type profile_status as enum ('pending_payment', 'payment_submitted', 'active', 'inactive');
@@ -8,7 +8,7 @@ create type subscription_status as enum ('pending', 'verified', 'rejected');
 
 -- Profiles Table
 create table public.profiles (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   user_id uuid references auth.users(id) on delete cascade not null,
   full_name text not null,
   subjects text[] not null, -- Domain restricted in UI, strictly typed here as text[]
@@ -24,7 +24,7 @@ create table public.profiles (
 
 -- Subscriptions Table
 create table public.subscriptions (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   profile_id uuid references public.profiles(id) on delete cascade not null,
   plan_id text not null default 'monthly', -- capable of expansion
   payment_proof_url text,

@@ -1,67 +1,141 @@
-'use client'
+'use client';
 
-import { approveListing, rejectListing } from '../actions'
+import { useState } from 'react';
+import { Button } from '@/components/ui';
+import { approveListing, rejectListing } from '../actions';
+import styles from '../admin.module.css';
 
-export default function ReviewList({ items }: { items: any[] }) {
+interface ProfileWithSubscription {
+  id: string;
+  full_name: string;
+  country: string;
+  subjects: string[];
+  audience: string[];
+  experience_text: string;
+  teaching_format: string;
+  video_url?: string;
+  subscriptions: Array<{
+    id: string;
+    payment_proof_url: string;
+  }>;
+}
+
+export default function ReviewList({ items }: { items: ProfileWithSubscription[] }) {
+  const [rejectModal, setRejectModal] = useState<{
+    profileId: string;
+    subId: string;
+  } | null>(null);
+  const [rejectReason, setRejectReason] = useState('');
+  const [loading, setLoading] = useState<string | null>(null);
+
   if (items.length === 0) {
-    return <div>No pending reviews.</div>
+    return <div className={styles.emptyState}>لا توجد طلبات معلقة</div>;
   }
 
   const handleApprove = async (profileId: string, subId: string) => {
-    if (!confirm('Activate this profile?')) return
-    await approveListing(profileId, subId)
-  }
+    if (!confirm('تفعيل هذا الملف الشخصي؟')) return;
+    setLoading(profileId);
+    await approveListing(profileId, subId);
+    setLoading(null);
+  };
 
-  const handleReject = async (profileId: string, subId: string) => {
-    const reason = prompt('Reason for rejection:')
-    if (!reason) return
-    await rejectListing(profileId, subId, reason)
-  }
+  const handleReject = async () => {
+    if (!rejectModal || !rejectReason) return;
+    setLoading(rejectModal.profileId);
+    await rejectListing(rejectModal.profileId, rejectModal.subId, rejectReason);
+    setLoading(null);
+    setRejectModal(null);
+    setRejectReason('');
+  };
+
+  const SUBJECT_LABELS: Record<string, string> = {
+    Quran: 'القرآن',
+    Tajweed: 'التجويد',
+    Arabic: 'العربية',
+    'Islamic Studies': 'الدراسات الإسلامية',
+  };
 
   return (
-    <div style={{ display: 'grid', gap: '1rem' }}>
-      {items.map((profile) => {
-        // Assume latest subscription is the one to review
-        // In a real query we'd filter subscriptions too or join carefully.
-        // For MVP we assume 1 active pending subscription.
-        const sub = profile.subscriptions?.[0]
-        if (!sub) return null
+    <>
+      <div className={styles.queue}>
+        {items.map((profile) => {
+          const sub = profile.subscriptions?.[0];
+          if (!sub) return null;
 
-        return (
-          <div key={profile.id} style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '8px' }}>
-            <h3>{profile.full_name}</h3>
-            <p><strong>Experience:</strong> {profile.experience_text}</p>
-            <p><strong>Subjects:</strong> {profile.subjects.join(', ')}</p>
-            
-            <div style={{ margin: '1rem 0' }}>
-              <strong>Payment Proof:</strong><br/>
-              {sub.payment_proof_url ? (
-                // In real app, we need a signed URL or public URL.
-                // Assuming we can view it (admin policy).
-                // We'll just show the path for now or a generic link
-                <a href={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/payment-proofs/${sub.payment_proof_url}`} target="_blank" rel="noreferrer">
-                  View Proof ({sub.payment_proof_url})
-                </a>
-              ) : 'No proof uploaded'}
+          return (
+            <div key={profile.id} className={styles.queueItem}>
+              <div className={styles.queueInfo}>
+                <h2 className={styles.queueName}>{profile.full_name}</h2>
+                <p className={styles.queueMeta}>{profile.country}</p>
+
+                <div className={styles.queueDetails}>
+                  <div style={{ marginBlockEnd: 'var(--space-base)' }}>
+                    <strong>التخصصات:</strong>{' '}
+                    {profile.subjects.map(s => SUBJECT_LABELS[s] || s).join('، ')}
+                  </div>
+                  <div style={{ marginBlockEnd: 'var(--space-base)' }}>
+                    <strong>الخبرة:</strong> {profile.experience_text.slice(0, 200)}...
+                  </div>
+                  {sub.payment_proof_url && (
+                    <a
+                      href={sub.payment_proof_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.proofLink}
+                    >
+                      عرض إثبات الدفع
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <div className={styles.queueActions}>
+                <Button
+                  variant="primary"
+                  onClick={() => handleApprove(profile.id, sub.id)}
+                  disabled={loading === profile.id}
+                >
+                  {loading === profile.id ? 'جاري...' : 'تفعيل'}
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => setRejectModal({ profileId: profile.id, subId: sub.id })}
+                  disabled={loading === profile.id}
+                >
+                  رفض
+                </Button>
+              </div>
             </div>
+          );
+        })}
+      </div>
 
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              <button 
-                onClick={() => handleApprove(profile.id, sub.id)}
-                style={{ background: 'green', color: 'white', padding: '0.5rem 1rem', border: 'none', cursor: 'pointer' }}
+      {/* Reject Modal */}
+      {rejectModal && (
+        <div className={styles.modal} onClick={() => setRejectModal(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <h3 className={styles.modalTitle}>سبب الرفض</h3>
+            <textarea
+              className={styles.modalInput}
+              value={rejectReason}
+              onChange={(e) => setRejectReason(e.target.value)}
+              placeholder="اكتب سبب الرفض..."
+            />
+            <div className={styles.modalActions}>
+              <Button variant="ghost" onClick={() => setRejectModal(null)}>
+                إلغاء
+              </Button>
+              <Button
+                variant="primary"
+                onClick={handleReject}
+                disabled={!rejectReason || loading !== null}
               >
-                Approve & Activate
-              </button>
-              <button 
-                onClick={() => handleReject(profile.id, sub.id)}
-                style={{ background: 'red', color: 'white', padding: '0.5rem 1rem', border: 'none', cursor: 'pointer' }}
-              >
-                Reject
-              </button>
+                تأكيد الرفض
+              </Button>
             </div>
           </div>
-        )
-      })}
-    </div>
-  )
+        </div>
+      )}
+    </>
+  );
 }

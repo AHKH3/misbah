@@ -1,0 +1,29 @@
+/* ===========================================================
+   CARD COMPONENT — Invisible Card (Section 5.1)
+   =========================================================== */
+
+.card {
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-rest);
+    transition:
+        transform var(--duration) var(--curve-elastic),
+        box-shadow var(--duration) var(--curve-smooth);
+}
+
+/* Interactive Card (with hover) */
+.interactive {
+    cursor: pointer;
+}
+
+.interactive:hover {
+    transform: translateY(-4px) scale(1.005);
+    box-shadow: var(--shadow-lift);
+    z-index: 10;
+    position: relative;
+}
+
+.interactive:active {
+    transform: translateY(-2px) scale(1);
+}

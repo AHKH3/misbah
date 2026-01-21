@@ -1,0 +1,49 @@
+/* ===========================================================
+   AVATAR COMPONENT (Section 5.4)
+   =========================================================== */
+
+.avatar {
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    /* White ring as per spec */
+    box-shadow: 0 0 0 2px #fff;
+}
+
+/* Sizes */
+.small {
+    width: 40px;
+    height: 40px;
+}
+
+.medium {
+    width: 64px;
+    height: 64px;
+}
+
+.large {
+    width: 96px;
+    height: 96px;
+}
+
+/* Fallback (initials) */
+.fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-ink-subtle);
+    color: #fff;
+    font-weight: 600;
+}
+
+.fallback.small {
+    font-size: 0.875rem;
+}
+
+.fallback.medium {
+    font-size: 1.25rem;
+}
+
+.fallback.large {
+    font-size: 1.75rem;
+}

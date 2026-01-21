@@ -1,0 +1,213 @@
+/* ===========================================================
+   DIRECTORY PAGE STYLES — Grid Layout with Filters
+   =========================================================== */
+
+.page {
+    min-height: 100vh;
+    padding-block-start: var(--space-lg);
+    padding-block-end: var(--space-2xl);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+/* Header */
+.header {
+    margin-block-end: var(--space-lg);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-base);
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-lg);
+    padding: var(--space-sm);
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-micro);
+}
+
+.filterLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-subtle);
+}
+
+.filterSelect {
+    padding: var(--space-base) var(--space-sm);
+    font-size: 0.9375rem;
+    font-family: inherit;
+    color: var(--color-ink-body);
+    background-color: var(--color-ground);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-badge);
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.filterSelect:focus {
+    border-color: var(--color-ink-subtle);
+    outline: none;
+}
+
+.resultCount {
+    margin-inline-start: auto;
+    font-size: 0.875rem;
+    color: var(--color-ink-subtle);
+}
+
+/* Teacher Grid */
+.teacherGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+}
+
+/* Teacher Card */
+.teacherCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-md);
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+    cursor: pointer;
+    transition:
+        transform var(--duration) var(--curve-elastic),
+        box-shadow var(--duration) var(--curve-smooth);
+}
+
+.teacherCard:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-lift);
+}
+
+.teacherInfo {
+    margin-block-start: var(--space-sm);
+}
+
+.teacherName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-micro);
+}
+
+.teacherCountry {
+    font-size: 0.9375rem;
+    color: var(--color-ink-subtle);
+    margin-block-end: var(--space-base);
+}
+
+.teacherStatus {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: var(--space-micro) var(--space-base);
+    background-color: var(--color-ground);
+    border-radius: var(--radius-pill);
+    color: var(--color-ink-body);
+    margin-block-end: var(--space-base);
+}
+
+.teacherBadges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-micro);
+}
+
+/* Empty State */
+.emptyState {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--color-ink-subtle);
+    font-size: 1.125rem;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-block-start: var(--space-lg);
+}
+
+.pageButton {
+    padding: var(--space-base) var(--space-sm);
+    font-size: 0.9375rem;
+    font-family: inherit;
+    color: var(--color-ink-body);
+    background-color: var(--color-card);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-badge);
+    cursor: pointer;
+    transition: background-color var(--duration) var(--curve-smooth);
+}
+
+.pageButton:hover:not(:disabled) {
+    background-color: var(--color-ground);
+}
+
+.pageButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pageInfo {
+    font-size: 0.9375rem;
+    color: var(--color-ink-subtle);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .teacherGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .resultCount {
+        margin-inline-start: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .teacherGrid {
+        grid-template-columns: 1fr;
+    }
+}

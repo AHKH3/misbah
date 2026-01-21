@@ -1,78 +1,173 @@
+/* ===========================================================
+   ONBOARDING PAGE STYLES — Clean Monochrome
+   =========================================================== */
+
+.page {
+  min-height: 100vh;
+  padding-block-start: var(--space-lg);
+  padding-block-end: var(--space-2xl);
+}
+
 .container {
-  max_width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: system-ui, -apple-system, sans-serif;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+/* Header */
+.header {
+  margin-block-end: var(--space-xl);
 }
 
 .title {
   font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #333;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--color-ink-strong);
+  margin-block-end: var(--space-base);
 }
 
-.formGroup {
-  margin-bottom: 1.5rem;
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--color-ink-body);
+  line-height: 1.6;
+}
+
+/* Form */
+.form {
   display: flex;
   flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Form Group */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
 }
 
 .label {
+  font-size: 0.875rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #444;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-strong);
 }
 
-.input, .textarea, .select {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+/* Inputs */
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: var(--space-sm);
   font-size: 1rem;
+  font-family: inherit;
+  color: var(--color-ink-body);
+  background-color: var(--color-card);
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+  transition: border-color var(--duration) var(--curve-smooth);
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--color-ink-subtle);
 }
 
 .textarea {
-  min-height: 100px;
+  min-height: 120px;
   resize: vertical;
 }
 
+/* Checkbox Group */
 .checkboxGroup {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-base);
 }
 
 .checkboxLabel {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: normal;
-}
-
-.button {
-  background-color: #0070f3;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  gap: var(--space-base);
+  padding: var(--space-base) var(--space-sm);
+  background-color: var(--color-card);
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+  font-size: 0.9375rem;
+  color: var(--color-ink-body);
   cursor: pointer;
-  transition: background 0.2s;
+  transition:
+    border-color var(--duration) var(--curve-smooth),
+    background-color var(--duration) var(--curve-smooth);
 }
 
-.button:hover {
-  background-color: #0051a2;
+.checkboxLabel:hover {
+  border-color: var(--color-ink-subtle);
 }
 
-.error {
-  color: #d32f2f;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
+.checkboxLabel input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-ink-strong);
 }
 
+/* Card Section */
 .card {
-  border: 1px solid #eaeaea;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  background: #fafafa;
+  background-color: var(--color-card);
+  border-radius: var(--radius-card);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-rest);
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-ink-strong);
+  margin-block-end: var(--space-base);
+}
+
+.cardHint {
+  font-size: 0.875rem;
+  color: var(--color-ink-subtle);
+  margin-block-end: var(--space-sm);
+}
+
+/* Error Message */
+.error {
+  font-size: 0.875rem;
+  color: var(--color-ink-body);
+  padding: var(--space-base);
+  background-color: var(--color-ground);
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+}
+
+/* Submit Button */
+.submitButton {
+  margin-block-start: var(--space-md);
+}
+
+/* Step Indicator */
+.stepIndicator {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-lg);
+}
+
+.step {
+  width: 32px;
+  height: 4px;
+  background-color: var(--border-ghost);
+  border-radius: 2px;
+}
+
+.stepActive {
+  background-color: var(--color-ink-strong);
+}
+
+.stepComplete {
+  background-color: var(--color-ink-subtle);
 }

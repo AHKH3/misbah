@@ -1,73 +1,80 @@
-'use server'
+'use server';
 
-import { createClient } from '@/utils/supabase/server'
-import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
+import { createClient } from '@/utils/supabase/server';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 
-export async function submitPaymentProof(prevState: any, formData: FormData) {
-  const supabase = await createClient()
+export type PaymentActionState = {
+  error?: string;
+  success?: boolean;
+};
 
-  // 1. Check Auth
-  const { data: { user }, error: authError } = await supabase.auth.getUser()
+export async function submitPaymentProof(
+  prevState: PaymentActionState,
+  formData: FormData
+): Promise<PaymentActionState> {
+  const supabase = await createClient();
+
+  // Check Auth
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) {
-    return { error: 'Unauthorized' }
+    return { error: 'يجب تسجيل الدخول أولاً / Please sign in first' };
   }
 
-  // 2. Get File
-  const file = formData.get('proof') as File
+  // Get the profile
+  const { data: profile, error: profileError } = await supabase
+    .from('profiles')
+    .select('id')
+    .eq('user_id', user.id)
+    .single();
+
+  if (profileError || !profile) {
+    return { error: 'الملف الشخصي غير موجود / Profile not found' };
+  }
+
+  // Get the file
+  const file = formData.get('proof') as File;
   if (!file || file.size === 0) {
-    return { error: 'Please upload a valid file' }
+    return { error: 'يرجى تحميل إثبات الدفع / Please upload payment proof' };
   }
 
-  // 3. Upload to Storage
-  const fileExt = file.name.split('.').pop()
-  const filePath = `${user.id}/${Date.now()}.${fileExt}`
-  
-  const { error: uploadError, data: uploadData } = await supabase.storage
+  // Upload to storage
+  const fileName = `${user.id}/${Date.now()}-${file.name}`;
+  const { error: uploadError } = await supabase.storage
     .from('payment-proofs')
-    .upload(filePath, file)
+    .upload(fileName, file);
 
   if (uploadError) {
-    console.error('Upload Error:', uploadError)
-    return { error: 'Failed to upload image' }
+    console.error('Upload Error:', uploadError);
+    return { error: 'فشل في تحميل الملف / Failed to upload file' };
   }
 
-  // 4. Get Public URL (or signed, but let's assume public bucket for simplicity as per spec check? 
-  // Spec says "Admin... View profile details and the uploaded payment proof". 
-  // Migrations said "public: false". So we need signed URL or Admin access.
-  // We'll store the path or the Signed URL? Storing path is better.
-  // We'll store the full path or just the relative path. 
-  // `uploadData.path` gives the relative path.
-  
-  // 5. Create Subscription
-  // First get profile id
-  const { data: profile } = await supabase.from('profiles').select('id').eq('user_id', user.id).single()
-  
-  if (!profile) {
-    return { error: 'Profile not found' }
-  }
+  // Get public URL
+  const { data: urlData } = supabase.storage
+    .from('payment-proofs')
+    .getPublicUrl(fileName);
 
-  const { error: subError } = await supabase.from('subscriptions').insert({
-    profile_id: profile.id,
-    plan_id: 'monthly',
-    payment_proof_url: uploadData.path,
-    status: 'pending'
-  })
+  // Create subscription record
+  const { error: subError } = await supabase
+    .from('subscriptions')
+    .insert({
+      profile_id: profile.id,
+      plan_id: 'annual',
+      payment_proof_url: urlData.publicUrl,
+      status: 'pending',
+    });
 
   if (subError) {
-    console.error('Subscription Error:', subError)
-    return { error: 'Failed to create subscription record' }
+    console.error('Subscription Error:', subError);
+    return { error: 'فشل في إنشاء الاشتراك / Failed to create subscription' };
   }
 
-  // 6. Update Profile Status
-  const { error: profileError } = await supabase.from('profiles')
+  // Update profile status
+  await supabase
+    .from('profiles')
     .update({ status: 'payment_submitted' })
-    .eq('id', profile.id)
+    .eq('id', profile.id);
 
-  if (profileError) {
-    return { error: 'Failed to update profile status' }
-  }
-
-  // 7. Success
-  return { success: true }
+  revalidatePath('/onboarding');
+  redirect('/onboarding/success');
 }
