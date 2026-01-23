@@ -59,7 +59,8 @@ export default function DirectoryPage() {
             Arabic: 'arabic',
             'Islamic Studies': 'islamicStudies',
         };
-        return labels[map[s]] || s;
+        const label = labels[map[s]];
+        return typeof label === 'string' ? label : s;
     };
 
     const getFormatLabel = (f: TeachingFormat) => {
@@ -68,7 +69,8 @@ export default function DirectoryPage() {
             in_person: 'inPerson',
             hybrid: 'hybrid',
         };
-        return labels[map[f]] || f;
+        const label = labels[map[f]];
+        return typeof label === 'string' ? label : f;
     };
 
     const getStatusLabel = (status: string) => {
@@ -77,7 +79,8 @@ export default function DirectoryPage() {
             limited: 'limited',
             not_accepting: 'notAccepting',
         };
-        return labels[map[status]] || status;
+        const label = labels[map[status]];
+        return typeof label === 'string' ? label : status;
     };
 
     // Get localized name - use Arabic for RTL locales, English otherwise

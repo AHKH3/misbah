@@ -125,8 +125,8 @@ const arHome: HomeSection = {
     },
     pricing: {
         label: 'للمعلمين فقط',
-        title: 'الاشتراك',
-        description: 'اشتراك سنوي. الدفع يتم بعد قبول الطلب فقط.',
+        title: 'اشتراك سنوي رمزي',
+        description: 'مقابل إدراج البروفايل والحفاظ على جودة وتنظيم الدليل.\nيتم الدفع فقط بعد قبول الطلب.',
     },
     finalCta: {
         studentsLabel: 'للطلاب',
@@ -192,8 +192,8 @@ const enHome: HomeSection = {
     },
     pricing: {
         label: 'For Teachers Only',
-        title: 'Subscription',
-        description: 'Annual subscription. Payment is made only after application is accepted.',
+        title: 'Symbolic Subscription',
+        description: 'A symbolic annual contribution to ensure seriousness and sustainability. Paid only after your membership is accepted.',
     },
     finalCta: {
         studentsLabel: 'For Students',
@@ -210,6 +210,7 @@ export const translations = {
     ar: {
         home: arHome,
         directory: 'دليل المعلمين',
+        browseDesc: 'تصفح نخبة من المعلمين المراجعين يدوياً',
         register: 'تقدّم كمعلم',
         subject: 'التخصص',
         format: 'الطريقة',
@@ -312,6 +313,7 @@ export const translations = {
     en: {
         home: enHome,
         directory: 'Teacher Directory',
+        browseDesc: 'Browse a curated list of manually reviewed teachers',
         register: 'Apply as Teacher',
         subject: 'Subject',
         format: 'Format',

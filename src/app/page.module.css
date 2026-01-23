@@ -19,7 +19,7 @@
 }
 
 /* -----------------------------------------------------------
-   Section 1: Hero — Enhanced
+   Section 1: Hero — Legendary
    ----------------------------------------------------------- */
 .hero {
   display: flex;
@@ -28,49 +28,181 @@
   justify-content: center;
   text-align: center;
   padding: var(--space-2xl) var(--space-md);
-  min-height: 70vh;
+  min-height: 60vh;
   background-color: var(--color-card);
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .heroContent {
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  position: relative;
+  z-index: 2;
+  /* Above geometry */
+}
+
+/* Geometric Background — Quiet Depth */
+.heroGeometry {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.geoCircle1,
+.geoCircle2,
+.geoCircle3 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border-ghost);
+  opacity: 0.6;
+  /* Extremely subtle */
+}
+
+.geoCircle1 {
+  width: 320px;
+  height: 320px;
+  animation: breathe 12s ease-in-out infinite;
+}
+
+.geoCircle2 {
+  width: 540px;
+  height: 540px;
+  border-style: dashed;
+  /* Texture */
+  animation: rotateSlow 60s linear infinite;
+}
+
+.geoCircle3 {
+  width: 800px;
+  height: 800px;
+  opacity: 0.3;
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .heroTitle {
   font-size: 5rem;
-  font-weight: 700;
+  /* Increased size for impact */
+  font-weight: 800;
+  /* Heavier weight */
   letter-spacing: -0.05em;
   line-height: 1;
   color: var(--color-ink-strong);
-  margin-block-end: var(--space-md);
+  position: relative;
 }
 
 .heroSubtitle {
-  font-size: 1.375rem;
+  font-size: 1.5rem;
   color: var(--color-ink-body);
-  line-height: 1.6;
-  margin-block-end: var(--space-md);
+  line-height: 1.5;
+  max-width: 500px;
 }
 
 .heroValue {
   font-size: 1.125rem;
   font-weight: 500;
   color: var(--color-ink-subtle);
-  letter-spacing: 0.02em;
-  margin-block-end: var(--space-xl);
+  letter-spacing: 0.01em;
 }
 
 .heroCtas {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: var(--space-sm);
-  width: 100%;
-  max-width: 320px;
-  margin-inline: auto;
+  margin-block-start: var(--space-sm);
+}
+
+/* Trust Signal */
+.trustSignal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-base);
+  margin-block-start: var(--space-md);
+  padding: var(--space-base) var(--space-md);
+  background-color: var(--color-card);
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+}
+
+.trustCheck {
+  font-size: 1rem;
+  color: var(--color-ink-strong);
+  font-weight: 700;
+}
+
+.trustText {
+  font-size: 0.875rem;
+  color: var(--color-ink-body);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+
+  .heroCtas {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 /* -----------------------------------------------------------
    Section 2: For Students — Cards Grid
+   ----------------------------------------------------------- */
+/* -----------------------------------------------------------
+   Section 2: For Students — Clean Detailed List
    ----------------------------------------------------------- */
 .studentsSection {
   padding: var(--space-2xl) var(--space-md);
@@ -95,32 +227,49 @@
   margin-block-end: var(--space-lg);
 }
 
-/* Card Grid — 2x2 */
+/* Clean List Style */
 .cardGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
   margin-block-end: var(--space-lg);
 }
 
 .card {
-  background-color: var(--color-card);
-  border-radius: var(--radius-card);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
   padding: var(--space-md);
-  box-shadow: var(--shadow-rest);
-  transition: box-shadow var(--duration) var(--curve-smooth),
-    transform var(--duration) var(--curve-elastic);
+  background-color: transparent;
+  /* Clean look */
+  border-bottom: 1px solid var(--border-ghost);
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform var(--duration) var(--curve-smooth);
 }
 
 .card:hover {
-  box-shadow: var(--shadow-lift);
-  transform: translateY(-4px);
+  transform: translateX(8px);
+  /* Subtle nudge */
+  background-color: var(--color-card);
+  border-radius: var(--radius-card);
+  border-bottom-color: transparent;
+  box-shadow: var(--shadow-rest);
 }
 
 .cardText {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   color: var(--color-ink-body);
   line-height: 1.6;
+}
+
+/* Add check icon before text manually implies clean list */
+.cardText::before {
+  content: '✓';
+  display: inline-block;
+  margin-inline-end: var(--space-sm);
+  color: var(--color-ink-strong);
+  font-weight: 700;
 }
 
 /* Note Box */
@@ -138,38 +287,51 @@
 }
 
 .sectionCta {
-  text-align: center;
+  text-align: start;
+  /* Align with list */
 }
 
 /* -----------------------------------------------------------
    Section 3: For Teachers — Horizontal Chips
+   ----------------------------------------------------------- */
+/* -----------------------------------------------------------
+   Section 3: For Teachers — Value Pillars
    ----------------------------------------------------------- */
 .teachersSection {
   padding: var(--space-2xl) var(--space-md);
   background-color: var(--color-card);
 }
 
+/* Pillars Container */
 .chipsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 cols for balance */
+  gap: var(--space-md);
   margin-block-end: var(--space-lg);
 }
 
+/* Value Pillar Style */
 .chip {
-  display: inline-block;
-  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-lg);
   background-color: var(--color-ground);
-  border-radius: 999px;
-  font-size: 0.9375rem;
+  border-radius: var(--radius-card);
+  border: 1px solid transparent;
+  font-size: 1rem;
   color: var(--color-ink-body);
-  line-height: 1.4;
+  line-height: 1.5;
+  height: 100%;
   transition: transform var(--duration) var(--curve-elastic),
-    box-shadow var(--duration) var(--curve-smooth);
+    border-color var(--duration) var(--curve-smooth);
 }
 
 .chip:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  border-color: var(--color-ink-subtle);
   box-shadow: var(--shadow-rest);
 }
 
@@ -211,6 +373,13 @@
   font-size: 0.9375rem;
   color: var(--color-ink-body);
   line-height: 1.4;
+  transition: transform var(--duration) var(--curve-elastic),
+    box-shadow var(--duration) var(--curve-smooth);
+}
+
+.notBadge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-rest);
 }
 
 /* -----------------------------------------------------------
@@ -290,8 +459,24 @@
   line-height: 1.6;
 }
 
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  will-change: opacity, transform;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* -----------------------------------------------------------
    Section 6: Pricing
+   ----------------------------------------------------------- */
+/* -----------------------------------------------------------
+   Section 6: Pricing — Symbolic Membership (Non-Commercial)
    ----------------------------------------------------------- */
 .pricingSection {
   padding: var(--space-xl) var(--space-md);
@@ -299,12 +484,24 @@
 }
 
 .pricingCard {
-  max-width: 480px;
+  max-width: 420px;
   margin-inline: auto;
   text-align: center;
-  padding: var(--space-lg);
-  background-color: var(--color-card);
+  padding: var(--space-xl) var(--space-lg);
+  background-color: transparent;
+  /* Minimalist */
+  border: 1px dashed var(--color-ink-subtle);
+  /* Membership/Cut-out feel */
   border-radius: var(--radius-card);
+  box-shadow: none;
+  transition: transform var(--duration) var(--curve-elastic),
+    border-color var(--duration) var(--curve-smooth);
+}
+
+.pricingCard:hover {
+  transform: scale(1.02);
+  border-color: var(--color-ink-strong);
+  background-color: var(--color-card);
   box-shadow: var(--shadow-rest);
 }
 
@@ -314,18 +511,20 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--color-ink-subtle);
-  padding: var(--space-micro) var(--space-base);
-  background-color: var(--color-ground);
-  border-radius: var(--radius-badge);
-  margin-block-end: var(--space-sm);
+  color: var(--color-ink-strong);
+  margin-block-end: var(--space-md);
+  border-bottom: 1px solid var(--color-ink-strong);
+  /* Underlined label */
+  padding-bottom: 2px;
+  background: none;
+  border-radius: 0;
 }
 
 .pricingTitle {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: var(--color-ink-strong);
-  margin-block-end: var(--space-sm);
+  margin-block-end: var(--space-md);
 }
 
 .pricingDescription {
@@ -353,6 +552,13 @@
   background-color: var(--color-ground);
   border-radius: var(--radius-card);
   text-align: center;
+  transition: transform var(--duration) var(--curve-elastic),
+    box-shadow var(--duration) var(--curve-smooth);
+}
+
+.ctaBlock:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-rest);
 }
 
 .ctaLabel {
@@ -387,6 +593,17 @@
   font-size: 1rem;
   color: var(--color-ink-body);
   border-block-start: 1px solid var(--border-ghost);
+}
+
+/* Only add hover effect to steps */
+.hStepNumber {
+  transition: transform 0.4s var(--curve-elastic), background-color 0.3s ease;
+}
+
+.hStep:hover .hStepNumber {
+  transform: scale(1.1);
+  background-color: var(--color-ink-strong);
+  /* Ensure contrast */
 }
 
 /* -----------------------------------------------------------
