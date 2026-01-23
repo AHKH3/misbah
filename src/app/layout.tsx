@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Amiri } from 'next/font/google';
 import { I18nProvider } from '@/lib/i18n';
 import { Header } from '@/components/layout';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 // Typography: Inter (Latin/UI) — Section 4.1
@@ -53,6 +54,7 @@ export default function RootLayout({
           <Header />
           {children}
         </I18nProvider>
+        <Analytics />
       </body>
     </html>
   );
