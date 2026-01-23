@@ -1,0 +1,41 @@
+/* ===========================================================
+   FAQ PAGE STYLES
+   =========================================================== */
+
+.page {
+    min-height: 100vh;
+    padding-block-start: var(--space-lg);
+    padding-block-end: var(--space-2xl);
+    background-color: var(--color-ground);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+/* -----------------------------------------------------------
+   Header
+   ----------------------------------------------------------- */
+.header {
+    margin-block-end: var(--space-xl);
+    text-align: center;
+}
+
+.pageTitle {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--color-ink-strong);
+}
+
+/* -----------------------------------------------------------
+   Responsive
+   ----------------------------------------------------------- */
+@media (max-width: 768px) {
+    .pageTitle {
+        font-size: 1.75rem;
+    }
+}

@@ -1,0 +1,74 @@
+/* ===========================================================
+   ACCORDION COMPONENT STYLES
+   =========================================================== */
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.item {
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-rest);
+}
+
+/* Trigger Button */
+.trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+    font-family: inherit;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: start;
+    transition: background-color var(--duration) var(--curve-smooth);
+}
+
+.trigger:hover {
+    background-color: var(--color-ground);
+}
+
+.triggerOpen {
+    background-color: var(--color-ground);
+}
+
+.question {
+    flex: 1;
+    padding-inline-end: var(--space-sm);
+}
+
+.icon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-ink-subtle);
+    transition: transform var(--duration) var(--curve-elastic);
+}
+
+/* Content */
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--duration) var(--curve-smooth),
+        padding var(--duration) var(--curve-smooth);
+}
+
+.contentOpen {
+    max-height: 500px;
+    padding: 0 var(--space-md) var(--space-md);
+}
+
+.answer {
+    font-size: 1rem;
+    color: var(--color-ink-body);
+    line-height: 1.7;
+}

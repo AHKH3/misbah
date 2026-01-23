@@ -79,7 +79,7 @@ export default function TeacherProfilePage({ params }: PageProps) {
           {/* Quick Info */}
           <div className={styles.quickInfo}>
             <div className={styles.infoItem}>
-              <span className={styles.infoLabel}>{labels.subjects}</span>
+              <span className={styles.infoLabel}>{labels.subject}</span>
               <BadgeList>
                 {profile.subjects.map((subject) => (
                   <Badge key={subject}>{getSubjectLabel(subject, labels)}</Badge>
@@ -175,7 +175,7 @@ export default function TeacherProfilePage({ params }: PageProps) {
 
         {/* Disclaimer */}
         <div className={styles.disclaimer}>
-          <p className={styles.disclaimerText}>{labels.disclaimer}</p>
+          <p className={styles.disclaimerText}>{labels.home.disclaimer}</p>
         </div>
       </div>
     </main>
@@ -190,7 +190,7 @@ function getYouTubeId(url: string): string | null {
   return match ? match[1] : null;
 }
 
-function getSubjectLabel(s: string, labels: Record<string, string>) {
+function getSubjectLabel(s: string, labels: typeof import('@/lib/i18n/translations').translations.en) {
   const map: Record<string, string> = {
     Quran: labels.quran,
     Tajweed: labels.tajweed,
@@ -200,7 +200,7 @@ function getSubjectLabel(s: string, labels: Record<string, string>) {
   return map[s] || s;
 }
 
-function getAudienceLabel(a: string, labels: Record<string, string>) {
+function getAudienceLabel(a: string, labels: typeof import('@/lib/i18n/translations').translations.en) {
   const map: Record<string, string> = {
     Kids: labels.kids,
     Adults: labels.adults,
@@ -211,7 +211,7 @@ function getAudienceLabel(a: string, labels: Record<string, string>) {
   return map[a] || a;
 }
 
-function getFormatLabel(f: string, labels: Record<string, string>) {
+function getFormatLabel(f: string, labels: typeof import('@/lib/i18n/translations').translations.en) {
   const map: Record<string, string> = {
     online: labels.online,
     in_person: labels.inPerson,
@@ -220,7 +220,7 @@ function getFormatLabel(f: string, labels: Record<string, string>) {
   return map[f] || f;
 }
 
-function getStatusLabel(status: string, labels: Record<string, string>) {
+function getStatusLabel(status: string, labels: typeof import('@/lib/i18n/translations').translations.en) {
   const map: Record<string, string> = {
     accepting: labels.accepting,
     limited: labels.limited,

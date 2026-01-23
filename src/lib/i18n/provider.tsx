@@ -10,11 +10,11 @@ import {
 import type { Locale } from './config';
 import { locales, defaultLocale, localeDirections } from './config';
 import { getTranslation } from './translations';
-import type { TranslationKeys } from './translations';
+import type { TranslationType } from './translations';
 
 interface I18nContextValue {
     locale: Locale;
-    labels: Record<TranslationKeys, string>;
+    labels: TranslationType;
     setLocale: (locale: Locale) => void;
     dir: 'rtl' | 'ltr';
 }

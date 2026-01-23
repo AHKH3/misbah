@@ -259,4 +259,34 @@ Any feature that compromises these principles is forbidden.
 
 ---
 
+## 16. SEO Philosophy (Core Principle)
+
+> **See full document:** [seo-philosophy.md](./seo-philosophy.md)
+
+### 16.1 Fundamental Principle
+
+Misbah provides **SEO readiness**, not visibility guarantee.
+
+- Having a teacher page = owning an eligible digital asset
+- Indexing ≠ Ranking
+- Most teacher pages may remain silent in search — **this is correct and intentional**
+
+### 16.2 Forbidden Patterns
+
+- Designing for "show everyone" instead of natural selection
+- Internal keyword cannibalization between teacher pages
+- Mass pushing for results with no real search demand
+- Creating visibility expectations with teachers
+
+### 16.3 Required Approach
+
+- Unique, honest metadata per teacher page
+- Structured data reflecting real information only
+- Letting search engines choose naturally
+- Clear communication with teachers: "eligibility to win, not guarantee"
+
+This principle is **non-negotiable** and defines Misbah's identity as a Professional Directory.
+
+---
+
 End of Product Guidelines — Misbah
