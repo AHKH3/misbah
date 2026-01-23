@@ -79,6 +79,28 @@ Forbidden values include: 10px, 12px, 15px, 20px, percentages.
 
 No colored borders. No gradients. No glows.
 
+### 3.4 Dark Anchors Pattern (Hero + Footer ONLY)
+
+**Philosophy:** Dark sections serve as visual "anchors" at the **beginning and end** only.
+All content sections remain light for optimal readability.
+
+**Where Dark Applies:**
+* Hero Section (page opening)
+* Footer (site-wide)
+
+**Where Light Applies:**
+* ALL content sections (including Final CTA)
+* All internal pages (Directory, Profile, About, FAQ, Legal)
+
+**Dark Section Colors:**
+* Background: #0A0A0A
+* Primary Text: #FFFFFF  
+* Secondary Text: #D4D4D8
+
+**Button Variants on Dark:**
+* `primaryInverted`: White bg, black text
+* `ghostInverted`: Transparent bg, white border
+
 ---
 
 ## 4. Typography — Editorial System

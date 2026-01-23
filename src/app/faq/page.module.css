@@ -1,5 +1,5 @@
 /* ===========================================================
-   FAQ PAGE STYLES
+   FAQ PAGE STYLES — Unified Card-based Design
    =========================================================== */
 
 .page {
@@ -15,25 +15,21 @@
     padding-inline: var(--space-md);
 }
 
-/* -----------------------------------------------------------
-   Header
-   ----------------------------------------------------------- */
+/* Header */
 .header {
     margin-block-end: var(--space-xl);
     text-align: center;
 }
 
 .pageTitle {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
     line-height: 1.1;
     color: var(--color-ink-strong);
 }
 
-/* -----------------------------------------------------------
-   Responsive
-   ----------------------------------------------------------- */
+/* Responsive */
 @media (max-width: 768px) {
     .pageTitle {
         font-size: 1.75rem;

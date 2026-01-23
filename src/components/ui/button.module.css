@@ -60,3 +60,39 @@
 .fullWidth {
     width: 100%;
 }
+
+/* ===========================================================
+   INVERTED VARIANTS — For Dark Backgrounds
+   =========================================================== */
+
+/* Primary Inverted (White button on dark bg) */
+.primaryInverted {
+    background-color: #ffffff;
+    color: #0a0a0a;
+}
+
+.primaryInverted:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
+.primaryInverted:active {
+    transform: scale(0.97);
+}
+
+/* Ghost Inverted (Visible on dark bg) */
+.ghostInverted {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.ghostInverted:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.ghostInverted:active {
+    transform: scale(0.97);
+}

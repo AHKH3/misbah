@@ -45,14 +45,14 @@ export function Header() {
                     <Link href="/directory" className={styles.navLink}>
                         {labels.directory}
                     </Link>
+                    <Link href="/onboarding" className={styles.navLink}>
+                        {labels.register}
+                    </Link>
                     <Link href="/about" className={styles.navLink}>
                         {labels.navAbout}
                     </Link>
                     <Link href="/faq" className={styles.navLink}>
                         {labels.navFaq}
-                    </Link>
-                    <Link href="/onboarding" className={styles.navLink}>
-                        {labels.register}
                     </Link>
                 </nav>
 

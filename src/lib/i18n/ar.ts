@@ -11,7 +11,7 @@ const ar = {
     nav: {
         home: 'الرئيسية',
         directory: 'دليل المعلمين',
-        register: 'تقدّم كمعلم',
+        register: 'انضم كمعلم',
     },
 
     // Home Page — 7-Section Structure
@@ -22,6 +22,11 @@ const ar = {
             subtitle: 'دليل مهني للمعلمين المستقلين في القرآن الكريم واللغة العربية والدراسات الإسلامية.',
             ctaStudents: 'تصفّح المعلمين',
             ctaTeachers: 'تقدّم كمعلم',
+            trustBadges: [
+                'دليل مُراجَع',
+                'تواصل مباشر',
+                'مجاني للطلاب',
+            ],
         },
 
         // Section 2: For Students & Parents

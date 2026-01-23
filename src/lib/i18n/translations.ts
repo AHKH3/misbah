@@ -9,6 +9,7 @@ interface HomeSection {
         valueStatement: string;
         ctaStudents: string;
         ctaTeachers: string;
+        trustBadges?: string[];
     };
     forStudents: {
         label: string;
@@ -79,6 +80,7 @@ const arHome: HomeSection = {
         valueStatement: 'كل معلم هنا تم التأكد من جديته. اختر بنفسك.',
         ctaStudents: 'تصفّح المعلمين',
         ctaTeachers: 'انضم كمعلم',
+        trustBadges: ['دليل موثق', 'تواصل مباشر', 'مجاني للطلاب'],
     },
     forStudents: {
         label: 'للطلاب وأولياء الأمور',
@@ -87,10 +89,10 @@ const arHome: HomeSection = {
             'ملفات شخصية — كل معلم له صفحة خاصة به',
             'مراجعة يدوية — كل ملف يُراجع قبل النشر',
             'معلومات منظمة — سهلة القراءة والمقارنة',
-            'تواصل مباشر — بدون وسيط ولا نظام حجوزات',
+            'معلومات التواصل — تتواصل مع المعلم مباشرة خارج الموقع',
         ],
-        note: 'مصباح لا يتدخل في العملية التعليمية. القرار لك.',
-        cta: 'ابحث عن معلمك',
+        note: 'مصباح يعرض معلومات التواصل فقط. أي تواصل يحدث خارج الموقع على مسؤوليتك.',
+        cta: 'تصفح المعلمين',
     },
     forTeachers: {
         label: 'للمعلمين',
@@ -119,9 +121,9 @@ const arHome: HomeSection = {
         steps: [
             { number: '١', title: 'تقديم الطلب', description: 'المعلم يملأ استمارة التقديم' },
             { number: '٢', title: 'مراجعة يدوية', description: 'نراجع كل طلب بشكل فردي' },
-            { number: '٣', title: 'نشر الملف', description: 'الملف يظهر للعموم' },
+            { number: '٣', title: 'نشر الملف', description: 'الملف يظهر للعموم مع معلومات التواصل' },
         ],
-        note: 'دور مصباح ينتهي عند عرض المعلومات. التواصل يتم بين الطالب والمعلم مباشرة.',
+        note: 'دور مصباح ينتهي عند عرض معلومات التواصل. التواصل يتم خارج الموقع عبر الوسائل المكتوبة في البروفايل، ومصباح غير مسؤول عن أي تواصل يحدث.',
     },
     pricing: {
         label: 'للمعلمين فقط',
@@ -146,6 +148,7 @@ const enHome: HomeSection = {
         valueStatement: 'Every teacher here has been verified for seriousness. You decide.',
         ctaStudents: 'Browse Teachers',
         ctaTeachers: 'Apply as a Teacher',
+        trustBadges: ['Verified Directory', 'Direct Contact', 'Free for Students'],
     },
     forStudents: {
         label: 'For Students & Parents',
@@ -154,10 +157,10 @@ const enHome: HomeSection = {
             'Personal profiles — each teacher has their own page',
             'Manual review — every profile is reviewed before publishing',
             'Organized information — easy to read and compare',
-            'Direct contact — no middleman, no booking system',
+            'Contact information — reach out to teachers directly outside the site',
         ],
-        note: 'Misbah does not interfere with the teaching process. You decide.',
-        cta: 'Find Your Teacher',
+        note: 'Misbah displays contact information only. Any communication that happens is outside the site and at your own responsibility.',
+        cta: 'Browse Teachers',
     },
     forTeachers: {
         label: 'For Teachers',
@@ -186,9 +189,9 @@ const enHome: HomeSection = {
         steps: [
             { number: '1', title: 'Apply', description: 'Teacher submits application' },
             { number: '2', title: 'Review', description: 'We review each application individually' },
-            { number: '3', title: 'Publish', description: 'Profile goes public' },
+            { number: '3', title: 'Publish', description: 'Profile goes public with contact info' },
         ],
-        note: "Misbah's role ends at displaying information. Contact happens directly between student and teacher.",
+        note: "Misbah's role ends at displaying contact information. Communication happens outside the site through the contact methods on the profile, and Misbah bears no responsibility for any contact that occurs.",
     },
     pricing: {
         label: 'For Teachers Only',
@@ -249,6 +252,9 @@ export const translations = {
         navHome: 'الرئيسية',
         navAbout: 'عن مصباح',
         navFaq: 'الأسئلة الشائعة',
+        navPrivacy: 'سياسة الخصوصية',
+        navTerms: 'شروط الاستخدام',
+        navDisclaimer: 'إخلاء المسؤولية',
         // About Page (عن مصباح)
         about: {
             pageTitle: 'عن مصباح',
@@ -259,8 +265,8 @@ export const translations = {
             },
             why: {
                 title: 'لماذا أُنشئ مصباح',
-                description: 'أُنشئ مصباح لتوفير مساحة واضحة ومحايدة تجمع بين الطالب والمعلم، تعتمد على التعريف المباشر بالمعلم دون وساطة تعليمية أو نماذج تشغيل معقّدة.',
-                subDescription: 'التركيز الأساسي هو التعريف والتواصل، وترك قرار الاستمرار أو عدمه للطرفين.',
+                description: 'أُنشئ مصباح لعرض معلومات التواصل مع المعلمين المستقلين في مكان واحد منظم، بحيث يستطيع الطالب العثور على المعلم المناسب والتواصل معه مباشرة خارج الموقع.',
+                subDescription: 'نحن نعرض المعلومات فقط. التواصل والاتفاق يتم بين الطرفين خارج مصباح.',
             },
             how: {
                 title: 'كيف يعمل مصباح',
@@ -286,7 +292,7 @@ export const translations = {
             },
             limits: {
                 title: 'حدود الدور',
-                description: 'مصباح لا يتدخل في المحتوى التعليمي، ولا في أسلوب التدريس، ولا في تفاصيل الاتفاق بين الطرفين. دوره يقتصر على إتاحة التعريف ومعلومات التواصل مع المعلم.',
+                description: 'مصباح يعرض معلومات التواصل مع المعلم فقط. لا نتدخل في المحتوى التعليمي، ولا في أسلوب التدريس، ولا في أي اتفاق يحدث بين الطرفين. التواصل يتم خارج الموقع تماماً عبر الوسائل المكتوبة في البروفايل (واتساب، إيميل، تليجرام)، ومصباح غير مسؤول قانونياً أو تعليمياً عن أي تواصل يحدث.',
             },
             contact: {
                 title: 'تواصل',
@@ -298,23 +304,20 @@ export const translations = {
         faq: {
             pageTitle: 'الأسئلة الشائعة',
             items: [
-                { question: 'هل مصباح منصة تعليمية؟', answer: 'لا. مصباح دليل مهني يعرّف بالمعلمين المستقلين ويسهّل التواصل معهم فقط.' },
-                { question: 'هل يتم التدريس داخل مصباح؟', answer: 'لا. التواصل يتم مباشرة بين الطالب والمعلم خارج نطاق الموقع.' },
-                { question: 'هل يراجع مصباح المحتوى العلمي للمعلمين؟', answer: 'لا. المراجعة تقتصر على التأكد من الجدية وصحة البيانات الأساسية، دون تقييم علمي أو أكاديمي.' },
-                { question: 'هل يعتمد مصباح المعلمين أو يمنح شهادات؟', answer: 'لا. مصباح ليس جهة اعتماد ولا يمنح أي شهادات أو توصيات تعليمية.' },
-                { question: 'هل مصباح مسؤول عن نتائج التعلم؟', answer: 'لا. مصباح لا يتدخل في العملية التعليمية، ولا في أسلوب التدريس أو نتائجه.' },
-                { question: 'هل يوجد مقابل مادي لاستخدام مصباح؟', answer: 'يتم توضيح أي متطلبات متعلقة بالاشتراك أو الظهور للمعلم أثناء التقديم، ولا يتدخل مصباح في أي اتفاقات مالية بين الطالب والمعلم.' },
-                { question: 'ماذا لو لم يتم قبول طلبي كمعلم؟', answer: 'عدم القبول يعني أن الطلب لم يستوفِ معايير العرض أو الجدية المطلوبة حاليًا، ويمكن إعادة التقديم بعد استكمال البيانات.' },
-                { question: 'هل يمكن تعديل أو حذف البروفايل؟', answer: 'نعم، يمكن للمعلم طلب تعديل أو حذف بياناته في أي وقت عبر التواصل مع فريق مصباح.' },
-                { question: 'كيف يمكن التواصل مع مصباح؟', answer: 'عبر البريد الإلكتروني الرسمي: contact@misbah.site' },
+                { question: 'ما هو مصباح؟', answer: 'دليل يعرض معلومات التواصل مع معلمين مستقلين في القرآن والعربية والدراسات الإسلامية. لا يوجد تعليم أو تواصل داخل الموقع.' },
+                { question: 'كيف أتواصل مع معلم؟', answer: 'عبر وسائل التواصل المكتوبة في بروفايله (واتساب، إيميل، تليجرام). التواصل يتم خارج الموقع.' },
+                { question: 'هل مصباح مسؤول عن التواصل أو التعليم؟', answer: 'لا. راجع إخلاء المسؤولية للتفاصيل.' },
+                { question: 'كيف أسجل كمعلم؟', answer: 'من صفحة "تقدم كمعلم". نراجع كل طلب للتأكد من الجدية.' },
+                { question: 'هل يوجد رسوم؟', answer: 'للمعلمين اشتراك سنوي رمزي يوضح أثناء التقديم. التصفح مجاني للطلاب.' },
+                { question: 'هل يمكن تعديل أو حذف بروفايلي؟', answer: 'نعم، تواصل معنا: contact@misbah.site' },
             ],
         },
     },
     en: {
         home: enHome,
-        directory: 'Teacher Directory',
+        directory: 'Directory',
         browseDesc: 'Browse a curated list of manually reviewed teachers',
-        register: 'Apply as Teacher',
+        register: 'Join',
         subject: 'Subject',
         format: 'Format',
         all: 'All',
@@ -350,8 +353,11 @@ export const translations = {
         islamicStudies: 'Islamic Studies',
         // Navigation
         navHome: 'Home',
-        navAbout: 'About Misbah',
+        navAbout: 'About',
         navFaq: 'FAQ',
+        navPrivacy: 'Privacy Policy',
+        navTerms: 'Terms of Use',
+        navDisclaimer: 'Disclaimer',
         // About Page
         about: {
             pageTitle: 'About Misbah',
@@ -362,8 +368,8 @@ export const translations = {
             },
             why: {
                 title: 'Why Misbah Was Created',
-                description: 'Misbah was created to provide a clear and neutral space that connects students and teachers, based on direct introduction without educational intermediation or complex operating models.',
-                subDescription: 'The primary focus is introduction and communication, leaving the decision to continue or not to both parties.',
+                description: 'Misbah was created to display contact information for independent teachers in one organized place, so students can find the right teacher and contact them directly outside the site.',
+                subDescription: 'We display information only. Communication and agreements happen between both parties outside Misbah.',
             },
             how: {
                 title: 'How Misbah Works',
@@ -389,7 +395,7 @@ export const translations = {
             },
             limits: {
                 title: 'Role Limits',
-                description: 'Misbah does not interfere with educational content, teaching style, or details of agreements between parties. Its role is limited to providing introduction and contact information for the teacher.',
+                description: 'Misbah displays contact information for teachers only. We do not interfere with educational content, teaching style, or any agreement between parties. Communication happens entirely outside the site through the contact methods on the profile (WhatsApp, Email, Telegram), and Misbah bears no legal or educational responsibility for any communication that occurs.',
             },
             contact: {
                 title: 'Contact',
@@ -401,12 +407,13 @@ export const translations = {
         faq: {
             pageTitle: 'Frequently Asked Questions',
             items: [
-                { question: 'Is Misbah an educational platform?', answer: 'No. Misbah is a professional directory that introduces independent teachers and facilitates communication with them only.' },
-                { question: 'Does teaching happen inside Misbah?', answer: 'No. Communication happens directly between student and teacher outside the website.' },
+                { question: 'Is Misbah an educational platform?', answer: 'No. Misbah is a directory that displays contact information for independent teachers only. There is no teaching or communication inside the site.' },
+                { question: 'Does teaching or communication happen inside Misbah?', answer: 'No. Misbah displays contact information only (WhatsApp, Email, Telegram). Any communication between student and teacher happens entirely outside the website, and Misbah bears no responsibility for it.' },
                 { question: 'Does Misbah review the academic content of teachers?', answer: 'No. Review is limited to verifying seriousness and accuracy of basic information, without academic or scientific evaluation.' },
                 { question: 'Does Misbah certify teachers or grant certificates?', answer: 'No. Misbah is not a certification authority and does not grant any certificates or educational recommendations.' },
-                { question: 'Is Misbah responsible for learning outcomes?', answer: 'No. Misbah does not interfere with the educational process, teaching style, or its outcomes.' },
-                { question: 'Is there a fee for using Misbah?', answer: 'Any requirements related to subscription or visibility for teachers are clarified during application. Misbah does not interfere with any financial agreements between student and teacher.' },
+                { question: 'Is Misbah responsible for communication between student and teacher?', answer: 'No. Misbah displays contact information only. Any communication between student and teacher happens outside the site at their own personal responsibility. Misbah bears no legal or educational responsibility for anything that happens afterwards.' },
+                { question: 'Is Misbah responsible for learning outcomes?', answer: 'No. Misbah does not interfere with the educational process. We display contact information only.' },
+                { question: 'Is there a fee for using Misbah?', answer: 'Any requirements related to subscription for teachers are clarified during application. Misbah does not interfere with any financial agreements between student and teacher.' },
                 { question: 'What if my application as a teacher is not accepted?', answer: 'Non-acceptance means the application did not meet the required presentation or seriousness standards currently. You can reapply after completing the information.' },
                 { question: 'Can I edit or delete my profile?', answer: 'Yes, teachers can request to edit or delete their information at any time by contacting the Misbah team.' },
                 { question: 'How can I contact Misbah?', answer: 'Via the official email: contact@misbah.site' },

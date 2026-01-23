@@ -1,6 +1,6 @@
 import styles from './button.module.css';
 
-type ButtonVariant = 'primary' | 'ghost';
+type ButtonVariant = 'primary' | 'ghost' | 'primaryInverted' | 'ghostInverted';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant;

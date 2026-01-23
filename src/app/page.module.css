@@ -21,27 +21,21 @@
 /* -----------------------------------------------------------
    Section 1: Hero — Legendary
    ----------------------------------------------------------- */
+
+
+/* We need a pseudo-element for the background to control opacity independently */
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--space-2xl) var(--space-md);
-  min-height: 60vh;
-  background-color: var(--color-card);
-}
-
-@keyframes heroFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  padding-block: 64px;
+  padding-inline: var(--space-md);
+  /* Dark Anchor Pattern (Section 3.4) */
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  position: relative;
 }
 
 .heroContent {
@@ -50,135 +44,71 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
-  position: relative;
-  z-index: 2;
-  /* Above geometry */
-}
-
-/* Geometric Background — Quiet Depth */
-.heroGeometry {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.geoCircle1,
-.geoCircle2,
-.geoCircle3 {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid var(--border-ghost);
-  opacity: 0.6;
-  /* Extremely subtle */
-}
-
-.geoCircle1 {
-  width: 320px;
-  height: 320px;
-  animation: breathe 12s ease-in-out infinite;
-}
-
-.geoCircle2 {
-  width: 540px;
-  height: 540px;
-  border-style: dashed;
-  /* Texture */
-  animation: rotateSlow 60s linear infinite;
-}
-
-.geoCircle3 {
-  width: 800px;
-  height: 800px;
-  opacity: 0.3;
-}
-
-@keyframes breathe {
-
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-
-  50% {
-    transform: scale(1.05);
-    opacity: 0.4;
-  }
-}
-
-@keyframes rotateSlow {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .heroTitle {
   font-size: 5rem;
-  /* Increased size for impact */
+  /* Massive size for impact */
   font-weight: 800;
-  /* Heavier weight */
+  /* Extra bold */
   letter-spacing: -0.05em;
   line-height: 1;
-  color: var(--color-ink-strong);
-  position: relative;
+  color: #FFFFFF;
+  margin-block-end: var(--space-sm);
 }
 
 .heroSubtitle {
   font-size: 1.5rem;
-  color: var(--color-ink-body);
+  color: #D4D4D8;
   line-height: 1.5;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .heroValue {
   font-size: 1.125rem;
   font-weight: 500;
-  color: var(--color-ink-subtle);
-  letter-spacing: 0.01em;
+  color: #A1A1AA;
+  letter-spacing: 0.04em;
+  margin-block-end: var(--space-xs);
 }
 
 .heroCtas {
   display: flex;
   flex-direction: row;
-  gap: var(--space-sm);
-  margin-block-start: var(--space-sm);
+  gap: var(--space-md);
+  margin-block-start: var(--space-lg);
 }
 
-/* Trust Signal */
-.trustSignal {
+/* Trust Badges (New) */
+.trustRow {
+  display: flex;
+  gap: var(--space-md);
+  margin-block-start: var(--space-xl);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.trustBadge {
   display: flex;
   align-items: center;
-  gap: var(--space-base);
-  margin-block-start: var(--space-md);
-  padding: var(--space-base) var(--space-md);
-  background-color: var(--color-card);
-  border: 1px solid var(--border-ghost);
-  border-radius: var(--radius-badge);
+  gap: var(--space-xs);
+  padding: 4px 12px;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.trustCheck {
-  font-size: 1rem;
-  color: var(--color-ink-strong);
+.trustIcon {
+  color: #FFFFFF;
+  font-size: 0.75rem;
   font-weight: 700;
 }
 
 .trustText {
-  font-size: 0.875rem;
-  color: var(--color-ink-body);
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #D4D4D8;
+  letter-spacing: 0.02em;
 }
 
 /* Responsive */
@@ -188,7 +118,7 @@
   }
 
   .heroSubtitle {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 
   .heroCtas {
@@ -287,8 +217,9 @@
 }
 
 .sectionCta {
-  text-align: start;
-  /* Align with list */
+  padding-top: var(--space-lg);
+  display: flex;
+  justify-content: center;
 }
 
 /* -----------------------------------------------------------
@@ -340,7 +271,7 @@
 }
 
 /* -----------------------------------------------------------
-   Section 4: What Misbah Is Not — Inline Badges
+   Section 4: What Misbah Is Not — Light Section
    ----------------------------------------------------------- */
 .notSection {
   padding: var(--space-xl) var(--space-md);
@@ -383,7 +314,7 @@
 }
 
 /* -----------------------------------------------------------
-   Section 5: How It Works — Horizontal Steps
+   Section 5: How It Works — Light Section
    ----------------------------------------------------------- */
 .howSection {
   padding: var(--space-2xl) var(--space-md);
@@ -534,11 +465,12 @@
 }
 
 /* -----------------------------------------------------------
-   Section 7: Final CTA
+   Section 7: Final CTA — Light Section
    ----------------------------------------------------------- */
 .finalCta {
-  padding: var(--space-xl) var(--space-md);
-  background-color: var(--color-card);
+  padding: var(--space-2xl) var(--space-md);
+  background-color: var(--color-ground);
+  border-block-start: 1px solid var(--border-ghost);
 }
 
 .ctaGrid {
@@ -549,7 +481,8 @@
 
 .ctaBlock {
   padding: var(--space-lg);
-  background-color: var(--color-ground);
+  background-color: var(--color-card);
+  border: 1px solid var(--border-ghost);
   border-radius: var(--radius-card);
   text-align: center;
   transition: transform var(--duration) var(--curve-elastic),

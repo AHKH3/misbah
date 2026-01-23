@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, Amiri } from 'next/font/google';
 import { I18nProvider } from '@/lib/i18n';
-import { Header } from '@/components/layout';
+import { Header, Footer } from '@/components/layout';
+import { ScrollToTop } from '@/components/ui/scroll-to-top';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
@@ -53,6 +54,8 @@ export default function RootLayout({
         <I18nProvider>
           <Header />
           {children}
+          <Footer />
+          <ScrollToTop />
         </I18nProvider>
         <Analytics />
       </body>

@@ -35,12 +35,7 @@ export default function HomePage() {
       {/* Section 1: Hero — Legendary */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          {/* Geometric Background (Quiet Depth) */}
-          <div className={styles.heroGeometry}>
-            <div className={styles.geoCircle1}></div>
-            <div className={styles.geoCircle2}></div>
-            <div className={styles.geoCircle3}></div>
-          </div>
+          {/* Decoration Removed */}
 
           {/* Title */}
           <h1 className={styles.heroTitle}>{home.hero.title}</h1>
@@ -54,17 +49,21 @@ export default function HomePage() {
           {/* CTAs */}
           <div className={styles.heroCtas}>
             <Link href="/directory">
-              <Button variant="primary">{home.hero.ctaStudents}</Button>
+              <Button variant="primaryInverted">{home.hero.ctaStudents}</Button>
             </Link>
             <Link href="/onboarding">
-              <Button variant="ghost">{home.hero.ctaTeachers}</Button>
+              <Button variant="ghostInverted">{home.hero.ctaTeachers}</Button>
             </Link>
           </div>
 
-          {/* Trust Signal */}
-          <div className={styles.trustSignal}>
-            <span className={styles.trustCheck}>✓</span>
-            <span className={styles.trustText}>{labels.home.howItWorks.steps[1].title}</span>
+          {/* Trust Badges */}
+          <div className={styles.trustRow}>
+            {(home.hero.trustBadges || labels.home.hero.trustBadges || []).map((badge: string, i: number) => (
+              <div key={i} className={styles.trustBadge}>
+                <span className={styles.trustIcon}>✓</span>
+                <span className={styles.trustText}>{badge}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -179,14 +178,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Disclaimer */}
-      <div className={styles.disclaimer}>
-        <p className={styles.disclaimerText}>{home.disclaimer}</p>
-      </div>
-
-      {/* Footer */}
-      <footer className={styles.footer}>{home.footer}</footer>
     </main>
   );
 }
