@@ -1,0 +1,337 @@
+{
+    "nav": {
+        "home": "Home",
+        "directory": "Leraren",
+        "about": "Over ons",
+        "faq": "FAQ",
+        "register": "Word Leraar",
+        "login": "Inloggen"
+    },
+    "footer": {
+        "tagline": "Gids voor Koran- en Arabische leraren",
+        "about": "Over ons",
+        "faq": "FAQ",
+        "privacy": "Privacybeleid",
+        "terms": "Gebruiksvoorwaarden",
+        "copyright": "© 2025 Misbah. Alle rechten voorbehouden",
+        "disclaimer": "Disclaimer"
+    },
+    "home": {
+        "hero": {
+            "title": "Misbah",
+            "subtitle": "Gids voor leraren Koran, Arabisch en Islamitische studies",
+            "valueStatement": "Elke leraar hier is geverifieerd op ernst. U beslist.",
+            "ctaStudents": "Bekijk Leraren",
+            "ctaTeachers": "Solliciteer als Leraar",
+            "trustBadges": [
+                "Geverifieerde Gids",
+                "Direct Contact",
+                "Gratis voor Studenten"
+            ]
+        },
+        "forStudents": {
+            "label": "Voor Studenten en Ouders",
+            "title": "Vind uw leraar met duidelijkheid",
+            "points": [
+                "Persoonlijke profielen — elke leraar heeft een eigen pagina",
+                "Handmatige beoordeling — elk profiel wordt beoordeeld voor publicatie",
+                "Georganiseerde informatie — makkelijk te lezen en te vergelijken",
+                "Contactgegevens — neem direct contact op met leraren buiten de site"
+            ],
+            "note": "Misbah toont alleen contactgegevens. Alle communicatie vindt plaats buiten de site en is uw eigen verantwoordelijkheid.",
+            "cta": "Bekijk Leraren"
+        },
+        "forTeachers": {
+            "label": "Voor Leraren",
+            "title": "Uw Eigen Professionele Aanwezigheid",
+            "points": [
+                "Openbaar profiel — zichtbaar in zoekmachines",
+                "Geen commissies — alleen jaarlijks abonnement",
+                "Geen boekingen — wij bemoeien ons niet met uw schema",
+                "Alle leraren welkom — onafhankelijk of in loondienst"
+            ],
+            "note": "Misbah stuurt u geen studenten. Studenten vinden u.",
+            "cta": "Meer weten over meedoen"
+        },
+        "notSection": {
+            "title": "Wat Misbah Niet Is",
+            "points": [
+                "Geen boekingsplatform — geen planning, geen afspraken",
+                "Geen marktplaats — geen financiële transacties tussen ons",
+                "Geen academie — geen curriculum, geen management",
+                "Geen betalingsintermediair — wij verwerken geen collegegeld",
+                "Geen officiële accreditatie- of onderwijsinstelling"
+            ]
+        },
+        "howItWorks": {
+            "title": "Hoe Misbah Werkt",
+            "steps": [
+                {
+                    "number": "1",
+                    "title": "Solliciteren",
+                    "description": "Leraar dient aanvraag in"
+                },
+                {
+                    "number": "2",
+                    "title": "Beoordelen",
+                    "description": "Wij beoordelen elke aanvraag individueel"
+                },
+                {
+                    "number": "3",
+                    "title": "Publiceren",
+                    "description": "Profiel wordt gepubliceerd met contactgegevens"
+                }
+            ],
+            "note": "De rol van Misbah eindigt bij het tonen van contactgegevens."
+        },
+        "pricing": {
+            "label": "Alleen voor Leraren",
+            "title": "Symbolisch Abonnement",
+            "description": "Een symbolische jaarlijkse bijdrage om ernst en duurzaamheid te waarborgen. Pas te betalen nadat uw lidmaatschap is geaccepteerd."
+        },
+        "finalCta": {
+            "studentsLabel": "Voor Studenten",
+            "studentsButton": "Bekijk Leraren",
+            "teachersLabel": "Voor Leraren",
+            "teachersButton": "Solliciteer om mee te doen"
+        },
+        "disclaimer": "Misbah is een openbare gids. Informatie wordt verstrekt door leraren. Studenten zijn verantwoordelijk voor verificatie."
+    },
+    "about": {
+        "pageTitle": "Over Misbah",
+        "whatIs": {
+            "title": "Wat is Misbah",
+            "description": "Misbah is een online gids die leraren van de Heilige Koran, de Arabische taal en islamitische studies op één plek samenbrengt.",
+            "subDescription": "Wij tonen contactgegevens voor elke leraar zodat studenten of ouders direct contact kunnen opnemen buiten het platform."
+        },
+        "why": {
+            "title": "Waarom Misbah is opgericht",
+            "description": "Veel uitstekende leraren hebben geen duidelijke digitale aanwezigheid.",
+            "subDescription": "Misbah vult dit gat door een georganiseerde ruimte te bieden om leraren professioneel te presenteren."
+        },
+        "how": {
+            "title": "Hoe het werkt",
+            "steps": [
+                "Leraar maakt een profiel aan.",
+                "Aanvraag wordt handmatig beoordeeld.",
+                "Na publicatie is het profiel openbaar toegankelijk."
+            ]
+        },
+        "nature": {
+            "title": "Aard van Misbah",
+            "intro": "Misbah is:",
+            "points": [
+                "Geen onderwijsplatform.",
+                "Geen financiële tussenpersoon.",
+                "Geen accreditatie-instelling.",
+                "Geen boekingsplatform."
+            ],
+            "conclusion": "Wij zijn simpelweg een gids."
+        },
+        "review": {
+            "title": "Wat we beoordelen",
+            "description": "Wij controleren de volledigheid en ernst van de informatie, maar valideren certificaten niet onafhankelijk."
+        },
+        "limits": {
+            "title": "Grenzen van verantwoordelijkheid",
+            "description": "Misbah is niet verantwoordelijk voor de kwaliteit van het onderwijs of financiële transacties."
+        },
+        "contact": {
+            "title": "Neem contact op",
+            "description": "Als u vragen heeft:",
+            "email": "contact@misbah.site"
+        }
+    },
+    "faq": {
+        "pageTitle": "Veelgestelde Vragen",
+        "items": [
+            {
+                "question": "Wat is Misbah?",
+                "answer": "Misbah is een online gids die leraren van de Heilige Koran, Arabische taal en islamitische studies toont, met contactgegevens voor elke leraar."
+            },
+            {
+                "question": "Is Misbah een educatief platform?",
+                "answer": "Nee. Misbah is geen educatief platform. We tonen alleen informatie over leraren. Lessen en communicatie vinden direct plaats tussen student en leraar buiten de site."
+            },
+            {
+                "question": "Is Misbah verantwoordelijk voor de onderwijskwaliteit?",
+                "answer": "Nee. Misbah garandeert geen onderwijskwaliteit en draagt geen verantwoordelijkheid voor de relatie tussen student en leraar."
+            },
+            {
+                "question": "Verwerkt Misbah betalingen?",
+                "answer": "Nee. Elke financiële regeling tussen student en leraar is volledig onafhankelijk van Misbah."
+            },
+            {
+                "question": "Hoe kan ik meedoen als leraar?",
+                "answer": "Je kunt je aanmelden via de registratiepagina. We zullen je aanmelding beoordelen en contact met je opnemen."
+            },
+            {
+                "question": "Zijn er kosten voor studenten?",
+                "answer": "Nee. Browsen en toegang tot informatie over leraren is volledig gratis voor studenten."
+            },
+            {
+                "question": "Zijn er kosten voor leraren?",
+                "answer": "Ja, er is een symbolisch jaarabonnement voor leraren na acceptatie van hun aanmelding."
+            }
+        ]
+    },
+    "directory": {
+        "title": "Lerarengids",
+        "browseDesc": "Bekijk geverifieerde leraren",
+        "filters": {
+            "subject": "Onderwerp",
+            "format": "Formaat",
+            "all": "Alles"
+        },
+        "noResults": "Geen resultaten gevonden",
+        "pagination": {
+            "previous": "Vorige",
+            "next": "Volgende"
+        },
+        "teachers": "leraren"
+    },
+    "teacher": {
+        "online": "Online",
+        "inPerson": "In Persoon",
+        "hybrid": "Beide",
+        "accepting": "Accepteert Studenten",
+        "limited": "Beperkt",
+        "notAccepting": "Accepteert Niet",
+        "backToDirectory": "← Terug naar Gids",
+        "audience": "Doelgroep",
+        "teachingMethod": "Lesmethode",
+        "experience": "Ervaring & Kwalificaties",
+        "teachingSample": "Lesvoorbeeld",
+        "contactMethods": "Contactmethoden",
+        "whatsapp": "WhatsApp",
+        "email": "E-mail",
+        "telegram": "Telegram",
+        "website": "Website",
+        "visitWebsite": "Bezoek Website",
+        "subjects": {
+            "quran": "Koran",
+            "tajweed": "Tajweed",
+            "arabic": "Arabisch",
+            "islamicStudies": "Islamitische Studies"
+        },
+        "audiences": {
+            "kids": "Kinderen",
+            "adults": "Volwassenen",
+            "femalesOnly": "Alleen Vrouwen",
+            "malesOnly": "Alleen Mannen",
+            "everyone": "Iedereen"
+        }
+    },
+    "common": {
+        "loading": "Laden...",
+        "error": "Er is een fout opgetreden",
+        "retry": "Probeer opnieuw",
+        "close": "Sluiten",
+        "submit": "Verzenden",
+        "cancel": "Annuleren",
+        "save": "Opslaan",
+        "delete": "Verwijderen",
+        "edit": "Bewerken",
+        "view": "Bekijken",
+        "search": "Zoeken",
+        "filter": "Filteren",
+        "sort": "Sorteren",
+        "more": "Meer",
+        "less": "Minder"
+    },
+    "onboarding": {
+        "profile": {
+            "title": "Docentprofiel",
+            "subtitle": "Maak je profiel aan",
+            "fullName": "Volledige naam",
+            "country": "Land",
+            "subjectsLabel": "Vakken",
+            "audienceLabel": "Doelgroep",
+            "teachingFormatLabel": "Lesformaat",
+            "teachingFormatPlaceholder": "Kies formaat",
+            "experienceLabel": "Ervaring",
+            "experiencePlaceholder": "Beschrijf je ervaring...",
+            "videoUrlLabel": "Introvideo (YouTube)",
+            "contactTitle": "Contact",
+            "contactHint": "Voeg contact toe",
+            "submit": "Opslaan",
+            "submitting": "Opslaan..."
+        },
+        "payment": {
+            "title": "Activeer Profiel",
+            "subtitle": "Betaal jaarabonnement",
+            "pricingTitle": "Jaarabonnement",
+            "price": "300 EGP",
+            "discount": "1e jaar (50% korting)",
+            "renewal": "600 EGP / jaar",
+            "transferStart": "Overmaken naar:",
+            "methodName": "Vodafone Cash:",
+            "uploadLabel": "Betalingsbewijs",
+            "uploadHint": "Foto of PDF",
+            "submit": "Versturen",
+            "submitting": "Versturen..."
+        },
+        "success": {
+            "title": "Ontvangen",
+            "subtitle": "Bedankt",
+            "nextStepsTitle": "Volgende stappen",
+            "step1Title": "1. Beoordeling",
+            "step1Desc": "We controleren je profiel",
+            "step2Title": "2. Tijd",
+            "step2Desc": "24 uur",
+            "step3Title": "3. Melding",
+            "step3Desc": "Via e-mail",
+            "noticeTitle": "Verklaring",
+            "noticeText": "Gegevens kloppen. Misbah is een gids.",
+            "backButton": "Home"
+        }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Privacybeleid",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Samenvatting",
+            "summaryText": "Minimale data. Geen verkoop.",
+            "dataCollectionTitle": "Data",
+            "dataCollectionTeachers": "Naam, Contact.",
+            "dataCollectionVisitors": "Cookies.",
+            "usageTitle": "Gebruik",
+            "usageText": "Profielweergave.",
+            "rightsTitle": "Rechten",
+            "rightsText": "Verwijderen.",
+            "contactText": "Contact:"
+        },
+        "terms": {
+            "title": "Gebruiksvoorwaarden",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Samenvatting",
+            "summaryText": "Gids. Geen les op site.",
+            "natureTitle": "Dienst",
+            "natureText": "Geen school.",
+            "responsibilityTitle": "Verantwoordelijkheid",
+            "responsibilitySimple1": "Student checkt.",
+            "responsibilitySimple2": "Docent verantwoordelijk.",
+            "responsibilitySimple3": "Prive afspraak.",
+            "subscriptionTitle": "Abonnement",
+            "subscriptionText": "Symbolisch.",
+            "modificationTitle": "Wijziging",
+            "modificationText": "Verwijderrecht."
+        },
+        "disclaimer": {
+            "title": "Disclaimer",
+            "lastUpdated": "Jan 2026",
+            "highlightTitle": "Belangrijk",
+            "highlightText": "Contact op eigen risico.",
+            "scopeTitle": "Bereik",
+            "scopeComm": "Communicatie: Extern.",
+            "scopeInfo": "Info: Niet geverifieerd.",
+            "scopeEdu": "Onderwijs: Geen garantie.",
+            "scopeMoney": "Geld: Geen interventie.",
+            "reviewTitle": "Beoordeling",
+            "reviewText": "Alleen serieusheid.",
+            "agreementTitle": "Akkoord",
+            "agreementText": "Je accepteert.",
+            "contactText": "Contact:"
+        }
+    }
+}

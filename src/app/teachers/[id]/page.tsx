@@ -1,12 +1,15 @@
 'use client';
 
-import { use, useMemo } from 'react';
+import { use, useMemo, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { useI18n } from '@/lib/i18n';
 import { Avatar, Badge, BadgeList } from '@/components/ui';
 import { getPlaceholderProfile } from '@/lib/placeholder-data';
+import { getPublishedProfile } from '@/lib/data/teachers';
 import { useCachedTranslation } from '@/lib/hooks/useAutoTranslate';
+import type { TranslationType } from '@/lib/i18n/loader';
+import type { PublicProfile } from '@/lib/types/profile';
 import styles from './page.module.css';
 
 interface PageProps {
@@ -15,23 +18,39 @@ interface PageProps {
 
 export default function TeacherProfilePage({ params }: PageProps) {
   const { id } = use(params);
-  const profile = getPlaceholderProfile(id);
   const { labels, locale } = useI18n();
 
-  if (!profile) {
-    notFound();
-  }
+  // State for profile data
+  const [profile, setProfile] = useState<PublicProfile | null>(null);
+  const [isLoadingProfile, setIsLoadingProfile] = useState(true);
+
+  // Fetch profile from database
+  useEffect(() => {
+    async function fetchProfile() {
+      setIsLoadingProfile(true);
+      try {
+        const dbProfile = await getPublishedProfile(id);
+        // Use DB profile if available, fallback to placeholder
+        setProfile(dbProfile || getPlaceholderProfile(id));
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        setProfile(getPlaceholderProfile(id));
+      }
+      setIsLoadingProfile(false);
+    }
+    fetchProfile();
+  }, [id]);
 
   // Determine source language (Arabic for RTL languages, English for LTR)
   const isRTL = locale === 'ar' || locale === 'ur' || locale === 'fa';
   const sourceLang = isRTL ? 'ar' : 'en';
 
-  // Get content in source language
-  const nameSource = isRTL ? profile.full_name.ar : profile.full_name.en;
-  const countrySource = isRTL ? profile.country.ar : profile.country.en;
-  const experienceSource = isRTL ? profile.experience_text.ar : profile.experience_text.en;
+  // Get content in source language (with safe defaults when profile is null)
+  const nameSource = profile ? (isRTL ? profile.full_name.ar : profile.full_name.en) : '';
+  const countrySource = profile ? (isRTL ? profile.country.ar : profile.country.en) : '';
+  const experienceSource = profile ? (isRTL ? profile.experience_text.ar : profile.experience_text.en) : '';
 
-  // Prepare texts for cached translation
+  // Prepare texts for cached translation - MUST be called unconditionally
   const textsToTranslate = useMemo(
     () => [
       { key: 'name', text: nameSource, sourceLang: sourceLang as 'ar' | 'en' },
@@ -41,13 +60,31 @@ export default function TeacherProfilePage({ params }: PageProps) {
     [nameSource, countrySource, experienceSource, sourceLang]
   );
 
-  // Get cached translations (from DB or API)
+  // Get cached translations (from DB or API) - MUST be called unconditionally
   const { translations, isLoading } = useCachedTranslation(textsToTranslate, locale);
 
   // Use translated content or fallback to source
   const name = translations.name || nameSource;
   const country = translations.country || countrySource;
   const experience = translations.experience || experienceSource;
+
+  const t = labels.teacher; // Shortcut
+
+  // Show not found if no profile after loading
+  if (!isLoadingProfile && !profile) {
+    notFound();
+  }
+
+  // Loading state - render AFTER all hooks
+  if (isLoadingProfile || !profile) {
+    return (
+      <main className={styles.page}>
+        <div className={styles.container}>
+          <div className={styles.loadingState}>جاري التحميل...</div>
+        </div>
+      </main>
+    );
+  }
 
   const videoId = profile.video_url ? getYouTubeId(profile.video_url) : null;
   const contact = profile.contact_method;
@@ -57,7 +94,7 @@ export default function TeacherProfilePage({ params }: PageProps) {
       <div className={styles.container}>
         {/* Back Link */}
         <Link href="/directory" className={styles.backLink}>
-          {labels.backToDirectory}
+          {t.backToDirectory}
         </Link>
 
         {/* Profile Card */}
@@ -71,7 +108,7 @@ export default function TeacherProfilePage({ params }: PageProps) {
               </h1>
               <p className={styles.country}>{country}</p>
               <div className={styles.availability}>
-                {getStatusLabel(profile.availability_status, labels)}
+                {getStatusLabel(profile.availability_status, t)}
               </div>
             </div>
           </div>
@@ -79,25 +116,25 @@ export default function TeacherProfilePage({ params }: PageProps) {
           {/* Quick Info */}
           <div className={styles.quickInfo}>
             <div className={styles.infoItem}>
-              <span className={styles.infoLabel}>{labels.subject}</span>
+              <span className={styles.infoLabel}>{labels.directory.filters.subject}</span>
               <BadgeList>
                 {profile.subjects.map((subject) => (
-                  <Badge key={subject}>{getSubjectLabel(subject, labels)}</Badge>
+                  <Badge key={subject}>{getSubjectLabel(subject, t)}</Badge>
                 ))}
               </BadgeList>
             </div>
             <div className={styles.infoItem}>
-              <span className={styles.infoLabel}>{labels.audience}</span>
+              <span className={styles.infoLabel}>{t.audience}</span>
               <BadgeList>
                 {profile.audience.map((aud) => (
-                  <Badge key={aud}>{getAudienceLabel(aud, labels)}</Badge>
+                  <Badge key={aud}>{getAudienceLabel(aud, t)}</Badge>
                 ))}
               </BadgeList>
             </div>
             <div className={styles.infoItem}>
-              <span className={styles.infoLabel}>{labels.teachingMethod}</span>
+              <span className={styles.infoLabel}>{t.teachingMethod}</span>
               <span className={styles.infoValue}>
-                {getFormatLabel(profile.teaching_format, labels)}
+                {getFormatLabel(profile.teaching_format, t)}
               </span>
             </div>
           </div>
@@ -105,7 +142,7 @@ export default function TeacherProfilePage({ params }: PageProps) {
 
         {/* Experience */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>{labels.experience}</h2>
+          <h2 className={styles.sectionTitle}>{t.experience}</h2>
           <p className={styles.sectionContent}>
             {experience}
             {isLoading && <span className={styles.loading}> ...</span>}
@@ -115,11 +152,11 @@ export default function TeacherProfilePage({ params }: PageProps) {
         {/* Video */}
         {videoId && (
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>{labels.teachingSample}</h2>
+            <h2 className={styles.sectionTitle}>{t.teachingSample}</h2>
             <div className={styles.videoWrapper}>
               <iframe
                 src={`https://www.youtube.com/embed/${videoId}`}
-                title={labels.teachingSample}
+                title={t.teachingSample}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
@@ -129,7 +166,7 @@ export default function TeacherProfilePage({ params }: PageProps) {
 
         {/* Contact Methods */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>{labels.contactMethods}</h2>
+          <h2 className={styles.sectionTitle}>{t.contactMethods}</h2>
           <div className={styles.contactGrid}>
             {contact.whatsapp && (
               <a
@@ -138,13 +175,13 @@ export default function TeacherProfilePage({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className={styles.contactItem}
               >
-                <span className={styles.contactLabel}>{labels.whatsapp}</span>
+                <span className={styles.contactLabel}>{t.whatsapp}</span>
                 <span className={styles.contactValue}>{contact.whatsapp}</span>
               </a>
             )}
             {contact.email && (
               <a href={`mailto:${contact.email}`} className={styles.contactItem}>
-                <span className={styles.contactLabel}>{labels.email}</span>
+                <span className={styles.contactLabel}>{t.email}</span>
                 <span className={styles.contactValue}>{contact.email}</span>
               </a>
             )}
@@ -155,7 +192,7 @@ export default function TeacherProfilePage({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className={styles.contactItem}
               >
-                <span className={styles.contactLabel}>{labels.telegram}</span>
+                <span className={styles.contactLabel}>{t.telegram}</span>
                 <span className={styles.contactValue}>{contact.telegram}</span>
               </a>
             )}
@@ -166,8 +203,8 @@ export default function TeacherProfilePage({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className={styles.contactItem}
               >
-                <span className={styles.contactLabel}>{labels.website}</span>
-                <span className={styles.contactValue}>{labels.visitWebsite}</span>
+                <span className={styles.contactLabel}>{t.website}</span>
+                <span className={styles.contactValue}>{t.visitWebsite}</span>
               </a>
             )}
           </div>
@@ -190,41 +227,41 @@ function getYouTubeId(url: string): string | null {
   return match ? match[1] : null;
 }
 
-function getSubjectLabel(s: string, labels: typeof import('@/lib/i18n/translations').translations.en) {
+function getSubjectLabel(s: string, t: TranslationType['teacher']) {
   const map: Record<string, string> = {
-    Quran: labels.quran,
-    Tajweed: labels.tajweed,
-    Arabic: labels.arabic,
-    'Islamic Studies': labels.islamicStudies,
+    Quran: t.subjects.quran,
+    Tajweed: t.subjects.tajweed,
+    Arabic: t.subjects.arabic,
+    'Islamic Studies': t.subjects.islamicStudies,
   };
   return map[s] || s;
 }
 
-function getAudienceLabel(a: string, labels: typeof import('@/lib/i18n/translations').translations.en) {
+function getAudienceLabel(a: string, t: TranslationType['teacher']) {
   const map: Record<string, string> = {
-    Kids: labels.kids,
-    Adults: labels.adults,
-    'Females Only': labels.femalesOnly,
-    'Males Only': labels.malesOnly,
-    Everyone: labels.everyone,
+    Kids: t.audiences.kids,
+    Adults: t.audiences.adults,
+    'Females Only': t.audiences.femalesOnly,
+    'Males Only': t.audiences.malesOnly,
+    Everyone: t.audiences.everyone,
   };
   return map[a] || a;
 }
 
-function getFormatLabel(f: string, labels: typeof import('@/lib/i18n/translations').translations.en) {
+function getFormatLabel(f: string, t: TranslationType['teacher']) {
   const map: Record<string, string> = {
-    online: labels.online,
-    in_person: labels.inPerson,
-    hybrid: labels.hybrid,
+    online: t.online,
+    in_person: t.inPerson,
+    hybrid: t.hybrid,
   };
   return map[f] || f;
 }
 
-function getStatusLabel(status: string, labels: typeof import('@/lib/i18n/translations').translations.en) {
+function getStatusLabel(status: string, t: TranslationType['teacher']) {
   const map: Record<string, string> = {
-    accepting: labels.accepting,
-    limited: labels.limited,
-    not_accepting: labels.notAccepting,
+    accepting: t.accepting,
+    limited: t.limited,
+    not_accepting: t.notAccepting,
   };
   return map[status] || status;
 }

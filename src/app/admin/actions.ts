@@ -1,75 +1,202 @@
-'use server'
+'use server';
 
-import { createClient } from '@/utils/supabase/server'
-import { revalidatePath } from 'next/cache'
+import { createClient } from '@/utils/supabase/server';
+import { revalidatePath } from 'next/cache';
+import { headers } from 'next/headers';
 
-export async function approveListing(profileId: string, subscriptionId: string) {
-  const supabase = await createClient()
+type AdminAction =
+  | 'approve'
+  | 'reject'
+  | 'request_changes'
+  | 'suspend'
+  | 'unsuspend'
+  | 'send_invitation'
+  | 'manual_status_change';
 
-  // Auth Check (should match RLS technically, but good to check here too)
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user || user.email !== 'admin@example.com') {
-    return { error: 'Unauthorized' }
-  }
+// Helper to log admin actions
+async function logAdminAction(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  adminId: string,
+  profileId: string,
+  action: AdminAction,
+  previousStatus: string,
+  newStatus: string,
+  notes?: string
+) {
+  const headersList = await headers();
+  const ip = headersList.get('x-forwarded-for') || headersList.get('x-real-ip') || 'unknown';
+  const userAgent = headersList.get('user-agent') || 'unknown';
 
-  // Transaction-like update? Supabase doesn't support transactions via client easily yet.
-  // We'll do sequential updates.
-
-  // 1. Update Subscription
-  const { error: subError } = await supabase
-    .from('subscriptions')
-    .update({ 
-      status: 'verified',
-      verified_at: new Date().toISOString(),
-      expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString() // +30 days
-    })
-    .eq('id', subscriptionId)
-
-  if (subError) return { error: 'Failed to verify subscription' }
-
-  // 2. Update Profile
-  const { error: profileError } = await supabase
-    .from('profiles')
-    .update({ status: 'active' })
-    .eq('id', profileId)
-
-  if (profileError) return { error: 'Failed to activate profile' }
-
-  revalidatePath('/admin/review')
-  return { success: true }
+  await supabase.from('admin_audit_log').insert({
+    admin_id: adminId,
+    profile_id: profileId,
+    action,
+    previous_status: previousStatus,
+    new_status: newStatus,
+    notes,
+    ip_address: ip,
+    user_agent: userAgent,
+  });
 }
 
-export async function rejectListing(profileId: string, subscriptionId: string, reason: string) {
-  const supabase = await createClient()
+// Approve profile and send invitation
+export async function approveProfile(profileId: string) {
+  const supabase = await createClient();
 
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user || user.email !== 'admin@example.com') {
-    return { error: 'Unauthorized' }
-  }
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { error: 'Unauthorized' };
 
-  // 1. Update Subscription
-  const { error: subError } = await supabase
-    .from('subscriptions')
-    .update({ 
-      status: 'rejected',
-      rejection_reason: reason
-    })
-    .eq('id', subscriptionId)
-
-  if (subError) return { error: 'Failed to reject subscription' }
-
-  // 2. Update Profile (Revert to pending_payment? Or inactive? Spec says "Reject". 
-  // If rejected, maybe they need to resubmit. 
-  // Let's set to 'inactive' or keep 'payment_submitted' but with rejected sub? 
-  // Probably set back to 'pending_payment' so they can try again?)
-  // Let's set to 'pending_payment'.
-  const { error: profileError } = await supabase
+  // Get current profile
+  const { data: profile, error: fetchError } = await supabase
     .from('profiles')
-    .update({ status: 'pending_payment' })
+    .select('status, contact_method')
     .eq('id', profileId)
+    .single();
 
-  if (profileError) return { error: 'Failed to update profile' }
+  if (fetchError || !profile) return { error: 'Profile not found' };
 
-  revalidatePath('/admin/review')
-  return { success: true }
+  // Generate invitation token (72h expiry)
+  const invitationToken = crypto.randomUUID();
+  const expiresAt = new Date();
+  expiresAt.setHours(expiresAt.getHours() + 72);
+
+  // Update profile
+  const { error: updateError } = await supabase
+    .from('profiles')
+    .update({
+      status: 'approved',
+      invitation_token: invitationToken,
+      invitation_sent_at: new Date().toISOString(),
+      invitation_expires_at: expiresAt.toISOString(),
+    })
+    .eq('id', profileId);
+
+  if (updateError) return { error: 'Failed to approve profile' };
+
+  // Log action
+  await logAdminAction(supabase, user.id, profileId, 'approve', profile.status, 'approved');
+
+  revalidatePath('/admin');
+  return { success: true, invitationToken };
+}
+
+// Reject profile
+export async function rejectProfile(profileId: string, reason: string) {
+  const supabase = await createClient();
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { error: 'Unauthorized' };
+
+  // Get current profile
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('status')
+    .eq('id', profileId)
+    .single();
+
+  if (!profile) return { error: 'Profile not found' };
+
+  // Delete profile (rejected profiles are not kept)
+  const { error: deleteError } = await supabase
+    .from('profiles')
+    .delete()
+    .eq('id', profileId);
+
+  if (deleteError) return { error: 'Failed to reject profile' };
+
+  // Log action
+  await logAdminAction(supabase, user.id, profileId, 'reject', profile.status, 'deleted', reason);
+
+  revalidatePath('/admin');
+  return { success: true };
+}
+
+// Request changes
+export async function requestChanges(profileId: string, message: string) {
+  const supabase = await createClient();
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { error: 'Unauthorized' };
+
+  // Get current profile
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('status')
+    .eq('id', profileId)
+    .single();
+
+  if (!profile) return { error: 'Profile not found' };
+
+  // Update profile
+  const { error: updateError } = await supabase
+    .from('profiles')
+    .update({
+      status: 'needs_changes',
+      admin_notes: message,
+    })
+    .eq('id', profileId);
+
+  if (updateError) return { error: 'Failed to update profile' };
+
+  // Log action
+  await logAdminAction(supabase, user.id, profileId, 'request_changes', profile.status, 'needs_changes', message);
+
+  revalidatePath('/admin');
+  return { success: true };
+}
+
+// Suspend profile
+export async function suspendProfile(profileId: string, reason: string) {
+  const supabase = await createClient();
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { error: 'Unauthorized' };
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('status')
+    .eq('id', profileId)
+    .single();
+
+  if (!profile) return { error: 'Profile not found' };
+
+  const { error: updateError } = await supabase
+    .from('profiles')
+    .update({ status: 'suspended', admin_notes: reason })
+    .eq('id', profileId);
+
+  if (updateError) return { error: 'Failed to suspend profile' };
+
+  await logAdminAction(supabase, user.id, profileId, 'suspend', profile.status, 'suspended', reason);
+
+  revalidatePath('/admin');
+  return { success: true };
+}
+
+// Change status manually
+export async function changeStatus(profileId: string, newStatus: string, reason: string) {
+  const supabase = await createClient();
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { error: 'Unauthorized' };
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('status')
+    .eq('id', profileId)
+    .single();
+
+  if (!profile) return { error: 'Profile not found' };
+
+  const { error: updateError } = await supabase
+    .from('profiles')
+    .update({ status: newStatus })
+    .eq('id', profileId);
+
+  if (updateError) return { error: 'Failed to change status' };
+
+  await logAdminAction(supabase, user.id, profileId, 'manual_status_change', profile.status, newStatus, reason);
+
+  revalidatePath('/admin');
+  return { success: true };
 }

@@ -1,0 +1,337 @@
+{
+    "nav": {
+        "home": "Laman Utama",
+        "directory": "Guru",
+        "about": "Tentang Kami",
+        "faq": "Soalan Lazim",
+        "register": "Sertai sebagai Guru",
+        "login": "Log Masuk"
+    },
+    "footer": {
+        "tagline": "Direktori Guru Al-Quran & Bahasa Arab",
+        "about": "Tentang Kami",
+        "faq": "Soalan Lazim",
+        "privacy": "Dasar Privasi",
+        "terms": "Syarat Penggunaan",
+        "copyright": "© 2025 Misbah. Hak cipta terpelihara",
+        "disclaimer": "Penafian"
+    },
+    "home": {
+        "hero": {
+            "title": "Misbah",
+            "subtitle": "Direktori guru Al-Quran, Bahasa Arab, dan Pengajian Islam",
+            "valueStatement": "Setiap guru di sini telah disahkan keseriusannya. Anda yang memutuskan.",
+            "ctaStudents": "Layari Guru",
+            "ctaTeachers": "Sertai sebagai Guru",
+            "trustBadges": [
+                "Direktori Disahkan",
+                "Hubungan Terus",
+                "Percuma untuk Pelajar"
+            ]
+        },
+        "forStudents": {
+            "label": "Untuk Pelajar dan Ibu Bapa",
+            "title": "Cari Guru Anda dengan Jelas",
+            "points": [
+                "Profil peribadi — setiap guru mempunyai halaman sendiri",
+                "Semakan manual — setiap profil disemak sebelum diterbitkan",
+                "Maklumat teratur — mudah dibaca dan dibandingkan",
+                "Maklumat hubungan — hubungi guru secara langsung di luar laman"
+            ],
+            "note": "Misbah hanya memaparkan maklumat hubungan. Sebarang komunikasi berlaku di luar laman dan menjadi tanggungjawab anda.",
+            "cta": "Layari Guru"
+        },
+        "forTeachers": {
+            "label": "Untuk Guru",
+            "title": "Kehadiran Profesional Anda Sendiri",
+            "points": [
+                "Profil awam — kelihatan di enjin carian",
+                "Tiada komisen — hanya langganan tahunan",
+                "Tiada tempahan — kami tidak campurtangan jadual anda",
+                "Semua guru dialu-alukan — sama ada bebas atau bergaji"
+            ],
+            "note": "Misbah tidak menghantar pelajar kepada anda. Pelajar mencari anda.",
+            "cta": "Ketahui Lebih Lanjut tentang Menyertai"
+        },
+        "notSection": {
+            "title": "Apa yang Bukan Misbah",
+            "points": [
+                "Bukan platform tempahan — tiada penjadualan, tiada janji temu",
+                "Bukan pasar — tiada transaksi kewangan di antara kami",
+                "Bukan akademi — tiada kurikulum, tiada pengurusan",
+                "Bukan perantara pembayaran — kami tidak mengendalikan yuran pelajar",
+                "Bukan badan pentauliahan atau pendidikan rasmi"
+            ]
+        },
+        "howItWorks": {
+            "title": "Cara Misbah Berfungsi",
+            "steps": [
+                {
+                    "number": "1",
+                    "title": "Memohon",
+                    "description": "Guru mengemukakan permohonan"
+                },
+                {
+                    "number": "2",
+                    "title": "Menyemak",
+                    "description": "Kami menyemak setiap permohonan secara individu"
+                },
+                {
+                    "number": "3",
+                    "title": "Menerbitkan",
+                    "description": "Profil diterbitkan dengan maklumat hubungan"
+                }
+            ],
+            "note": "Peranan Misbah berakhir pada memaparkan maklumat hubungan."
+        },
+        "pricing": {
+            "label": "Hanya untuk Guru",
+            "title": "Langganan Simbolik",
+            "description": "Sumbangan tahunan simbolik untuk memastikan keseriusan dan kemampanan. Dibayar hanya selepas keahlian anda diterima."
+        },
+        "finalCta": {
+            "studentsLabel": "Untuk Pelajar",
+            "studentsButton": "Layari Guru",
+            "teachersLabel": "Untuk Guru",
+            "teachersButton": "Mohon untuk Menyertai"
+        },
+        "disclaimer": "Misbah adalah direktori awam. Maklumat yang dipaparkan disediakan oleh guru."
+    },
+    "about": {
+        "pageTitle": "Tentang Misbah",
+        "whatIs": {
+            "title": "Apa itu Misbah",
+            "description": "Misbah ialah direktori dalam talian yang menghimpunkan guru Al-Quran, Bahasa Arab dan Pengajian Islam di satu tempat.",
+            "subDescription": "Kami memaparkan maklumat hubungan setiap guru supaya pelajar boleh menghubungi terus."
+        },
+        "why": {
+            "title": "Mengapa Misbah Dicipta",
+            "description": "Ramai guru hebat tidak mempunyai kehadiran digital yang jelas.",
+            "subDescription": "Misbah merapatkan jurang ini dengan menyediakan ruang yang teratur."
+        },
+        "how": {
+            "title": "Bagaimana ia berfungsi",
+            "steps": [
+                "Guru mencipta profil.",
+                "Permohonan disemak secara manual.",
+                "Setelah diterbitkan, profil boleh diakses secara awam."
+            ]
+        },
+        "nature": {
+            "title": "Sifat Misbah",
+            "intro": "Misbah:",
+            "points": [
+                "Bukan platform pendidikan.",
+                "Bukan perantara kewangan.",
+                "Bukan badan pentauliahan.",
+                "Bukan platform tempahan."
+            ],
+            "conclusion": "Kami hanyalah direktori."
+        },
+        "review": {
+            "title": "Apa yang Kami Semak",
+            "description": "Kami menyemak kesempurnaan dan keseriusan maklumat, tetapi tidak mengesahkan sijil secara bebas."
+        },
+        "limits": {
+            "title": "Had Tanggungjawab",
+            "description": "Misbah tidak bertanggungjawab ke atas kualiti pengajaran atau transaksi kewangan."
+        },
+        "contact": {
+            "title": "Hubungi Kami",
+            "description": "Jika anda mempunyai soalan:",
+            "email": "contact@misbah.site"
+        }
+    },
+    "faq": {
+        "pageTitle": "Soalan Lazim",
+        "items": [
+            {
+                "question": "Apakah Misbah?",
+                "answer": "Misbah ialah direktori dalam talian yang memaparkan guru Al-Quran, bahasa Arab, dan kajian Islam, dengan maklumat hubungan untuk setiap guru."
+            },
+            {
+                "question": "Adakah Misbah platform pendidikan?",
+                "answer": "Tidak. Misbah bukan platform pendidikan. Kami hanya memaparkan maklumat guru. Pelajaran dan komunikasi berlaku terus antara pelajar dan guru di luar laman."
+            },
+            {
+                "question": "Adakah Misbah bertanggungjawab terhadap kualiti pengajaran?",
+                "answer": "Tidak. Misbah tidak menjamin kualiti pengajaran dan tidak bertanggungjawab terhadap hubungan antara pelajar dan guru."
+            },
+            {
+                "question": "Adakah Misbah mengendalikan pembayaran?",
+                "answer": "Tidak. Sebarang peraturan kewangan antara pelajar dan guru adalah bebas sepenuhnya daripada Misbah."
+            },
+            {
+                "question": "Bagaimana saya boleh menyertai sebagai guru?",
+                "answer": "Anda boleh memohon melalui halaman pendaftaran. Kami akan mengkaji permohonan anda dan menghubungi anda."
+            },
+            {
+                "question": "Adakah yuran untuk pelajar?",
+                "answer": "Tidak. Melayari dan mengakses maklumat guru adalah percuma sepenuhnya untuk pelajar."
+            },
+            {
+                "question": "Apakah yuran untuk guru?",
+                "answer": "Ya, terdapat langganan tahunan simbolik untuk guru selepas permohonan mereka diterima."
+            }
+        ]
+    },
+    "directory": {
+        "title": "Direktori Guru",
+        "browseDesc": "Layari guru yang disahkan",
+        "filters": {
+            "subject": "Subjek",
+            "format": "Format",
+            "all": "Semua"
+        },
+        "noResults": "Tiada keputusan ditemui",
+        "pagination": {
+            "previous": "Sebelumnya",
+            "next": "Seterusnya"
+        },
+        "teachers": "guru"
+    },
+    "teacher": {
+        "online": "Dalam Talian",
+        "inPerson": "Bersemuka",
+        "hybrid": "Kedua-duanya",
+        "accepting": "Menerima Pelajar",
+        "limited": "Terhad",
+        "notAccepting": "Tidak Menerima",
+        "backToDirectory": "← Kembali ke Direktori",
+        "audience": "Sasaran Pelajar",
+        "teachingMethod": "Kaedah Pengajaran",
+        "experience": "Pengalaman & Kelayakan",
+        "teachingSample": "Contoh Pengajaran",
+        "contactMethods": "Kaedah Hubungan",
+        "whatsapp": "WhatsApp",
+        "email": "Emel",
+        "telegram": "Telegram",
+        "website": "Laman Web",
+        "visitWebsite": "Lawati Laman",
+        "subjects": {
+            "quran": "Al-Quran",
+            "tajweed": "Tajweed",
+            "arabic": "Bahasa Arab",
+            "islamicStudies": "Pengajian Islam"
+        },
+        "audiences": {
+            "kids": "Kanak-kanak",
+            "adults": "Dewasa",
+            "femalesOnly": "Wanita Sahaja",
+            "malesOnly": "Lelaki Sahaja",
+            "everyone": "Semua"
+        }
+    },
+    "common": {
+        "loading": "Memuatkan...",
+        "error": "Ralat berlaku",
+        "retry": "Cuba Lagi",
+        "close": "Tutup",
+        "submit": "Hantar",
+        "cancel": "Batal",
+        "save": "Simpan",
+        "delete": "Padam",
+        "edit": "Edit",
+        "view": "Lihat",
+        "search": "Cari",
+        "filter": "Tapis",
+        "sort": "Susun",
+        "more": "Lebih",
+        "less": "Kurang"
+    },
+    "onboarding": {
+        "profile": {
+            "title": "Profil Guru",
+            "subtitle": "Cipta profil",
+            "fullName": "Nama Penuh",
+            "country": "Negara",
+            "subjectsLabel": "Subjek",
+            "audienceLabel": "Sasaran",
+            "teachingFormatLabel": "Format",
+            "teachingFormatPlaceholder": "Pilih Format",
+            "experienceLabel": "Pengalaman",
+            "experiencePlaceholder": "Terangkan pengalaman...",
+            "videoUrlLabel": "Video Intro",
+            "contactTitle": "Kenalan",
+            "contactHint": "Tambah kenalan",
+            "submit": "Simpan",
+            "submitting": "Menyimpan..."
+        },
+        "payment": {
+            "title": "Aktifkan Profil",
+            "subtitle": "Bayar langganan",
+            "pricingTitle": "Langganan",
+            "price": "300 EGP",
+            "discount": "Thn 1 (Diskon 50%)",
+            "renewal": "600 EGP / Thn",
+            "transferStart": "Pindah ke:",
+            "methodName": "Vodafone Cash:",
+            "uploadLabel": "Resit",
+            "uploadHint": "Foto/PDF",
+            "submit": "Hantar",
+            "submitting": "Menghantar..."
+        },
+        "success": {
+            "title": "Diterima",
+            "subtitle": "Terima kasih",
+            "nextStepsTitle": "Langkah Seterusnya",
+            "step1Title": "1. Semakan",
+            "step1Desc": "Kami menyemak profil",
+            "step2Title": "2. Masa",
+            "step2Desc": "24 Jam",
+            "step3Title": "3. Makluman",
+            "step3Desc": "Melalui Emel",
+            "noticeTitle": "Pengakuan",
+            "noticeText": "Data betul. Misbah hanya direktori.",
+            "backButton": "Utama"
+        }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Privasi",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Ringkasan",
+            "summaryText": "Data minimum. Tiada jualan.",
+            "dataCollectionTitle": "Data",
+            "dataCollectionTeachers": "Nama, Kenalan.",
+            "dataCollectionVisitors": "Cookies.",
+            "usageTitle": "Penggunaan",
+            "usageText": "Paparan profil.",
+            "rightsTitle": "Hak",
+            "rightsText": "Padam.",
+            "contactText": "Kenalan:"
+        },
+        "terms": {
+            "title": "Syarat",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Ringkasan",
+            "summaryText": "Direktori. Tiada kelas di sini.",
+            "natureTitle": "Servis",
+            "natureText": "Bukan sekolah.",
+            "responsibilityTitle": "Tanggungjawab",
+            "responsibilitySimple1": "Pelajar semak.",
+            "responsibilitySimple2": "Guru bertanggungjawab.",
+            "responsibilitySimple3": "Peribadi.",
+            "subscriptionTitle": "Langganan",
+            "subscriptionText": "Simbolik.",
+            "modificationTitle": "Ubah",
+            "modificationText": "Hak padam."
+        },
+        "disclaimer": {
+            "title": "Penafian",
+            "lastUpdated": "Jan 2026",
+            "highlightTitle": "Penting",
+            "highlightText": "Risiko sendiri.",
+            "scopeTitle": "Skop",
+            "scopeComm": "Komunikasi: Luar.",
+            "scopeInfo": "Info: Tidak disahkan.",
+            "scopeEdu": "Pendidikan: Tiada jaminan.",
+            "scopeMoney": "Wang: Tiada campur tangan.",
+            "reviewTitle": "Semakan",
+            "reviewText": "Keseriusan saja.",
+            "agreementTitle": "Setuju",
+            "agreementText": "Anda setuju.",
+            "contactText": "Kenalan:"
+        }
+    }
+}

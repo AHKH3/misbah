@@ -66,18 +66,23 @@ Out-of-scope content → **automatic rejection**.
 
 ## 4. Teacher Lifecycle (State Machine)
 
+> **See full specification:** [onboarding-spec.md](./onboarding-spec.md)
+
 A teacher profile can only exist in one of the following states:
 
-1. **Submitted**
-2. **Under Review**
-3. **Active**
-4. **Rejected**
-5. **Expired**
+| State | Description |
+|-------|-------------|
+| `draft` | Teacher is filling data (5-step wizard) |
+| `under_review` | Submitted, awaiting admin review |
+| `needs_changes` | Admin requested modifications |
+| `approved` | Accepted, awaiting account creation + payment |
+| `published` | Live in directory |
+| `suspended` | Suspended (complaints/violations/expired) |
 
-### 4.1 No Drafts Policy
-- The platform does **not** store unpaid drafts.
-- No permanent record exists before payment proof submission.
-- Persistence begins only after submission + payment proof.
+### 4.1 Draft Policy
+- Drafts **are** stored during the 5-step wizard.
+- No user account is created until after approval.
+- Profile is linked to user only upon invitation acceptance.
 
 ---
 
@@ -102,13 +107,28 @@ Pricing is:
 
 ## 6. Activation Flow (Mandatory Order)
 
-1. Teacher fills structured profile data
-2. Teacher selects subscription
-3. Teacher uploads payment proof
-4. Teacher acknowledges platform disclaimer
-5. Profile enters **Under Review**
-6. Admin performs manual review
-7. Profile is either **Active** or **Rejected**
+> **See full specification:** [onboarding-spec.md](./onboarding-spec.md)
+
+### Phase 1: Onboarding (No Auth Required)
+1. **Step 1:** Basic info + structured experience
+2. **Step 2:** Specialization + qualifications
+3. **Step 3:** Target audience + pricing
+4. **Step 4:** Contact methods + sample video
+5. **Step 5:** Preview + legal acknowledgement + submit
+6. Profile enters `under_review`
+
+### Phase 2: Admin Review
+7. Admin performs manual review
+8. Decision: `approved` | `rejected` | `needs_changes`
+
+### Phase 3: Account Creation (After Approval Only)
+9. Invitation email sent with 72h token
+10. Teacher creates password via `/invite/[token]`
+11. Profile linked to new user account
+
+### Phase 4: Payment & Publication
+12. Teacher completes payment
+13. Profile status → `published`
 
 No step may be skipped or reordered.
 

@@ -9,14 +9,15 @@ import {
 } from 'react';
 import type { Locale } from './config';
 import { locales, defaultLocale, localeDirections } from './config';
-import { getTranslation } from './translations';
-import type { TranslationType } from './translations';
+import { getTranslation, loadTranslation } from './loader';
+import type { TranslationType } from './loader';
 
 interface I18nContextValue {
     locale: Locale;
     labels: TranslationType;
     setLocale: (locale: Locale) => void;
     dir: 'rtl' | 'ltr';
+    isLoading: boolean;
 }
 
 const I18nContext = createContext<I18nContextValue | null>(null);
@@ -43,15 +44,21 @@ function getStoredLocale(): Locale | null {
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
     const [locale, setLocaleState] = useState<Locale>(defaultLocale);
+    const [labels, setLabels] = useState<TranslationType>(getTranslation(defaultLocale));
+    const [isLoading, setIsLoading] = useState(false);
     const [mounted, setMounted] = useState(false);
 
+    // Initial setup
     useEffect(() => {
         const stored = getStoredLocale();
         const initial = stored || getDeviceLocale();
-        setLocaleState(initial);
+        if (initial !== defaultLocale) {
+            changeLocale(initial);
+        }
         setMounted(true);
     }, []);
 
+    // Update document attributes
     useEffect(() => {
         if (mounted) {
             document.documentElement.lang = locale;
@@ -59,19 +66,27 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
         }
     }, [locale, mounted]);
 
-    const setLocale = useCallback((newLocale: Locale) => {
-        setLocaleState(newLocale);
-        localStorage.setItem('misbah-locale', newLocale);
+    const changeLocale = useCallback(async (newLocale: Locale) => {
+        setIsLoading(true);
+        try {
+            // Load translation dynamically
+            const newLabels = await loadTranslation(newLocale);
+            setLabels(newLabels);
+            setLocaleState(newLocale);
+            localStorage.setItem('misbah-locale', newLocale);
+        } catch (error) {
+            console.error(`Failed to load translations for ${newLocale}`, error);
+        } finally {
+            setIsLoading(false);
+        }
     }, []);
-
-    // Get pre-generated translations instantly
-    const labels = getTranslation(locale);
 
     const value: I18nContextValue = {
         locale,
         labels,
-        setLocale,
+        setLocale: changeLocale,
         dir: localeDirections[locale],
+        isLoading
     };
 
     return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;

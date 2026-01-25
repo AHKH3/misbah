@@ -1,0 +1,64 @@
+/* RadioPills — Following UI/UX Guidelines */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-ink-strong, #0A0A0A);
+}
+
+.pillGroup {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 999px;
+    /* Pill shape per UI/UX */
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: var(--color-card, #FFFFFF);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.pill.active {
+    background: var(--color-ink-strong, #0A0A0A);
+    border-color: var(--color-ink-strong, #0A0A0A);
+}
+
+.pill.active .text {
+    color: #FFFFFF;
+}
+
+.input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-ink-body, #52525B);
+}
+
+.error {
+    font-size: 0.75rem;
+    color: #DC2626;
+}

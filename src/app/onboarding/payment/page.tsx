@@ -2,16 +2,16 @@
 
 import { useActionState } from 'react';
 import { useI18n } from '@/lib/i18n';
-import { Button, Card } from '@/components/ui';
+import { Button } from '@/components/ui';
 import { submitPaymentProof, type PaymentActionState } from './actions';
 import styles from '../onboarding.module.css';
 
 const initialState: PaymentActionState = {};
 
 export default function PaymentPage() {
-  const { locale } = useI18n();
+  const { labels } = useI18n();
+  const { payment } = labels.onboarding;
   const [state, formAction, isPending] = useActionState(submitPaymentProof, initialState);
-  const isAr = locale === 'ar';
 
   return (
     <main className={styles.page}>
@@ -26,37 +26,27 @@ export default function PaymentPage() {
 
         {/* Header */}
         <header className={styles.header}>
-          <h1 className={styles.title}>
-            {isAr ? 'تفعيل الملف الشخصي' : 'Activate Your Profile'}
-          </h1>
-          <p className={styles.subtitle}>
-            {isAr
-              ? 'قم بتحويل رسوم الاشتراك ثم أرفق إثبات الدفع'
-              : 'Transfer the subscription fee and upload payment proof'}
-          </p>
+          <h1 className={styles.title}>{payment.title}</h1>
+          <p className={styles.subtitle}>{payment.subtitle}</p>
         </header>
 
         {/* Pricing Card */}
         <div className={styles.card}>
-          <div className={styles.cardTitle}>
-            {isAr ? 'الاشتراك السنوي' : 'Annual Subscription'}
-          </div>
+          <div className={styles.cardTitle}>{payment.pricingTitle}</div>
 
           <div style={{ marginBlockEnd: 'var(--space-md)' }}>
             <div style={{ fontSize: '2rem', fontWeight: 600, color: 'var(--color-ink-strong)' }}>
-              {isAr ? '٣٠٠ جنيه' : '300 EGP'}
+              {payment.price}
             </div>
             <div style={{ fontSize: '0.875rem', color: 'var(--color-ink-subtle)' }}>
-              {isAr ? 'السنة الأولى (خصم ٥٠٪)' : 'First year (50% discount)'}
+              {payment.discount}
             </div>
             <div style={{ fontSize: '0.875rem', color: 'var(--color-ink-subtle)', marginBlockStart: 'var(--space-micro)' }}>
-              {isAr ? 'التجديد: ٦٠٠ جنيه / سنة' : 'Renewal: 600 EGP / year'}
+              {payment.renewal}
             </div>
           </div>
 
-          <div className={styles.cardHint}>
-            {isAr ? 'حوّل المبلغ إلى:' : 'Transfer to:'}
-          </div>
+          <div className={styles.cardHint}>{payment.transferStart}</div>
 
           <div style={{
             background: 'var(--color-ground)',
@@ -65,7 +55,7 @@ export default function PaymentPage() {
             fontSize: '0.9375rem',
             lineHeight: 1.8
           }}>
-            <div><strong>{isAr ? 'فودافون كاش:' : 'Vodafone Cash:'}</strong> 01012345678</div>
+            <div><strong>{payment.methodName}</strong> 01012345678</div>
           </div>
         </div>
 
@@ -75,7 +65,7 @@ export default function PaymentPage() {
 
           <div className={styles.formGroup}>
             <label htmlFor="proof" className={styles.label}>
-              {isAr ? 'أرفق إثبات الدفع' : 'Upload Payment Proof'}
+              {payment.uploadLabel}
             </label>
             <input
               type="file"
@@ -85,22 +75,12 @@ export default function PaymentPage() {
               className={styles.input}
               required
             />
-            <p className={styles.cardHint}>
-              {isAr
-                ? 'صورة أو PDF لإيصال التحويل'
-                : 'Screenshot or PDF of transfer receipt'}
-            </p>
+            <p className={styles.cardHint}>{payment.uploadHint}</p>
           </div>
 
           <div className={styles.submitButton}>
             <Button type="submit" variant="primary" fullWidth disabled={isPending}>
-              {isPending
-                ? isAr
-                  ? 'جاري الرفع...'
-                  : 'Uploading...'
-                : isAr
-                  ? 'إرسال إثبات الدفع'
-                  : 'Submit Payment Proof'}
+              {isPending ? payment.submitting : payment.submit}
             </Button>
           </div>
         </form>

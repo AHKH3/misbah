@@ -7,6 +7,8 @@ import { useI18n, localeNames, locales } from '@/lib/i18n';
 import type { Locale } from '@/lib/i18n';
 import styles from './header.module.css';
 
+// ... imports equal ...
+
 export function Header() {
     const { locale, setLocale, labels } = useI18n();
     const [isOpen, setIsOpen] = useState(false);
@@ -40,19 +42,19 @@ export function Header() {
                 {/* Navigation */}
                 <nav className={styles.nav}>
                     <Link href="/" className={styles.navLink}>
-                        {labels.navHome}
+                        {labels.nav.home}
                     </Link>
                     <Link href="/directory" className={styles.navLink}>
-                        {labels.directory}
+                        {labels.nav.directory}
                     </Link>
                     <Link href="/onboarding" className={styles.navLink}>
-                        {labels.register}
+                        {labels.nav.register}
                     </Link>
                     <Link href="/about" className={styles.navLink}>
-                        {labels.navAbout}
+                        {labels.nav.about}
                     </Link>
                     <Link href="/faq" className={styles.navLink}>
-                        {labels.navFaq}
+                        {labels.nav.faq}
                     </Link>
                 </nav>
 

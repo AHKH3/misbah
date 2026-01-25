@@ -1,0 +1,337 @@
+{
+    "nav": {
+        "home": "Nyumbani",
+        "directory": "Walimu",
+        "about": "Kuhusu Sisi",
+        "faq": "Maswali",
+        "register": "Jiunge kama Mwalimu",
+        "login": "Ingia"
+    },
+    "footer": {
+        "tagline": "Orodha ya Walimu wa Quran na Kiarabu",
+        "about": "Kuhusu Sisi",
+        "faq": "Maswali",
+        "privacy": "Sera ya Faragha",
+        "terms": "Masharti ya Matumizi",
+        "copyright": "© 2025 Misbah. Haki zote zimehifadhiwa",
+        "disclaimer": "Kanusho"
+    },
+    "home": {
+        "hero": {
+            "title": "Misbah",
+            "subtitle": "Orodha ya Walimu wa Quran, Kiarabu na Masomo ya Kiislamu",
+            "valueStatement": "Kila mwalimu hapa amethibitishwa kwa umakini. Wewe huamua.",
+            "ctaStudents": "Vinjari Walimu",
+            "ctaTeachers": "Omba kama Mwalimu",
+            "trustBadges": [
+                "Orodha Iliyothibitishwa",
+                "Mawasiliano ya Moja kwa Moja",
+                "Bure kwa Wanafunzi"
+            ]
+        },
+        "forStudents": {
+            "label": "Kwa Wanafunzi na Wazazi",
+            "title": "Pata Mwalimu Wako kwa Uwazi",
+            "points": [
+                "Wasifu wa kibinafsi — kila mwalimu ana ukurasa wake",
+                "Uhakiki wa mwongozo — kila wasifu unakaguliwa kabla ya kuchapishwa",
+                "Habari iliyopangwa — rahisi kusoma na kulinganisha",
+                "Habari za mawasiliano — wasiliana na walimu moja kwa moja nje ya tovuti"
+            ],
+            "note": "Misbah huonyesha habari za mawasiliano tu. Mawasiliano yoyote hufanyika nje ya tovuti na ni jukumu lako.",
+            "cta": "Vinjari Walimu"
+        },
+        "forTeachers": {
+            "label": "Kwa Walimu",
+            "title": "Uwepo Wako wa Kitaaluma",
+            "points": [
+                "Wasifu wa umma — unaonekana kwenye injini za utaftaji",
+                "Hakuna tume — usajili wa kila mwaka tu",
+                "Hakuna uhifadhi — hatuingilii ratiba yako",
+                "Walimu wote wanakaribishwa — wawe huru au wameajiriwa"
+            ],
+            "note": "Misbah haikutumii wanafunzi. Wanafunzi wanakupata.",
+            "cta": "Jifunze Zaidi kuhusu Kujiunga"
+        },
+        "notSection": {
+            "title": "Misbah Sio Nini",
+            "points": [
+                "Sio jukwaa la uhifadhi — hakuna ratiba, hakuna miadi",
+                "Sio soko — hakuna shughuli za kifedha kati yetu",
+                "Sio chuo — hakuna mtaala, hakuna usimamizi",
+                "Sio mpatanishi wa malipo — hatushughulikii ada za wanafunzi",
+                "Sio chombo cha idhini rasmi au elimu"
+            ]
+        },
+        "howItWorks": {
+            "title": "Jinsi Misbah Inavyofanya Kazi",
+            "steps": [
+                {
+                    "number": "1",
+                    "title": "Omba",
+                    "description": "Mwalimu anawasilisha maombi"
+                },
+                {
+                    "number": "2",
+                    "title": "Kagua",
+                    "description": "Tunakagua kila maombi kibinafsi"
+                },
+                {
+                    "number": "3",
+                    "title": "Chapisha",
+                    "description": "Wasifu unachapishwa na habari za mawasiliano"
+                }
+            ],
+            "note": "Jukumu la Misbah linaishia kuonyesha habari za mawasiliano."
+        },
+        "pricing": {
+            "label": "Kwa Walimu Tu",
+            "title": "Usajili wa Ishara",
+            "description": "Mchango wa ishara wa kila mwaka ili kuhakikisha umakini na uendelevu. Kulipwa tu baada ya uanachama wako kukubaliwa."
+        },
+        "finalCta": {
+            "studentsLabel": "Kwa Wanafunzi",
+            "studentsButton": "Vinjari Walimu",
+            "teachersLabel": "Kwa Walimu",
+            "teachersButton": "Omba Kujiunga"
+        },
+        "disclaimer": "Misbah ni orodha ya umma. Habari hutolewa na walimu."
+    },
+    "about": {
+        "pageTitle": "Kuhusu Misbah",
+        "whatIs": {
+            "title": "Misbah ni Nini",
+            "description": "Misbah ni orodha ya mtandaoni inayowaleta pamoja walimu wa Quran Tukufu, lugha ya Kiarabu, na masomo ya Kiislamu mahali pamoja.",
+            "subDescription": "Tunawasilisha habari za mawasiliano kwa kila mwalimu ili wanafunzi au wazazi waweze kuwasiliana moja kwa moja nje ya jukwaa."
+        },
+        "why": {
+            "title": "Kwa nini Misbah Iliundwa",
+            "description": "Walimu wengi bora hawana uwepo wa dijiti ulio wazi.",
+            "subDescription": "Misbah inaziba pengo hili kwa kutoa nafasi iliyopangwa."
+        },
+        "how": {
+            "title": "Jinsi Inavyofanya Kazi",
+            "steps": [
+                "Mwalimu huunda wasifu.",
+                "Maombi hukaguliwa kwa mikono.",
+                "Baada ya kuchapishwa, wasifu unapatikana kwa umma."
+            ]
+        },
+        "nature": {
+            "title": "Asili ya Misbah",
+            "intro": "Misbah ni:",
+            "points": [
+                "Sio jukwaa la elimu.",
+                "Sio mpatanishi wa kifedha.",
+                "Sio chombo cha idhini.",
+                "Sio jukwaa la uhifadhi."
+            ],
+            "conclusion": "Sisi ni orodha tu."
+        },
+        "review": {
+            "title": "Tunachokagua",
+            "description": "Tunakagua ukamilifu na umakini wa habari, lakini hatuthibitishi vyeti kwa uhuru."
+        },
+        "limits": {
+            "title": "Mipaka ya Wajibu",
+            "description": "Misbah hauwajibiki kwa ubora wa ufundishaji au shughuli za kifedha."
+        },
+        "contact": {
+            "title": "Wasiliana Nasi",
+            "description": "Ikiwa una maswali:",
+            "email": "contact@misbah.site"
+        }
+    },
+    "faq": {
+        "pageTitle": "Maswali Yanayoulizwa Sana",
+        "items": [
+            {
+                "question": "Misbah ni nini?",
+                "answer": "Misbah ni saraka la mtandaoni linalonyesha walimu wa Quran Takatifu, lugha ya Kiarabu, na masomo ya Kiislamu, pamoja na taarifa za mawasiliano kwa kila mwalimu."
+            },
+            {
+                "question": "Je, Misbah ni jukwaa la elimu?",
+                "answer": "Hapana. Misbah si jukwaa la elimu. Tunaonyesha tu maelezo ya walimu. Masomo na mawasiliano yanafanyika moja kwa moja kati ya mwanafunzi na mwalimu nje ya tovuti."
+            },
+            {
+                "question": "Je, Misbah inawajibika kwa ubora wa ufundishaji?",
+                "answer": "Hapana. Misbah haidhamini ubora wa ufundishaji na haichukui jukumu lolote kwa uhusiano kati ya mwanafunzi na mwalimu."
+            },
+            {
+                "question": "Je, Misbah inashughulikia malipo?",
+                "answer": "Hapana. Mkataba wowote wa kifedha kati ya mwanafunzi na mwalimu ni huru kabisa kutoka Misbah."
+            },
+            {
+                "question": "Ninawezaje kujiunga kama mwalimu?",
+                "answer": "Unaweza kuomba kupitia ukurasa wa usajili. Tutapitia ombi lako na kuwasiliana nawe."
+            },
+            {
+                "question": "Je, kuna ada kwa wanafunzi?",
+                "answer": "Hapana. Kuvinjari na kupata maelezo ya walimu ni bure kabisa kwa wanafunzi."
+            },
+            {
+                "question": "Je, kuna ada kwa walimu?",
+                "answer": "Ndiyo, kuna usajili wa kila mwaka wa ishara kwa walimu baada ya ombi lao kukubaliwa."
+            }
+        ]
+    },
+    "directory": {
+        "title": "Orodha ya Walimu",
+        "browseDesc": "Vinjari walimu waliothibitishwa",
+        "filters": {
+            "subject": "Somo",
+            "format": "Umbizo",
+            "all": "Wote"
+        },
+        "noResults": "Hakuna matokeo yaliyopatikana",
+        "pagination": {
+            "previous": "Iliyopita",
+            "next": "Inayofuata"
+        },
+        "teachers": "walimu"
+    },
+    "teacher": {
+        "online": "Mtandaoni",
+        "inPerson": "Ana kwa Ana",
+        "hybrid": "Zote Mbili",
+        "accepting": "Anapokea Wanafunzi",
+        "limited": "Mdogo",
+        "notAccepting": "Hapokei",
+        "backToDirectory": "← Rudi kwenye Orodha",
+        "audience": "Hadhira Lengwa",
+        "teachingMethod": "Mbinu ya Ufundishaji",
+        "experience": "Uzoefu na Sifa",
+        "teachingSample": "Mfano wa Ufundishaji",
+        "contactMethods": "Njia za Mawasiliano",
+        "whatsapp": "WhatsApp",
+        "email": "Barua pepe",
+        "telegram": "Telegram",
+        "website": "Tovuti",
+        "visitWebsite": "Tembelea Tovuti",
+        "subjects": {
+            "quran": "Quran",
+            "tajweed": "Tajweed",
+            "arabic": "Kiarabu",
+            "islamicStudies": "Masomo ya Kiislamu"
+        },
+        "audiences": {
+            "kids": "Watoto",
+            "adults": "Watu Wazima",
+            "femalesOnly": "Wanawake Tu",
+            "malesOnly": "Wanaume Tu",
+            "everyone": "Wote"
+        }
+    },
+    "common": {
+        "loading": "Inapakia...",
+        "error": "Hitilafu imetokea",
+        "retry": "Jaribu tena",
+        "close": "Funga",
+        "submit": "Wasilisha",
+        "cancel": "Ghairi",
+        "save": "Hifadhi",
+        "delete": "Futa",
+        "edit": "Hariri",
+        "view": "Tazama",
+        "search": "Tafuta",
+        "filter": "Chuja",
+        "sort": "Panga",
+        "more": "Zaidi",
+        "less": "Chini"
+    },
+    "onboarding": {
+        "profile": {
+            "title": "Wasifu wa Mwalimu",
+            "subtitle": "Tengeneza wasifu",
+            "fullName": "Jina Kamili",
+            "country": "Nchi",
+            "subjectsLabel": "Masomo",
+            "audienceLabel": "Hadhira",
+            "teachingFormatLabel": "Fomati",
+            "teachingFormatPlaceholder": "Chagua Fomati",
+            "experienceLabel": "Uzoefu",
+            "experiencePlaceholder": "Eleza uzoefu...",
+            "videoUrlLabel": "Video (YouTube)",
+            "contactTitle": "Mawasiliano",
+            "contactHint": "Weka mawasiliano",
+            "submit": "Hifadhi",
+            "submitting": "Inahifadhi..."
+        },
+        "payment": {
+            "title": "Amilisha Wasifu",
+            "subtitle": "Lipa usajili",
+            "pricingTitle": "Usajili",
+            "price": "300 EGP",
+            "discount": "Mwaka 1 (Punguzo 50%)",
+            "renewal": "600 EGP / Mwaka",
+            "transferStart": "Tuma kwa:",
+            "methodName": "Vodafone Cash:",
+            "uploadLabel": "Risiti",
+            "uploadHint": "Picha/PDF",
+            "submit": "Tuma",
+            "submitting": "Inatuma..."
+        },
+        "success": {
+            "title": "Imepokelewa",
+            "subtitle": "Asante",
+            "nextStepsTitle": "Hatua Zifuatazo",
+            "step1Title": "1. Mapitio",
+            "step1Desc": "Tunapitia wasifu",
+            "step2Title": "2. Muda",
+            "step2Desc": "Masaa 24",
+            "step3Title": "3. Taarifa",
+            "step3Desc": "Kwa Barua Pepe",
+            "noticeTitle": "Tamko",
+            "noticeText": "Taarifa ni sahihi. Misbah ni saraka.",
+            "backButton": "Nyumbani"
+        }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Faragha",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Muhtasari",
+            "summaryText": "Data kidogo. Hatuuzi.",
+            "dataCollectionTitle": "Data",
+            "dataCollectionTeachers": "Jina, Mawasiliano.",
+            "dataCollectionVisitors": "Vidakuzi.",
+            "usageTitle": "Matumizi",
+            "usageText": "Onyesha wasifu.",
+            "rightsTitle": "Haki",
+            "rightsText": "Futa.",
+            "contactText": "Mawasiliano:"
+        },
+        "terms": {
+            "title": "Masharti",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Muhtasari",
+            "summaryText": "Saraka. Hakuna masomo hapa.",
+            "natureTitle": "Huduma",
+            "natureText": "Sio shule.",
+            "responsibilityTitle": "Wajibu",
+            "responsibilitySimple1": "Mwanafunzi hakiki.",
+            "responsibilitySimple2": "Mwalimu anawajibika.",
+            "responsibilitySimple3": "Kibinafsi.",
+            "subscriptionTitle": "Usajili",
+            "subscriptionText": "Ishara.",
+            "modificationTitle": "Badilisha",
+            "modificationText": "Haki ya kufuta."
+        },
+        "disclaimer": {
+            "title": "Kanusho",
+            "lastUpdated": "Jan 2026",
+            "highlightTitle": "Muhimu",
+            "highlightText": "Mawasiliano hatari yako.",
+            "scopeTitle": "Upeo",
+            "scopeComm": "Mawasiliano: Nje.",
+            "scopeInfo": "Info: Haijahakikiwa.",
+            "scopeEdu": "Elimu: Hakuna dhamana.",
+            "scopeMoney": "Pesa: Hakuna kuingilia.",
+            "reviewTitle": "Mapitio",
+            "reviewText": "Umakini tu.",
+            "agreementTitle": "Kubali",
+            "agreementText": "Unakubali.",
+            "contactText": "Mawasiliano:"
+        }
+    }
+}

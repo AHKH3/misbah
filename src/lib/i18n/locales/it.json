@@ -1,0 +1,337 @@
+{
+    "nav": {
+        "home": "Home",
+        "directory": "Insegnanti",
+        "about": "Chi siamo",
+        "faq": "FAQ",
+        "register": "Unisciti come Insegnante",
+        "login": "Accedi"
+    },
+    "footer": {
+        "tagline": "Elenco di insegnanti di Corano e arabo",
+        "about": "Chi siamo",
+        "faq": "FAQ",
+        "privacy": "Privacy Policy",
+        "terms": "Termini di utilizzo",
+        "copyright": "© 2025 Misbah. Tutti i diritti riservati",
+        "disclaimer": "Esclusione di responsabilità"
+    },
+    "home": {
+        "hero": {
+            "title": "Misbah",
+            "subtitle": "Elenco di insegnanti di Corano, arabo e studi islamici",
+            "valueStatement": "Ogni insegnante qui è stato verificato per serietà. Decidi tu.",
+            "ctaStudents": "Sfoglia Insegnanti",
+            "ctaTeachers": "Candidati come Insegnante",
+            "trustBadges": [
+                "Elenco Verificato",
+                "Contatto Diretto",
+                "Gratuito per Studenti"
+            ]
+        },
+        "forStudents": {
+            "label": "Per Studenti e Genitori",
+            "title": "Trova il tuo Insegnante con Chiarezza",
+            "points": [
+                "Profili personali — ogni insegnante ha la propria pagina",
+                "Revisione manuale — ogni profilo viene esaminato prima della pubblicazione",
+                "Informazioni organizzate — facile da leggere e confrontare",
+                "Informazioni di contatto — contatta gli insegnanti direttamente fuori dal sito"
+            ],
+            "note": "Misbah mostra solo le informazioni di contatto. Qualsiasi comunicazione avviene fuori dal sito sotto la tua responsabilità.",
+            "cta": "Sfoglia Insegnanti"
+        },
+        "forTeachers": {
+            "label": "Per Insegnanti",
+            "title": "La tua Presenza Professionale",
+            "points": [
+                "Profilo pubblico — visibile sui motori di ricerca",
+                "Nessuna commissione — solo abbonamento annuale",
+                "Nessuna prenotazione — non interferiamo con il tuo programma",
+                "Tutti gli insegnanti benvenuti — indipendenti o dipendenti"
+            ],
+            "note": "Misbah non ti invia studenti. Gli studenti ti trovano.",
+            "cta": "Scopri di più sull'adesione"
+        },
+        "notSection": {
+            "title": "Cosa non è Misbah",
+            "points": [
+                "Non una piattaforma di prenotazione — nessun programma, nessun appuntamento",
+                "Non un marketplace — nessuna transazione finanziaria tra noi",
+                "Non un'accademia — nessun curriculum, nessuna gestione",
+                "Non un intermediario di pagamento — non gestiamo le tasse degli studenti",
+                "Non un ente di accreditamento o educativo ufficiale"
+            ]
+        },
+        "howItWorks": {
+            "title": "Come funziona Misbah",
+            "steps": [
+                {
+                    "number": "1",
+                    "title": "Candidati",
+                    "description": "L'insegnante invia la candidatura"
+                },
+                {
+                    "number": "2",
+                    "title": "Revisione",
+                    "description": "Esaminiamo ogni candidatura individualmente"
+                },
+                {
+                    "number": "3",
+                    "title": "Pubblica",
+                    "description": "Il profilo viene pubblicato con le informazioni di contatto"
+                }
+            ],
+            "note": "Il ruolo di Misbah termina con la visualizzazione delle informazioni di contatto."
+        },
+        "pricing": {
+            "label": "Solo per Insegnanti",
+            "title": "Abbonamento Simbolico",
+            "description": "Un contributo annuale simbolico per garantire serietà e sostenibilità. Pagato solo dopo l'accettazione della tua adesione."
+        },
+        "finalCta": {
+            "studentsLabel": "Per Studenti",
+            "studentsButton": "Sfoglia Insegnanti",
+            "teachersLabel": "Per Insegnanti",
+            "teachersButton": "Candidati per Unirti"
+        },
+        "disclaimer": "Misbah è un elenco pubblico. Le informazioni sono fornite dagli insegnanti. Gli studenti sono responsabili."
+    },
+    "about": {
+        "pageTitle": "Su Misbah",
+        "whatIs": {
+            "title": "Cos'è Misbah",
+            "description": "Misbah è un elenco online che riunisce insegnanti del Sacro Corano, lingua araba e studi islamici in un unico posto.",
+            "subDescription": "Mostriamo le informazioni di contatto per ogni insegnante in modo che studenti o genitori possano contattarli direttamente fuori dalla piattaforma."
+        },
+        "why": {
+            "title": "Perché Misbah è stato creato",
+            "description": "Molti ottimi insegnanti mancano di una chiara presenza digitale.",
+            "subDescription": "Misbah colma questa lacuna fornendo uno spazio organizzato."
+        },
+        "how": {
+            "title": "Come funziona",
+            "steps": [
+                "L'insegnante crea un profilo.",
+                "La candidatura viene esaminata manualmente.",
+                "Dopo la pubblicazione, il profilo diventa accessibile pubblicamente."
+            ]
+        },
+        "nature": {
+            "title": "Natura di Misbah",
+            "intro": "Misbah è:",
+            "points": [
+                "Non una piattaforma educativa.",
+                "Non un intermediario finanziario.",
+                "Non un ente di accreditamento.",
+                "Non una piattaforma di prenotazione."
+            ],
+            "conclusion": "Siamo semplicemente un elenco."
+        },
+        "review": {
+            "title": "Cosa esaminiamo",
+            "description": "Verifichiamo la completezza e la serietà delle informazioni, ma non convalidiamo i certificati in modo indipendente."
+        },
+        "limits": {
+            "title": "Limiti di responsabilità",
+            "description": "Misbah non è responsabile della qualità dell'insegnamento o delle transazioni finanziarie."
+        },
+        "contact": {
+            "title": "Contattaci",
+            "description": "Se hai domande:",
+            "email": "contact@misbah.site"
+        }
+    },
+    "faq": {
+        "pageTitle": "Domande Frequenti",
+        "items": [
+            {
+                "question": "Cos'è Misbah?",
+                "answer": "Misbah è una directory online che mostra insegnanti del Sacro Corano, lingua araba e studi islamici, con informazioni di contatto per ogni insegnante."
+            },
+            {
+                "question": "Misbah è una piattaforma educativa?",
+                "answer": "No. Misbah non è una piattaforma educativa. Mostriamo solo informazioni sugli insegnanti. Le lezioni e la comunicazione avvengono direttamente tra studente e insegnante fuori dal sito."
+            },
+            {
+                "question": "Misbah è responsabile della qualità dell'insegnamento?",
+                "answer": "No. Misbah non garantisce la qualità dell'insegnamento e non si assume alcuna responsabilità per il rapporto tra studente e insegnante."
+            },
+            {
+                "question": "Misbah gestisce i pagamenti?",
+                "answer": "No. Qualsiasi accordo finanziario tra studente e insegnante è completamente indipendente da Misbah."
+            },
+            {
+                "question": "Come posso iscrivermi come insegnante?",
+                "answer": "Puoi candidarti attraverso la pagina di registrazione. Esamineremo la tua candidatura e ti contatteremo."
+            },
+            {
+                "question": "Ci sono tariffe per gli studenti?",
+                "answer": "No. La navigazione e l'accesso alle informazioni sugli insegnanti sono completamente gratuiti per gli studenti."
+            },
+            {
+                "question": "Ci sono tariffe per gli insegnanti?",
+                "answer": "Sì, c'è un abbonamento annuale simbolico per gli insegnanti dopo l'accettazione della loro candidatura."
+            }
+        ]
+    },
+    "directory": {
+        "title": "Elenco Insegnanti",
+        "browseDesc": "Sfoglia insegnanti verificati",
+        "filters": {
+            "subject": "Materia",
+            "format": "Formato",
+            "all": "Tutti"
+        },
+        "noResults": "Nessun risultato trovato",
+        "pagination": {
+            "previous": "Precedente",
+            "next": "Successivo"
+        },
+        "teachers": "insegnanti"
+    },
+    "teacher": {
+        "online": "Online",
+        "inPerson": "Di Persona",
+        "hybrid": "Entrambi",
+        "accepting": "Accetta Studenti",
+        "limited": "Limitato",
+        "notAccepting": "Non Accetta",
+        "backToDirectory": "← Torna all'Elenco",
+        "audience": "Pubblico Ispirato",
+        "teachingMethod": "Metodo di Insegnamento",
+        "experience": "Esperienza e Qualifiche",
+        "teachingSample": "Esempio di Insegnamento",
+        "contactMethods": "Metodi di Contatto",
+        "whatsapp": "WhatsApp",
+        "email": "Email",
+        "telegram": "Telegram",
+        "website": "Sito Web",
+        "visitWebsite": "Visita Sito",
+        "subjects": {
+            "quran": "Corano",
+            "tajweed": "Tajweed",
+            "arabic": "Arabo",
+            "islamicStudies": "Studi Islamici"
+        },
+        "audiences": {
+            "kids": "Bambini",
+            "adults": "Adulti",
+            "femalesOnly": "Solo Femmine",
+            "malesOnly": "Solo Maschi",
+            "everyone": "Tutti"
+        }
+    },
+    "common": {
+        "loading": "Caricamento...",
+        "error": "Si è verificato un errore",
+        "retry": "Riprova",
+        "close": "Chiudi",
+        "submit": "Invia",
+        "cancel": "Annulla",
+        "save": "Salva",
+        "delete": "Elimina",
+        "edit": "Modifica",
+        "view": "Visualizza",
+        "search": "Cerca",
+        "filter": "Filtra",
+        "sort": "Ordina",
+        "more": "Più",
+        "less": "Meno"
+    },
+    "onboarding": {
+        "profile": {
+            "title": "Profilo Insegnante",
+            "subtitle": "Crea il tuo profilo",
+            "fullName": "Nome completo",
+            "country": "Paese",
+            "subjectsLabel": "Materie",
+            "audienceLabel": "Destinatari",
+            "teachingFormatLabel": "Formato",
+            "teachingFormatPlaceholder": "Scegli formato",
+            "experienceLabel": "Esperienza",
+            "experiencePlaceholder": "Descrivi esperienza...",
+            "videoUrlLabel": "Video Intro",
+            "contactTitle": "Contatto",
+            "contactHint": "Aggiungi contatto",
+            "submit": "Salva",
+            "submitting": "Salvataggio..."
+        },
+        "payment": {
+            "title": "Attiva Profilo",
+            "subtitle": "Paga abbonamento",
+            "pricingTitle": "Abbonamento",
+            "price": "300 EGP",
+            "discount": "1° anno (50% sconto)",
+            "renewal": "600 EGP / anno",
+            "transferStart": "Invia a:",
+            "methodName": "Vodafone Cash:",
+            "uploadLabel": "Ricevuta",
+            "uploadHint": "Foto o PDF",
+            "submit": "Invia",
+            "submitting": "Invio..."
+        },
+        "success": {
+            "title": "Ricevuto",
+            "subtitle": "Grazie",
+            "nextStepsTitle": "Prossimi passi",
+            "step1Title": "1. Revisione",
+            "step1Desc": "Controlliamo il profilo",
+            "step2Title": "2. Tempo",
+            "step2Desc": "24 ore",
+            "step3Title": "3. Notifica",
+            "step3Desc": "Via email",
+            "noticeTitle": "Dichiarazione",
+            "noticeText": "Dati corretti. Misbah è un elenco.",
+            "backButton": "Home"
+        }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Privacy",
+            "lastUpdated": "Gen 2026",
+            "summaryTitle": "Riepilogo",
+            "summaryText": "Dati minimi. Nessuna vendita.",
+            "dataCollectionTitle": "Dati",
+            "dataCollectionTeachers": "Nome, Contatto.",
+            "dataCollectionVisitors": "Cookie.",
+            "usageTitle": "Uso",
+            "usageText": "Mostra profili.",
+            "rightsTitle": "Diritti",
+            "rightsText": "Cancellazione.",
+            "contactText": "Contatto:"
+        },
+        "terms": {
+            "title": "Termini",
+            "lastUpdated": "Gen 2026",
+            "summaryTitle": "Riepilogo",
+            "summaryText": "Elenco contatti. No lezioni sul sito.",
+            "natureTitle": "Servizio",
+            "natureText": "Non una scuola.",
+            "responsibilityTitle": "Responsabilità",
+            "responsibilitySimple1": "Studente verifica.",
+            "responsibilitySimple2": "Insegnante verifica.",
+            "responsibilitySimple3": "Privato.",
+            "subscriptionTitle": "Abbonamento",
+            "subscriptionText": "Simbolico.",
+            "modificationTitle": "Modifica",
+            "modificationText": "Diritto di cancellazione."
+        },
+        "disclaimer": {
+            "title": "Disclaimer",
+            "lastUpdated": "Gen 2026",
+            "highlightTitle": "Importante",
+            "highlightText": "Contatti a proprio rischio.",
+            "scopeTitle": "Ambito",
+            "scopeComm": "Comunicazione: Esterna.",
+            "scopeInfo": "Info: Non verificata.",
+            "scopeEdu": "Istruzione: Nessuna garanzia.",
+            "scopeMoney": "Denaro: Nessun intervento.",
+            "reviewTitle": "Revisione",
+            "reviewText": "Solo serietà.",
+            "agreementTitle": "Accordo",
+            "agreementText": "Accetti responsabilità.",
+            "contactText": "Contatto:"
+        }
+    }
+}

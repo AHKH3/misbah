@@ -1,61 +1,64 @@
 'use client';
 
 import Link from 'next/link';
+import { useI18n } from '@/lib/i18n';
 import styles from '../legal.module.css';
 
 export default function TermsPage() {
+    const { labels } = useI18n();
+    const { terms } = labels.legal;
+
     return (
         <main className={styles.page}>
             <div className={styles.container}>
                 <header className={styles.header}>
-                    <h1 className={styles.pageTitle}>شروط الاستخدام</h1>
-                    <p className={styles.lastUpdated}>آخر تحديث: يناير 2026</p>
+                    <h1 className={styles.pageTitle}>{terms.title}</h1>
+                    <p className={styles.lastUpdated}>{terms.lastUpdated}</p>
                 </header>
 
                 <section className={styles.highlightBox}>
-                    <h2 className={styles.highlightTitle}>ملخص</h2>
+                    <h2 className={styles.highlightTitle}>{terms.summaryTitle}</h2>
                     <p className={styles.highlightText}>
-                        مصباح دليل يعرض معلومات التواصل مع معلمين مستقلين. لا يوجد تعليم أو تواصل داخل الموقع.
-                        أي تواصل يتم خارجياً على مسؤولية الطرفين.
+                        {terms.summaryText}
                     </p>
                 </section>
 
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>طبيعة الخدمة</h2>
+                    <h2 className={styles.sectionTitle}>{terms.natureTitle}</h2>
                     <p className={styles.sectionText}>
-                        مصباح <strong>ليس</strong>: منصة تعليمية، منصة حجوزات، وسيط مالي، جهة اعتماد، أو منصة تواصل.
+                        {terms.natureText}
                     </p>
                 </section>
 
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>مسؤولية المستخدم</h2>
+                    <h2 className={styles.sectionTitle}>{terms.responsibilityTitle}</h2>
                     <ul className={styles.sectionList}>
-                        <li>الطالب مسؤول عن التحقق من مناسبة المعلم</li>
-                        <li>المعلم مسؤول عن دقة معلوماته</li>
-                        <li>أي اتفاق بين الطرفين على مسؤوليتهم</li>
+                        <li>{terms.responsibilitySimple1}</li>
+                        <li>{terms.responsibilitySimple2}</li>
+                        <li>{terms.responsibilitySimple3}</li>
                     </ul>
                 </section>
 
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>الاشتراك</h2>
+                    <h2 className={styles.sectionTitle}>{terms.subscriptionTitle}</h2>
                     <p className={styles.sectionText}>
-                        للمعلمين اشتراك سنوي رمزي (يوضح أثناء التقديم). التصفح مجاني للطلاب.
+                        {terms.subscriptionText}
                     </p>
                 </section>
 
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>التعديل والحذف</h2>
+                    <h2 className={styles.sectionTitle}>{terms.modificationTitle}</h2>
                     <p className={styles.sectionText}>
-                        يحق للمعلم طلب حذف بروفايله. يحق لنا إزالة أي بروفايل مخالف.
+                        {terms.modificationText}
                     </p>
                 </section>
 
                 <section className={styles.contactSection}>
                     <p className={styles.sectionText}>
-                        للاستفسارات: <a href="mailto:contact@misbah.site" className={styles.emailLink}>contact@misbah.site</a>
+                        <a href="mailto:contact@misbah.site" className={styles.emailLink}>contact@misbah.site</a>
                     </p>
                     <p className={styles.sectionText} style={{ marginTop: '16px', fontSize: '0.875rem' }}>
-                        راجع أيضاً: <Link href="/disclaimer" style={{ textDecoration: 'underline' }}>إخلاء المسؤولية</Link> | <Link href="/privacy" style={{ textDecoration: 'underline' }}>سياسة الخصوصية</Link>
+                        <Link href="/disclaimer" style={{ textDecoration: 'underline' }}>{labels.footer.disclaimer}</Link> | <Link href="/privacy" style={{ textDecoration: 'underline' }}>{labels.footer.privacy}</Link>
                     </p>
                 </section>
             </div>

@@ -1,0 +1,337 @@
+{
+    "nav": {
+        "home": "Guriga",
+        "directory": "Macallimiinta",
+        "about": "Nagu Saabsan",
+        "faq": "Su'aalo",
+        "register": "Ku biir Macallin ahaan",
+        "login": "Soo gal"
+    },
+    "footer": {
+        "tagline": "Tusaha Macallimiinta Quraanka & Carabiga",
+        "about": "Nagu Saabsan",
+        "faq": "Su'aalo",
+        "privacy": "Siyaasadda Asturnaanta",
+        "terms": "Shuruudaha Isticmaalka",
+        "copyright": "© 2025 Misbah. Xuquuqda oo dhan way dhowran yihiin",
+        "disclaimer": "Afeef"
+    },
+    "home": {
+        "hero": {
+            "title": "Misbah",
+            "subtitle": "Tusaha Macallimiinta Quraanka, Carabiga iyo Daraasaadka Islaamka",
+            "valueStatement": "Macallin kasta halkan waxaa loo xaqiijiyay dhabnimadiisa. Adiga ayaa go'aansanaya.",
+            "ctaStudents": "Baadh Macallimiinta",
+            "ctaTeachers": "Codso Macallin ahaan",
+            "trustBadges": [
+                "Tusaha La Xaqiijiyay",
+                "Xiriir Toos ah",
+                "Bilaash u ah Ardayda"
+            ]
+        },
+        "forStudents": {
+            "label": "Ardayda iyo Waalidiinta",
+            "title": "Raadi Macallinkaaga si Cad",
+            "points": [
+                "Noocyo shaqsiyeed — macallin kasta wuxuu leeyahay bog u gaar ah",
+                "Dib u eegis gacanta ah — nooc kasta waa la eegaa kahor intaan la daabicin",
+                "Macluumaad habaysan — fudud in la akhriyo lana barbardhigo",
+                "Macluumaadka xiriirka — la xiriir macallimiinta si toos ah banaanka goobta"
+            ],
+            "note": "Misbah kaliya waxay soo bandhigtaa macluumaadka xiriirka. Xiriir kasta wuxuu ka dhacaa banaanka goobta waana masuuliyaddaada.",
+            "cta": "Baadh Macallimiinta"
+        },
+        "forTeachers": {
+            "label": "Macallimiinta",
+            "title": "Joogitaankaaga Xirfadeed",
+            "points": [
+                "Nooca dadweynaha — laga arki karo makiinadaha raadinta",
+                "La'aan komishin — kaliya rukun sannadle ah",
+                "La'aan ballan — ma faragelino jadwalkaaga",
+                "Dhammaan macallimiinta waa la soo dhaweynayaa — mid madaxbannaan ama shaqaale"
+            ],
+            "note": "Misbah kuuma soo dirto arday. Ardaydu way ku helaan.",
+            "cta": "Baro wax badan oo ku saabsan ku biirista"
+        },
+        "notSection": {
+            "title": "Maxay Misbah Aheyn",
+            "points": [
+                "Ma ahan madal ballan — jadwal ma jiro, ballan ma jiro",
+                "Ma ahan suuq — wax macaamil maaliyadeed ah nagama dhexeeyo",
+                "Ma ahan akadeemiyad — manhaj ma jiro, maamul ma jiro",
+                "Ma ahan dhexdhexaadiye lacag bixinta — ma maamulno khidmadaha ardayda",
+                "Ma ahan hay'ad aqoonsi ama waxbarasho rasmi ah"
+            ]
+        },
+        "howItWorks": {
+            "title": "Sida Misbah u Shaqayso",
+            "steps": [
+                {
+                    "number": "1",
+                    "title": "Codso",
+                    "description": "Macallinku wuxuu soo gudbiyaa codsi"
+                },
+                {
+                    "number": "2",
+                    "title": "Dib u eegis",
+                    "description": "Waxaan dib u eegnaa codsi kasta si gaar ah"
+                },
+                {
+                    "number": "3",
+                    "title": "Daabac",
+                    "description": "Nooca waxaa lagu daabacaa macluumaadka xiriirka"
+                }
+            ],
+            "note": "Doorka Misbah wuxuu ku eg yahay soo bandhigida macluumaadka xiriirka."
+        },
+        "pricing": {
+            "label": "Kaliya Macallimiinta",
+            "title": "Rukun Astaanteed",
+            "description": "Tabarucaad sannadle ah oo astaanteed si loo hubiyo dhabnimada iyo sii jiritaanka. La bixiyo kaliya kadib markii xubinimadaada la aqbalo."
+        },
+        "finalCta": {
+            "studentsLabel": "Ardayda",
+            "studentsButton": "Baadh Macallimiinta",
+            "teachersLabel": "Macallimiinta",
+            "teachersButton": "Codso inaad ku Biirto"
+        },
+        "disclaimer": "Misbah waa tusaha dadweynaha. Macluumaadka waxaa bixiya macallimiinta."
+    },
+    "about": {
+        "pageTitle": "Ku saabsan Misbah",
+        "whatIs": {
+            "title": "Waa maxay Misbah",
+            "description": "Misbah waa tusaha onlaynka ah oo isu keena macallimiinta Quraanka Kariimka, luqadda Carabiga, iyo daraasaadka Islaamka hal meel.",
+            "subDescription": "Waxaan soo bandhignaa macluumaadka xiriirka macallin kasta si ardayda ama waalidiintu ula xiriiri karaan si toos ah."
+        },
+        "why": {
+            "title": "Sababta Misbah loo Abuuray",
+            "description": "Macallimiin badan oo heer sare ah ma laha joogitaan dijitaal ah oo cad.",
+            "subDescription": "Misbah waxay buuxisaa farqigan iyadoo bixisa meel habaysan."
+        },
+        "how": {
+            "title": "Sida ay u Shaqayso",
+            "steps": [
+                "Macallinku wuxuu abuuraa nooc.",
+                "Codsiga waxaa loo eegaa gacanta.",
+                "Kadib daabacaadda, nooca waa la heli karaa dadweynaha."
+            ]
+        },
+        "nature": {
+            "title": "Dabeecadda Misbah",
+            "intro": "Misbah waa:",
+            "points": [
+                "Ma ahan madal waxbarasho.",
+                "Ma ahan dhexdhexaadiye maaliyadeed.",
+                "Ma ahan hay'ad aqoonsi.",
+                "Ma ahan madal ballan."
+            ],
+            "conclusion": "Waxaan nahay uun tusaha."
+        },
+        "review": {
+            "title": "Maxaan Dib u eegnaa",
+            "description": "Waxaan hubinnaa dhamaystirka iyo dhabnimada macluumaadka, laakiin ma xaqiijinno shahaadooyinka si madaxbannaan."
+        },
+        "limits": {
+            "title": "Xadka Masuuliyadda",
+            "description": "Misbah masuul kama ahan tayada waxbarida ama macaamil maaliyadeed."
+        },
+        "contact": {
+            "title": "Nala Soo Xiriir",
+            "description": "Haddii aad qabto su'aalo:",
+            "email": "contact@misbah.site"
+        }
+    },
+    "faq": {
+        "pageTitle": "Su'aalaha Badanaa La Isweydiiyo",
+        "items": [
+            {
+                "question": "Waa maxay Misbah?",
+                "answer": "Misbah waa buug-gacmeed online ah oo soo bandhiga macallimiinta Quraanka Shareefka, luqadda Carabiga, iyo daraasadaha Islaamka, oo leh macluumaad xiriir ah macallin kasta."
+            },
+            {
+                "question": "Ma Misbah waa goob waxbarasho?",
+                "answer": "Maya. Misbah maaha goob waxbarasho. Waxaan kaliya soo bandhignaa macluumaadka macallimiinta. Casharrada iyo isgaadhsiintu waxay si toos ah ugu dhacaan ardayga iyo macallinka meel ka baxsan goobta."
+            },
+            {
+                "question": "Ma Misbah ayaa mas'uul ka ah tayada waxbarashada?",
+                "answer": "Maya. Misbah ma dhammaysato tayada waxbarashada mana qaadato mas'uuliyad xiriirka u dhexeeya ardayga iyo macallinka."
+            },
+            {
+                "question": "Ma Misbah ayaa maamuulaya lacagaha?",
+                "answer": "Maya. Wax kasta oo heshiis lacageed ah oo u dhexeeya ardayga iyo macallinka si buuxda ayey uga madax-bannaan yihiin Misbah."
+            },
+            {
+                "question": "Sidee baan ugu biiri karaa sida macallin?",
+                "answer": "Waxaad codsan kartaa iyada oo maraya bogga diiwaangelinta. Waxaan dib u eegi doonnaa codsigaaga oo kula soo xiriiri doonnaa."
+            },
+            {
+                "question": "Ma jiraan lacagaha ay bixiyaan ardayda?",
+                "answer": "Maya. Daawashada iyo helitaanka macluumaadka macallimiinta ayaa bilaash ah si buuxda ardayda."
+            },
+            {
+                "question": "Ma jiraan lacagaha ay bixiyaan macallimiinta?",
+                "answer": "Haa, waxaa jira rukunka sanadlaha ah oo calaamad ah macallimiinta kadib marka codsigoodii la aqbalo."
+            }
+        ]
+    },
+    "directory": {
+        "title": "Tusaha Macallimiinta",
+        "browseDesc": "Baadh macallimiinta la xaqiijiyay",
+        "filters": {
+            "subject": "Mawduuc",
+            "format": "Qaab",
+            "all": "Dhammaan"
+        },
+        "noResults": "Wax natiijo ah lama helin",
+        "pagination": {
+            "previous": "Hore",
+            "next": "Xiga"
+        },
+        "teachers": "macallimiinta"
+    },
+    "teacher": {
+        "online": "Onlayn",
+        "inPerson": "Fool-ka-Fool",
+        "hybrid": "Labada",
+        "accepting": "Aqbalaya Ardayda",
+        "limited": "Xadidan",
+        "notAccepting": "Ma Aqbalayo",
+        "backToDirectory": "← Ku noqo Tusaha",
+        "audience": "Bartilmaameedka",
+        "teachingMethod": "Habka Waxbarida",
+        "experience": "Khibrad & Shahaadooyin",
+        "teachingSample": "Muunad Waxbarida",
+        "contactMethods": "Hababka Xiriirka",
+        "whatsapp": "WhatsApp",
+        "email": "Email",
+        "telegram": "Telegram",
+        "website": "Websayt",
+        "visitWebsite": "Booqo Websaytka",
+        "subjects": {
+            "quran": "Quraan",
+            "tajweed": "Tajweed",
+            "arabic": "Carabi",
+            "islamicStudies": "Daraasaadka Islaamka"
+        },
+        "audiences": {
+            "kids": "Carruurta",
+            "adults": "Dadka Waaweyn",
+            "femalesOnly": "Dumar Kaliya",
+            "malesOnly": "Rag Kaliya",
+            "everyone": "Qof Kasta"
+        }
+    },
+    "common": {
+        "loading": "Soo dejinaya...",
+        "error": "Khalad ayaa dhacay",
+        "retry": "Isku day mar kale",
+        "close": "Xir",
+        "submit": "Gudbi",
+        "cancel": "Jooji",
+        "save": "Kaydi",
+        "delete": "Tirtir",
+        "edit": "Wax ka beddel",
+        "view": "Fiiri",
+        "search": "Raadi",
+        "filter": "Sifee",
+        "sort": "Kala sooc",
+        "more": "Dheeraad ah",
+        "less": "Ka yar"
+    },
+    "onboarding": {
+        "profile": {
+            "title": "Macluumaadka Macallinka",
+            "subtitle": "Samee profile",
+            "fullName": "Magaca Oo Buuxa",
+            "country": "Waddanka",
+            "subjectsLabel": "Maadooyinka",
+            "audienceLabel": "Dhageystayaasha",
+            "teachingFormatLabel": "Habka",
+            "teachingFormatPlaceholder": "Dooro Habka",
+            "experienceLabel": "Khibrad",
+            "experiencePlaceholder": "Sharax khibrada...",
+            "videoUrlLabel": "Video (YouTube)",
+            "contactTitle": "Xiriirka",
+            "contactHint": "Kudar xiriir",
+            "submit": "Keydi",
+            "submitting": "Keydinaya..."
+        },
+        "payment": {
+            "title": "Kici Profile",
+            "subtitle": "Bixi rukunka",
+            "pricingTitle": "Rukunka Sanadlaha",
+            "price": "300 EGP",
+            "discount": "Sanadka 1aad (50% Dhimis)",
+            "renewal": "600 EGP / Sanadkii",
+            "transferStart": "U wareeji:",
+            "methodName": "Vodafone Cash:",
+            "uploadLabel": "Rasiidka",
+            "uploadHint": "Sawir/PDF",
+            "submit": "Dir",
+            "submitting": "Diraya..."
+        },
+        "success": {
+            "title": "Waa la helay",
+            "subtitle": "Mahadsanid",
+            "nextStepsTitle": "Tallaabooyinka Xiga",
+            "step1Title": "1. Dib u eegis",
+            "step1Desc": "Waan eegaynaa",
+            "step2Title": "2. Waqtiga",
+            "step2Desc": "24 Saacadood",
+            "step3Title": "3. Ogeysiis",
+            "step3Desc": "Email ahaan",
+            "noticeTitle": "Bayaanka",
+            "noticeText": "Xogtu waa sax. Misbah waa hagaha.",
+            "backButton": "Hoyga"
+        }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Asturnaanta",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Kooban",
+            "summaryText": "Xog yar. Ma iibino.",
+            "dataCollectionTitle": "Xogta",
+            "dataCollectionTeachers": "Magaca, Xiriirka.",
+            "dataCollectionVisitors": "Cookies.",
+            "usageTitle": "Isticmaalka",
+            "usageText": "Muuji profile.",
+            "rightsTitle": "Xuquuqda",
+            "rightsText": "Masax.",
+            "contactText": "Xiriirka:"
+        },
+        "terms": {
+            "title": "Shuruudaha",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Kooban",
+            "summaryText": "Hagaha. Cashar malaha halkan.",
+            "natureTitle": "Adeegga",
+            "natureText": "Ma ahan iskuul.",
+            "responsibilityTitle": "Mas'uuliyadda",
+            "responsibilitySimple1": "Ardayga hubiya.",
+            "responsibilitySimple2": "Macallinka mas'uul.",
+            "responsibilitySimple3": "Gaar ah.",
+            "subscriptionTitle": "Rukunka",
+            "subscriptionText": "Astaamaha.",
+            "modificationTitle": "Beddel",
+            "modificationText": "Xaqa masax."
+        },
+        "disclaimer": {
+            "title": "Afeef",
+            "lastUpdated": "Jan 2026",
+            "highlightTitle": "Muhiim",
+            "highlightText": "Xiriirka adigaa leh.",
+            "scopeTitle": "Baaxadda",
+            "scopeComm": "Xiriirka: Dibadda.",
+            "scopeInfo": "Info: Lama hubin.",
+            "scopeEdu": "Waxbarasho: Damaanad malaha.",
+            "scopeMoney": "Lacag: Faragelin malaha.",
+            "reviewTitle": "Dib u eegis",
+            "reviewText": "Dhab ah kaliya.",
+            "agreementTitle": "Ogolaansho",
+            "agreementText": "Waad ogoshahay.",
+            "contactText": "Xiriirka:"
+        }
+    }
+}

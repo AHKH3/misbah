@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useI18n } from '@/lib/i18n';
 import { Avatar, Badge, BadgeList } from '@/components/ui';
 import { PLACEHOLDER_PROFILES } from '@/lib/placeholder-data';
 import { getLocalizedText } from '@/lib/types/profile';
-import type { Subject, TeachingFormat } from '@/lib/types/profile';
+import type { Subject, TeachingFormat, PublicProfile } from '@/lib/types/profile';
+import { getPublishedProfiles } from '@/lib/data/teachers';
 import styles from './page.module.css';
 
 const SUBJECTS: Subject[] = ['Quran', 'Tajweed', 'Arabic', 'Islamic Studies'];
@@ -16,6 +17,11 @@ const ITEMS_PER_PAGE = 9;
 
 export default function DirectoryPage() {
     const { labels, locale } = useI18n();
+    const { directory, teacher } = labels;
+
+    // Database profiles state
+    const [profiles, setProfiles] = useState<PublicProfile[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     // Filters
     const [subjectFilter, setSubjectFilter] = useState<Subject | ''>('');
@@ -24,20 +30,34 @@ export default function DirectoryPage() {
     // Pagination
     const [currentPage, setCurrentPage] = useState(1);
 
+    // Fetch profiles from database
+    useEffect(() => {
+        async function fetchProfiles() {
+            setIsLoading(true);
+            try {
+                const dbProfiles = await getPublishedProfiles();
+                // Use DB profiles if available, fallback to placeholder
+                setProfiles(dbProfiles.length > 0 ? dbProfiles : PLACEHOLDER_PROFILES);
+            } catch (error) {
+                console.error('Error fetching profiles:', error);
+                setProfiles(PLACEHOLDER_PROFILES);
+            }
+            setIsLoading(false);
+        }
+        fetchProfiles();
+    }, []);
+
     // Filter profiles
-    let filteredProfiles = PLACEHOLDER_PROFILES;
-
-    if (subjectFilter) {
-        filteredProfiles = filteredProfiles.filter((p) =>
-            p.subjects.includes(subjectFilter)
-        );
-    }
-
-    if (formatFilter) {
-        filteredProfiles = filteredProfiles.filter(
-            (p) => p.teaching_format === formatFilter
-        );
-    }
+    const filteredProfiles = useMemo(() => {
+        let result = profiles;
+        if (subjectFilter) {
+            result = result.filter((p) => p.subjects.includes(subjectFilter));
+        }
+        if (formatFilter) {
+            result = result.filter((p) => p.teaching_format === formatFilter);
+        }
+        return result;
+    }, [profiles, subjectFilter, formatFilter]);
 
     // Pagination
     const totalPages = Math.ceil(filteredProfiles.length / ITEMS_PER_PAGE);
@@ -53,33 +73,35 @@ export default function DirectoryPage() {
 
     // Get subject/format labels from static translations
     const getSubjectLabel = (s: Subject) => {
-        const map: Record<Subject, keyof typeof labels> = {
+        const map: Record<Subject, keyof typeof teacher.subjects> = {
             Quran: 'quran',
             Tajweed: 'tajweed',
             Arabic: 'arabic',
             'Islamic Studies': 'islamicStudies',
         };
-        const label = labels[map[s]];
+        const label = teacher.subjects[map[s]];
         return typeof label === 'string' ? label : s;
     };
 
     const getFormatLabel = (f: TeachingFormat) => {
-        const map: Record<TeachingFormat, keyof typeof labels> = {
+        const map: Record<TeachingFormat, keyof typeof teacher> = {
             online: 'online',
             in_person: 'inPerson',
             hybrid: 'hybrid',
         };
-        const label = labels[map[f]];
+        // @ts-ignore - Dynamic access to teacher object properties which are strings
+        const label = teacher[map[f]];
         return typeof label === 'string' ? label : f;
     };
 
     const getStatusLabel = (status: string) => {
-        const map: Record<string, keyof typeof labels> = {
+        const map: Record<string, keyof typeof teacher> = {
             accepting: 'accepting',
             limited: 'limited',
             not_accepting: 'notAccepting',
         };
-        const label = labels[map[status]];
+        // @ts-ignore - Dynamic access to teacher object properties which are strings
+        const label = teacher[map[status]];
         return typeof label === 'string' ? label : status;
     };
 
@@ -92,15 +114,15 @@ export default function DirectoryPage() {
             <div className={styles.container}>
                 {/* Header */}
                 <header className={styles.header}>
-                    <h1 className={styles.title}>{labels.directory}</h1>
-                    <p className={styles.subtitle}>{labels.browseDesc}</p>
+                    <h1 className={styles.title}>{directory.title}</h1>
+                    <p className={styles.subtitle}>{directory.browseDesc}</p>
                 </header>
 
                 {/* Filters */}
                 <div className={styles.filters}>
                     <div className={styles.filterGroup}>
                         <label htmlFor="subject" className={styles.filterLabel}>
-                            {labels.subject}
+                            {directory.filters.subject}
                         </label>
                         <select
                             id="subject"
@@ -111,7 +133,7 @@ export default function DirectoryPage() {
                             }}
                             className={styles.filterSelect}
                         >
-                            <option value="">{labels.all}</option>
+                            <option value="">{directory.filters.all}</option>
                             {SUBJECTS.map((subject) => (
                                 <option key={subject} value={subject}>
                                     {getSubjectLabel(subject)}
@@ -122,7 +144,7 @@ export default function DirectoryPage() {
 
                     <div className={styles.filterGroup}>
                         <label htmlFor="format" className={styles.filterLabel}>
-                            {labels.format}
+                            {directory.filters.format}
                         </label>
                         <select
                             id="format"
@@ -133,7 +155,7 @@ export default function DirectoryPage() {
                             }}
                             className={styles.filterSelect}
                         >
-                            <option value="">{labels.all}</option>
+                            <option value="">{directory.filters.all}</option>
                             {FORMATS.map((format) => (
                                 <option key={format} value={format}>
                                     {getFormatLabel(format)}
@@ -143,13 +165,15 @@ export default function DirectoryPage() {
                     </div>
 
                     <div className={styles.resultCount}>
-                        {filteredProfiles.length} {labels.teachers}
+                        {isLoading ? '...' : `${filteredProfiles.length} ${directory.teachers}`}
                     </div>
                 </div>
 
-                {/* Teacher Grid */}
-                {paginatedProfiles.length === 0 ? (
-                    <div className={styles.emptyState}>{labels.noResults}</div>
+                {/* Loading State */}
+                {isLoading ? (
+                    <div className={styles.emptyState}>جاري التحميل...</div>
+                ) : paginatedProfiles.length === 0 ? (
+                    <div className={styles.emptyState}>{directory.noResults}</div>
                 ) : (
                     <div className={styles.teacherGrid}>
                         {paginatedProfiles.map((profile) => (
@@ -191,7 +215,7 @@ export default function DirectoryPage() {
                             disabled={currentPage === 1}
                             className={styles.pageButton}
                         >
-                            {labels.previous}
+                            {directory.pagination.previous}
                         </button>
                         <span className={styles.pageInfo}>
                             {currentPage} / {totalPages}
@@ -201,7 +225,7 @@ export default function DirectoryPage() {
                             disabled={currentPage === totalPages}
                             className={styles.pageButton}
                         >
-                            {labels.next}
+                            {directory.pagination.next}
                         </button>
                     </div>
                 )}

@@ -12,13 +12,14 @@ export type Audience = 'Kids' | 'Adults' | 'Females Only' | 'Males Only' | 'Ever
 // Availability Status
 export type AvailabilityStatus = 'accepting' | 'limited' | 'not_accepting';
 
-// Profile Status (from database enum)
+// Profile Status (from database enum - 6 states)
 export type ProfileStatus =
-    | 'pending_payment'
-    | 'payment_submitted'
-    | 'active'
-    | 'inactive'
-    | 'rejected';
+    | 'draft'
+    | 'under_review'
+    | 'needs_changes'
+    | 'approved'
+    | 'published'
+    | 'suspended';
 
 // Bilingual text field
 export interface BilingualText {

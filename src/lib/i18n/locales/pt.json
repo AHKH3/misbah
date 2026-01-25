@@ -1,0 +1,337 @@
+{
+    "nav": {
+        "home": "Início",
+        "directory": "Professores",
+        "about": "Sobre nós",
+        "faq": "FAQ",
+        "register": "Junte-se como Professor",
+        "login": "Entrar"
+    },
+    "footer": {
+        "tagline": "Diretório de professores de Alcorão e Árabe",
+        "about": "Sobre nós",
+        "faq": "FAQ",
+        "privacy": "Política de Privacidade",
+        "terms": "Termos de Uso",
+        "copyright": "© 2025 Misbah. Todos os direitos reservados",
+        "disclaimer": "Isenção de Responsabilidade"
+    },
+    "home": {
+        "hero": {
+            "title": "Misbah",
+            "subtitle": "Diretório de professores de Alcorão, Árabe e Estudos Islâmicos",
+            "valueStatement": "Cada professor aqui foi verificado quanto à seriedade. Você decide.",
+            "ctaStudents": "Explorar Professores",
+            "ctaTeachers": "Inscreva-se como Professor",
+            "trustBadges": [
+                "Diretório Verificado",
+                "Contato Direto",
+                "Grátis para Alunos"
+            ]
+        },
+        "forStudents": {
+            "label": "Para Alunos e Pais",
+            "title": "Encontre seu Professor com Clareza",
+            "points": [
+                "Perfis pessoais — cada professor tem sua própria página",
+                "Revisão manual — cada perfil é revisado antes da publicação",
+                "Informações organizadas — fácil de ler e comparar",
+                "Informações de contato — entre em contato diretamente fora do site"
+            ],
+            "note": "A Misbah exibe apenas informações de contato. Qualquer comunicação acontece fora do site sob sua responsabilidade.",
+            "cta": "Explorar Professores"
+        },
+        "forTeachers": {
+            "label": "Para Professores",
+            "title": "Sua Própria Presença Profissional",
+            "points": [
+                "Perfil público — visível nos motores de busca",
+                "Sem comissões — apenas assinatura anual",
+                "Sem reservas — não interferimos na sua agenda",
+                "Todos os professores são bem-vindos — independentes ou empregados"
+            ],
+            "note": "A Misbah não envia alunos para você. Os alunos encontram você.",
+            "cta": "Saiba Mais sobre como Participar"
+        },
+        "notSection": {
+            "title": "O que a Misbah Não É",
+            "points": [
+                "Não é plataforma de reservas — sem agendamento",
+                "Não é um mercado — sem transações financeiras entre nós",
+                "Não é uma academia — sem currículo, sem gestão",
+                "Não é intermediário de pagamento — não lidamos com taxas de alunos",
+                "Não é órgão de credenciamento ou educacional oficial"
+            ]
+        },
+        "howItWorks": {
+            "title": "Como a Misbah Funciona",
+            "steps": [
+                {
+                    "number": "1",
+                    "title": "Inscrever-se",
+                    "description": "Professor envia inscrição"
+                },
+                {
+                    "number": "2",
+                    "title": "Revisar",
+                    "description": "Revisamos cada inscrição individualmente"
+                },
+                {
+                    "number": "3",
+                    "title": "Publicar",
+                    "description": "O perfil é publicado com informações de contato"
+                }
+            ],
+            "note": "O papel da Misbah termina ao exibir informações de contato."
+        },
+        "pricing": {
+            "label": "Apenas para Professores",
+            "title": "Assinatura Simbólica",
+            "description": "Uma contribuição anual simbólica para garantir seriedade e sustentabilidade. Pago apenas após sua adesão ser aceita."
+        },
+        "finalCta": {
+            "studentsLabel": "Para Alunos",
+            "studentsButton": "Explorar Professores",
+            "teachersLabel": "Para Professores",
+            "teachersButton": "Solicitar Adesão"
+        },
+        "disclaimer": "Misbah é um diretório público. As informações são fornecidas pelos professores."
+    },
+    "about": {
+        "pageTitle": "Sobre a Misbah",
+        "whatIs": {
+            "title": "O que é Misbah",
+            "description": "Misbah é um diretório online que reúne professores do Alcorão Sagrado, língua árabe e estudos islâmicos em um só lugar.",
+            "subDescription": "Exibimos informações de contato de cada professor para que alunos ou pais possam entrar em contato diretamente fora da plataforma."
+        },
+        "why": {
+            "title": "Por que a Misbah foi criada",
+            "description": "Muitos excelentes professores não têm uma presença digital clara.",
+            "subDescription": "A Misbah preenche essa lacuna fornecendo um espaço organizado."
+        },
+        "how": {
+            "title": "Como funciona",
+            "steps": [
+                "O professor cria um perfil.",
+                "A inscrição é revisada manualmente.",
+                "Após a publicação, o perfil torna-se publicamente acessível."
+            ]
+        },
+        "nature": {
+            "title": "Natureza da Misbah",
+            "intro": "Misbah é:",
+            "points": [
+                "Não é uma plataforma educacional.",
+                "Não é um intermediário financeiro.",
+                "Não é um órgão de credenciamento.",
+                "Não é uma plataforma de reservas."
+            ],
+            "conclusion": "Somos simplesmente um diretório."
+        },
+        "review": {
+            "title": "O que revisamos",
+            "description": "Verificamos a integridade e seriedade das informações, mas não validamos certificados de forma independente."
+        },
+        "limits": {
+            "title": "Limites de responsabilidade",
+            "description": "A Misbah não é responsável pela qualidade do ensino ou transações financeiras."
+        },
+        "contact": {
+            "title": "Contate-nos",
+            "description": "Se tiver dúvidas:",
+            "email": "contact@misbah.site"
+        }
+    },
+    "faq": {
+        "pageTitle": "Perguntas Frequentes",
+        "items": [
+            {
+                "question": "O que é o Misbah?",
+                "answer": "Misbah é um diretório online que exibe professores do Sagrado Alcorão, língua árabe e estudos islâmicos, com informações de contato para cada professor."
+            },
+            {
+                "question": "Misbah é uma plataforma educacional?",
+                "answer": "Não. Misbah não é uma plataforma educacional. Exibimos apenas informações de professores. Aulas e comunicação acontecem diretamente entre aluno e professor fora do site."
+            },
+            {
+                "question": "Misbah é responsável pela qualidade do ensino?",
+                "answer": "Não. Misbah não garante a qualidade do ensino e não assume nenhuma responsabilidade pelo relacionamento entre aluno e professor."
+            },
+            {
+                "question": "Misbah gerencia pagamentos?",
+                "answer": "Não. Qualquer acordo financeiro entre aluno e professor é completamente independente do Misbah."
+            },
+            {
+                "question": "Como posso me juntar como professor?",
+                "answer": "Você pode se candidatar através da página de registro. Analisaremos sua candidatura e entraremos em contato."
+            },
+            {
+                "question": "Existem taxas para alunos?",
+                "answer": "Não. Navegar e acessar informações de professores é completamente gratuito para alunos."
+            },
+            {
+                "question": "Existem taxas para professores?",
+                "answer": "Sim, há uma assinatura anual simbólica para professores após a aceitação de sua candidatura."
+            }
+        ]
+    },
+    "directory": {
+        "title": "Diretório de Professores",
+        "browseDesc": "Navegue por professores verificados",
+        "filters": {
+            "subject": "Matéria",
+            "format": "Formato",
+            "all": "Todos"
+        },
+        "noResults": "Nenhum resultado encontrado",
+        "pagination": {
+            "previous": "Anterior",
+            "next": "Próximo"
+        },
+        "teachers": "professores"
+    },
+    "teacher": {
+        "online": "Online",
+        "inPerson": "Presencial",
+        "hybrid": "Ambos",
+        "accepting": "Aceitando Alunos",
+        "limited": "Limitado",
+        "notAccepting": "Não Aceitando",
+        "backToDirectory": "← Voltar ao Diretório",
+        "audience": "Público Alvo",
+        "teachingMethod": "Método de Ensino",
+        "experience": "Experiência e Qualificações",
+        "teachingSample": "Amostra de Ensino",
+        "contactMethods": "Métodos de Contato",
+        "whatsapp": "WhatsApp",
+        "email": "Email",
+        "telegram": "Telegram",
+        "website": "Site",
+        "visitWebsite": "Visitar Site",
+        "subjects": {
+            "quran": "Alcorão",
+            "tajweed": "Tajweed",
+            "arabic": "Árabe",
+            "islamicStudies": "Estudos Islâmicos"
+        },
+        "audiences": {
+            "kids": "Crianças",
+            "adults": "Adultos",
+            "femalesOnly": "Apenas Mulheres",
+            "malesOnly": "Apenas Homens",
+            "everyone": "Todos"
+        }
+    },
+    "common": {
+        "loading": "Carregando...",
+        "error": "Ocorreu um erro",
+        "retry": "Tentar novamente",
+        "close": "Fechar",
+        "submit": "Enviar",
+        "cancel": "Cancelar",
+        "save": "Salvar",
+        "delete": "Excluir",
+        "edit": "Editar",
+        "view": "Ver",
+        "search": "Pesquisar",
+        "filter": "Filtrar",
+        "sort": "Ordenar",
+        "more": "Mais",
+        "less": "Menos"
+    },
+    "onboarding": {
+        "profile": {
+            "title": "Perfil do Professor",
+            "subtitle": "Crie seu perfil",
+            "fullName": "Nome Completo",
+            "country": "País",
+            "subjectsLabel": "Matérias",
+            "audienceLabel": "Público",
+            "teachingFormatLabel": "Formato",
+            "teachingFormatPlaceholder": "Escolher formato",
+            "experienceLabel": "Experiência",
+            "experiencePlaceholder": "Descreva sua experiência...",
+            "videoUrlLabel": "Vídeo Intro",
+            "contactTitle": "Contato",
+            "contactHint": "Adicione contato",
+            "submit": "Salvar",
+            "submitting": "Salvando..."
+        },
+        "payment": {
+            "title": "Ativar Perfil",
+            "subtitle": "Pagar assinatura",
+            "pricingTitle": "Assinatura",
+            "price": "300 EGP",
+            "discount": "1º Ano (50% desc)",
+            "renewal": "600 EGP / Ano",
+            "transferStart": "Transferir para:",
+            "methodName": "Vodafone Cash:",
+            "uploadLabel": "Comprovante",
+            "uploadHint": "Foto/PDF",
+            "submit": "Enviar",
+            "submitting": "Enviando..."
+        },
+        "success": {
+            "title": "Recebido",
+            "subtitle": "Obrigado",
+            "nextStepsTitle": "Próximos passos",
+            "step1Title": "1. Revisão",
+            "step1Desc": "Analisamos o perfil",
+            "step2Title": "2. Tempo",
+            "step2Desc": "24 Horas",
+            "step3Title": "3. Notificação",
+            "step3Desc": "Por Email",
+            "noticeTitle": "Declaração",
+            "noticeText": "Dados corretos. Misbah é apenas um diretório.",
+            "backButton": "Início"
+        }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Privacidade",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Resumo",
+            "summaryText": "Dados mínimos. Sem venda.",
+            "dataCollectionTitle": "Dados",
+            "dataCollectionTeachers": "Nome, Contato.",
+            "dataCollectionVisitors": "Cookies.",
+            "usageTitle": "Uso",
+            "usageText": "Exibir perfil.",
+            "rightsTitle": "Direitos",
+            "rightsText": "Exclusão.",
+            "contactText": "Contato:"
+        },
+        "terms": {
+            "title": "Termos",
+            "lastUpdated": "Jan 2026",
+            "summaryTitle": "Resumo",
+            "summaryText": "Diretório. Sem aulas no site.",
+            "natureTitle": "Serviço",
+            "natureText": "Não é escola.",
+            "responsibilityTitle": "Responsabilidade",
+            "responsibilitySimple1": "Aluno verifica.",
+            "responsibilitySimple2": "Professor responsável.",
+            "responsibilitySimple3": "Acordo privado.",
+            "subscriptionTitle": "Assinatura",
+            "subscriptionText": "Simbólica.",
+            "modificationTitle": "Modificação",
+            "modificationText": "Direito de exclusão."
+        },
+        "disclaimer": {
+            "title": "Aviso Legal",
+            "lastUpdated": "Jan 2026",
+            "highlightTitle": "Importante",
+            "highlightText": "Contato por sua conta.",
+            "scopeTitle": "Escopo",
+            "scopeComm": "Comunicação: Externa.",
+            "scopeInfo": "Info: Não verificada.",
+            "scopeEdu": "Educação: Sem garantia.",
+            "scopeMoney": "Dinheiro: Sem intervenção.",
+            "reviewTitle": "Revisão",
+            "reviewText": "Apenas seriedade.",
+            "agreementTitle": "Acordo",
+            "agreementText": "Você aceita.",
+            "contactText": "Contato:"
+        }
+    }
+}
