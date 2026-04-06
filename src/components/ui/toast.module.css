@@ -1,0 +1,56 @@
+/* ===========================================================
+   TOAST COMPONENT — Temporary Notifications
+   =========================================================== */
+
+.container {
+    position: fixed;
+    inset-block-start: var(--space-md);
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-base);
+    pointer-events: none;
+}
+
+[dir="rtl"] .container {
+    transform: translateX(50%);
+}
+
+.toast {
+    pointer-events: auto;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-badge);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-lift);
+    animation: slideIn var(--duration) var(--curve-smooth);
+}
+
+.success {
+    background-color: var(--color-ink-strong);
+    color: var(--color-card);
+}
+
+.error {
+    background-color: var(--color-ink-body);
+    color: var(--color-card);
+}
+
+.info {
+    background-color: var(--color-card);
+    color: var(--color-ink-strong);
+    border: 1px solid var(--border-ghost);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

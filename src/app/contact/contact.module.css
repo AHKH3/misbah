@@ -1,0 +1,71 @@
+/* ===========================================================
+   CONTACT PAGE — Clean & Minimal
+   Follows: conductor/ui-ux.md (monochrome, 8px spacing)
+   =========================================================== */
+
+.page {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-md);
+    min-height: 60vh;
+}
+
+.container {
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-ink-strong);
+    margin: 0;
+    margin-block-end: var(--space-base);
+}
+
+.subtitle {
+    font-size: 1.0625rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+    margin: 0;
+    margin-block-end: var(--space-xl);
+}
+
+.emailBox {
+    padding: var(--space-lg);
+    background-color: var(--color-card);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+}
+
+.emailLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-subtle);
+    margin: 0;
+    margin-block-end: var(--space-base);
+}
+
+.emailLink {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    text-decoration: none;
+    border-block-end: 1px solid var(--border-ghost);
+    padding-block-end: 2px;
+    transition: border-color var(--duration) var(--curve-smooth);
+}
+
+.emailLink:hover {
+    border-color: var(--color-ink-strong);
+}
+
+.note {
+    font-size: 0.875rem;
+    color: var(--color-ink-subtle);
+    margin: 0;
+    margin-block-start: var(--space-md);
+}

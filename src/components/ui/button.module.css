@@ -28,7 +28,7 @@
 /* Primary Button */
 .primary {
     background-color: var(--color-ink-strong);
-    color: #fff;
+    color: var(--color-card);
 }
 
 .primary:hover {
@@ -67,8 +67,8 @@
 
 /* Primary Inverted (White button on dark bg) */
 .primaryInverted {
-    background-color: #ffffff;
-    color: #0a0a0a;
+    background-color: var(--color-card);
+    color: var(--color-ink-strong);
 }
 
 .primaryInverted:hover {
@@ -83,7 +83,7 @@
 /* Ghost Inverted (Visible on dark bg) */
 .ghostInverted {
     background-color: transparent;
-    color: #ffffff;
+    color: var(--color-card);
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 

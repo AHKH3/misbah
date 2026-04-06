@@ -335,3 +335,107 @@
         flex-direction: column;
     }
 }
+/* Modal Input & Select */
+.modalInput {
+    width: 100%;
+    min-height: 100px;
+    padding: var(--space-sm);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-badge);
+    font-size: 0.9375rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color var(--duration) var(--curve-smooth);
+}
+
+.modalInput:focus {
+    outline: none;
+    border-color: var(--border-strong);
+}
+
+.modalSelect {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-badge);
+    font-size: 0.9375rem;
+    font-family: inherit;
+    background-color: var(--color-card);
+    cursor: pointer;
+    transition: border-color var(--duration) var(--curve-smooth);
+}
+
+.modalSelect:focus {
+    outline: none;
+    border-color: var(--border-strong);
+}
+
+/* Queue Styles (for ReviewList) */
+.queue {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.queueItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+}
+
+.queueInfo {
+    flex: 1;
+}
+
+.queueName {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin: 0 0 var(--space-micro) 0;
+}
+
+.queueMeta {
+    font-size: 0.875rem;
+    color: var(--color-ink-subtle);
+    margin: 0 0 var(--space-sm) 0;
+}
+
+.queueDetails {
+    font-size: 0.875rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+}
+
+.queueActions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.proofLink {
+    display: inline-block;
+    margin-block-start: var(--space-sm);
+    color: var(--color-ink-body);
+    text-decoration: underline;
+    font-size: 0.875rem;
+}
+
+.proofLink:hover {
+    color: var(--color-ink-strong);
+}
+
+@media (max-width: 768px) {
+    .queueItem {
+        flex-direction: column;
+    }
+
+    .queueActions {
+        width: 100%;
+        flex-direction: row;
+    }
+}

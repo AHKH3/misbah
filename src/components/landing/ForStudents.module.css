@@ -1,0 +1,77 @@
+/* For Students Section */
+.section {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-md);
+    background-color: var(--color-ground);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin-inline: auto;
+}
+
+.label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-ink-subtle);
+    margin-block-end: var(--space-sm);
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-lg);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+    margin-block-end: var(--space-lg);
+}
+
+.card {
+    padding: var(--space-md);
+    background-color: var(--color-card);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-card);
+}
+
+.cardIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-block-end: var(--space-sm);
+    color: var(--color-ink-strong);
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-base);
+}
+
+.cardDesc {
+    font-size: 0.9375rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+}
+
+.cta {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,54 @@
+/* ===========================================================
+   LOGIN MODAL — Auth Form
+   =========================================================== */
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-md);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-micro);
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-ink-body);
+}
+
+.input {
+    height: 48px;
+    padding-inline: var(--space-sm);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-badge);
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--color-ink-strong);
+    background-color: var(--color-ground);
+    transition: border-color var(--duration) var(--curve-smooth);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-ink-subtle);
+}
+
+.error {
+    font-size: 0.875rem;
+    color: var(--color-ink-body);
+    background-color: var(--color-ground);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-badge);
+    padding: var(--space-base) var(--space-sm);
+}

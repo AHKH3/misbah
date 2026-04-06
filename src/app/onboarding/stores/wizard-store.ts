@@ -38,8 +38,8 @@ export type AcademicDegree = 'secondary' | 'diploma' | 'bachelor' | 'master' | '
 // Organization type for experience
 export type OrganizationType = 'academy' | 'center' | 'mosque' | 'private' | 'online' | 'other';
 
-// Fiqh madhab
-export type Madhab = 'hanafi' | 'maliki' | 'shafii' | 'hanbali' | 'salafi' | 'other' | '';
+// Language proficiency levels
+export type LanguageProficiency = 'beginner' | 'intermediate' | 'advanced' | 'native';
 
 // ============================================
 // ENTRY TYPES
@@ -70,6 +70,13 @@ export interface ExperienceEntry {
     description?: string;
 }
 
+// Language entry
+export interface LanguageEntry {
+    id: string;
+    language: string;
+    proficiency: LanguageProficiency;
+}
+
 // ============================================
 // STEP DATA INTERFACES
 // ============================================
@@ -87,7 +94,7 @@ export interface SubjectSpecializations {
     islamicSections: IslamicSection[];
 }
 
-// Step 1: Personal Information (البيانات الأساسية)
+// Step 1: Personal Information Only (البيانات الشخصية فقط)
 interface Step1Data {
     fullName: string;
     fullNameEn: string;
@@ -95,38 +102,46 @@ interface Step1Data {
     gender: Gender | '';
     country: string;
     birthDate: string;
+}
+
+// Step 2: Specialization & Languages (التخصص واللغات)
+interface Step2Data {
     subjects: Subject[];
     specializations: SubjectSpecializations;
+    languages: LanguageEntry[];
 }
 
-// Step 2: Education & Experience (الخلفية والخبرة)
-interface Step2Data {
+// Step 3: Education & Experience (الخلفية والخبرة)
+interface Step3Data {
     education: EducationEntry[];    // التعليم (Timeline)
     experiences: ExperienceEntry[]; // الخبرة (Timeline)
-    madhab: Madhab;                 // المذهب الفقهي (اختياري)
 }
 
-// Step 3: Target Audience & Pricing
-interface Step3Data {
+// Step 4: Target Audience, Pricing & Bio (الجمهور والسعر والبايو)
+interface Step4Data {
     studentAgeMin: number | null;
     studentAgeMax: number | null;
     studentGender: 'males' | 'females' | 'both';
     priceAmount: number | null;
     priceCurrency: 'EGP' | 'USD';
-    audience: string[];
+    bioTextAr: string;
+    bioTextEn: string;
 }
 
-// Step 4: Contact & Sample
-interface Step4Data {
-    whatsapp: string;
-    email: string;
-    telegram: string;
-    videoUrl: string;
-    teachingFormat: 'online' | 'in_person' | 'hybrid' | '';
-}
-
-// Step 5: Legal Acknowledgement
+// Step 5: Educational Sample (الفيديو التعليمي)
 interface Step5Data {
+    videoUrl: string;
+}
+
+// Step 6: Contact & Legal (التواصل والقانوني)
+interface Step6Data {
+    whatsapp: string;
+    misbahEmail: string; // Email for Misbah communication (not student contact)
+    telegram: string;
+    teachingFormat: 'online';
+    personalTeaching: boolean;
+    noRedirection: boolean;
+    violationConsequences: boolean;
     legalAcknowledgement: boolean;
 }
 
@@ -135,7 +150,7 @@ interface Step5Data {
 // ============================================
 
 export interface WizardState {
-    // Current step (1-5)
+    // Current step (1-6)
     currentStep: number;
 
     // Draft profile ID (from database)
@@ -147,6 +162,7 @@ export interface WizardState {
     step3: Step3Data;
     step4: Step4Data;
     step5: Step5Data;
+    step6: Step6Data;
 
     // Actions
     setStep: (step: number) => void;
@@ -156,6 +172,7 @@ export interface WizardState {
     updateStep3: (data: Partial<Step3Data>) => void;
     updateStep4: (data: Partial<Step4Data>) => void;
     updateStep5: (data: Partial<Step5Data>) => void;
+    updateStep6: (data: Partial<Step6Data>) => void;
 
     // Education helpers
     addEducation: (entry: EducationEntry) => void;
@@ -166,6 +183,11 @@ export interface WizardState {
     addExperience: (experience: ExperienceEntry) => void;
     updateExperience: (id: string, data: Partial<ExperienceEntry>) => void;
     removeExperience: (id: string) => void;
+
+    // Language helpers
+    addLanguage: (language: LanguageEntry) => void;
+    updateLanguage: (id: string, data: Partial<LanguageEntry>) => void;
+    removeLanguage: (id: string) => void;
 
     // Computed: calculate total experience years
     getTotalExperienceYears: () => number;
@@ -188,6 +210,9 @@ const initialStep1: Step1Data = {
     gender: '',
     country: '',
     birthDate: '',
+};
+
+const initialStep2: Step2Data = {
     subjects: [],
     specializations: {
         quranTypes: [],
@@ -197,32 +222,36 @@ const initialStep1: Step1Data = {
         arabicOther: '',
         islamicSections: [],
     },
-};
-
-const initialStep2: Step2Data = {
-    education: [],
-    experiences: [],
-    madhab: '',
+    languages: [],
 };
 
 const initialStep3: Step3Data = {
+    education: [],
+    experiences: [],
+};
+
+const initialStep4: Step4Data = {
     studentAgeMin: null,
     studentAgeMax: null,
     studentGender: 'both',
     priceAmount: null,
     priceCurrency: 'EGP',
-    audience: [],
-};
-
-const initialStep4: Step4Data = {
-    whatsapp: '',
-    email: '',
-    telegram: '',
-    videoUrl: '',
-    teachingFormat: '',
+    bioTextAr: '',
+    bioTextEn: '',
 };
 
 const initialStep5: Step5Data = {
+    videoUrl: '',
+};
+
+const initialStep6: Step6Data = {
+    whatsapp: '',
+    misbahEmail: '',
+    telegram: '',
+    teachingFormat: 'online',
+    personalTeaching: false,
+    noRedirection: false,
+    violationConsequences: false,
     legalAcknowledgement: false,
 };
 
@@ -240,6 +269,7 @@ export const useWizardStore = create<WizardState>()(
             step3: initialStep3,
             step4: initialStep4,
             step5: initialStep5,
+            step6: initialStep6,
 
             setStep: (step) => set({ currentStep: step }),
             setDraftProfileId: (id) => set({ draftProfileId: id }),
@@ -264,51 +294,79 @@ export const useWizardStore = create<WizardState>()(
                 step5: { ...state.step5, ...data }
             })),
 
+            updateStep6: (data) => set((state) => ({
+                step6: { ...state.step6, ...data }
+            })),
+
             // Education helpers
             addEducation: (entry) => set((state) => ({
-                step2: {
-                    ...state.step2,
-                    education: [...state.step2.education, entry]
+                step3: {
+                    ...state.step3,
+                    education: [...state.step3.education, entry]
                 }
             })),
 
             updateEducation: (id, data) => set((state) => ({
-                step2: {
-                    ...state.step2,
-                    education: state.step2.education.map((edu) =>
+                step3: {
+                    ...state.step3,
+                    education: state.step3.education.map((edu) =>
                         edu.id === id ? { ...edu, ...data } : edu
                     )
                 }
             })),
 
             removeEducation: (id) => set((state) => ({
-                step2: {
-                    ...state.step2,
-                    education: state.step2.education.filter((edu) => edu.id !== id)
+                step3: {
+                    ...state.step3,
+                    education: state.step3.education.filter((edu) => edu.id !== id)
                 }
             })),
 
             // Experience helpers
             addExperience: (experience) => set((state) => ({
-                step2: {
-                    ...state.step2,
-                    experiences: [...state.step2.experiences, experience]
+                step3: {
+                    ...state.step3,
+                    experiences: [...state.step3.experiences, experience]
                 }
             })),
 
             updateExperience: (id, data) => set((state) => ({
-                step2: {
-                    ...state.step2,
-                    experiences: state.step2.experiences.map((exp) =>
+                step3: {
+                    ...state.step3,
+                    experiences: state.step3.experiences.map((exp) =>
                         exp.id === id ? { ...exp, ...data } : exp
                     )
                 }
             })),
 
             removeExperience: (id) => set((state) => ({
+                step3: {
+                    ...state.step3,
+                    experiences: state.step3.experiences.filter((exp) => exp.id !== id)
+                }
+            })),
+
+            // Language helpers (now in step2)
+            addLanguage: (language) => set((state) => ({
                 step2: {
                     ...state.step2,
-                    experiences: state.step2.experiences.filter((exp) => exp.id !== id)
+                    languages: [...(state.step2.languages || []), language]
+                }
+            })),
+
+            updateLanguage: (id, data) => set((state) => ({
+                step2: {
+                    ...state.step2,
+                    languages: (state.step2.languages || []).map((lang) =>
+                        lang.id === id ? { ...lang, ...data } : lang
+                    )
+                }
+            })),
+
+            removeLanguage: (id) => set((state) => ({
+                step2: {
+                    ...state.step2,
+                    languages: (state.step2.languages || []).filter((lang) => lang.id !== id)
                 }
             })),
 
@@ -320,11 +378,12 @@ export const useWizardStore = create<WizardState>()(
                 step3: initialStep3,
                 step4: initialStep4,
                 step5: initialStep5,
+                step6: initialStep6,
             }),
 
             // Calculate total experience years
             getTotalExperienceYears: () => {
-                const { experiences } = get().step2;
+                const { experiences } = get().step3;
                 let totalMonths = 0;
 
                 experiences.forEach((exp) => {
@@ -366,11 +425,42 @@ export const useWizardStore = create<WizardState>()(
                 step1: state.step1,
                 step2: state.step2,
                 step3: state.step3,
-                step4: {
-                    ...state.step4,
-                    videoUrl: '', // Don't persist
+                step4: state.step4,
+                step5: {
+                    videoUrl: '', // Don't persist video URL
                 },
+                // step6 not persisted (contact methods + legal acknowledgement)
             }),
+            // Merge function to ensure step3.education and step3.experiences are always arrays
+            merge: (persistedState: unknown, currentState: WizardState) => {
+                const persisted = persistedState as Partial<WizardState>;
+                const state = { ...currentState, ...persisted };
+                
+                // Ensure step3 has education and experiences arrays
+                if (!state.step3) {
+                    state.step3 = initialStep3;
+                } else {
+                    state.step3 = {
+                        ...initialStep3,
+                        ...state.step3,
+                        education: Array.isArray(state.step3.education) ? state.step3.education : [],
+                        experiences: Array.isArray(state.step3.experiences) ? state.step3.experiences : [],
+                    };
+                }
+                
+                // Ensure step2 has languages array
+                if (!state.step2) {
+                    state.step2 = initialStep2;
+                } else {
+                    state.step2 = {
+                        ...initialStep2,
+                        ...state.step2,
+                        languages: Array.isArray(state.step2.languages) ? state.step2.languages : [],
+                    };
+                }
+                
+                return state;
+            },
         }
     )
 );
@@ -428,14 +518,37 @@ export const ORG_TYPE_LABELS: Record<OrganizationType, string> = {
     other: 'أخرى',
 };
 
-export const MADHAB_LABELS: Record<Exclude<Madhab, ''>, string> = {
-    hanafi: 'حنفي',
-    maliki: 'مالكي',
-    shafii: 'شافعي',
-    hanbali: 'حنبلي',
-    salafi: 'سلفي / أثري',
-    other: 'غير ذلك',
+// Language proficiency labels
+export const PROFICIENCY_LABELS: Record<LanguageProficiency, string> = {
+    beginner: 'مبتدئ',
+    intermediate: 'متوسط',
+    advanced: 'متقدم',
+    native: 'لغة أم',
 };
+
+// Common languages (can be extended)
+export const LANGUAGES = [
+    'العربية',
+    'English',
+    'Français',
+    'Deutsch',
+    'Español',
+    'Türkçe',
+    'اردو',
+    'فارسی',
+    'Bahasa Indonesia',
+    'Bahasa Melayu',
+    'বাংলা',
+    'हिन्दी',
+    'Русский',
+    'Nederlands',
+    'Italiano',
+    'Polski',
+    'Português',
+    'Kiswahili',
+    'Soomaali',
+    'Hausa',
+];
 
 // Subject Specialization Labels
 export const QURAN_TYPE_LABELS: Record<QuranTeachingType, string> = {

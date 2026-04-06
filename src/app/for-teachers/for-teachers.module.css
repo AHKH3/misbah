@@ -1,0 +1,261 @@
+/* ===========================================================
+   FOR TEACHERS PAGE — Professional Directory Pitch
+   Follows: conductor/ui-ux.md (monochrome, 8px spacing)
+   =========================================================== */
+
+/* Hero */
+.hero {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-md);
+    background-color: var(--color-ground);
+    border-block-end: 1px solid var(--border-ghost);
+}
+
+.heroContent {
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.heroTitle {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--color-ink-strong);
+    margin: 0;
+}
+
+.heroSubtitle {
+    font-size: 1.125rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 560px;
+}
+
+.heroAction {
+    margin-block-start: var(--space-sm);
+}
+
+/* Section */
+.section {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-md);
+}
+
+.sectionAlt {
+    composes: section;
+    background-color: var(--color-card);
+    border-block-start: 1px solid var(--border-ghost);
+    border-block-end: 1px solid var(--border-ghost);
+}
+
+.container {
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+}
+
+.sectionTitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-ink-strong);
+    margin: 0;
+    margin-block-end: var(--space-xl);
+}
+
+/* Why Cards */
+.cardGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.card {
+    padding: var(--space-lg);
+    background-color: var(--color-card);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+}
+
+.cardTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin: 0;
+    margin-block-end: var(--space-base);
+}
+
+.cardDescription {
+    font-size: 1rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* How It Works Steps */
+.stepsList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.stepNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-ink-strong);
+    color: var(--color-card);
+    border-radius: 50%;
+    font-size: 0.875rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.stepContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-micro);
+}
+
+.stepTitle {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin: 0;
+}
+
+.stepDescription {
+    font-size: 1rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Pricing */
+.pricingBox {
+    padding: var(--space-lg);
+    background-color: var(--color-card);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.priceTag {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin: 0;
+}
+
+.priceNote {
+    font-size: 0.875rem;
+    color: var(--color-ink-subtle);
+    margin: 0;
+}
+
+.priceIncludes {
+    font-size: 1rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.noCommission {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin: 0;
+    padding-block-start: var(--space-sm);
+    border-block-start: 1px solid var(--border-ghost);
+}
+
+/* FAQ */
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.faqItem {
+    padding: var(--space-md);
+    background-color: var(--color-card);
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-badge);
+}
+
+.faqQuestion {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin: 0;
+    margin-block-end: var(--space-base);
+}
+
+.faqAnswer {
+    font-size: 1rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Final CTA */
+.finalCta {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-md);
+    background-color: var(--color-ground);
+    border-block-start: 1px solid var(--border-ghost);
+    text-align: center;
+}
+
+.finalCtaContent {
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.finalCtaTitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin: 0;
+}
+
+.finalCtaSubtitle {
+    font-size: 1.0625rem;
+    color: var(--color-ink-body);
+    margin: 0;
+}
+
+.finalCtaAction {
+    margin-block-start: var(--space-sm);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2.25rem;
+    }
+
+    .cardGrid {
+        grid-template-columns: 1fr;
+    }
+}

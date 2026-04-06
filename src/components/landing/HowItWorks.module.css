@@ -1,0 +1,76 @@
+/* How It Works */
+.section {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-md);
+    background-color: var(--color-ground);
+}
+
+.container {
+    max-width: var(--max-width-hero);
+    margin-inline: auto;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-ink-strong);
+    text-align: center;
+    margin-block-end: var(--space-xl);
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+}
+
+.stepNumber {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-ink-subtle);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 64px;
+    opacity: 0.4;
+}
+
+.stepContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-base);
+    padding-block-start: var(--space-base);
+}
+
+.stepTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+}
+
+.stepDesc {
+    font-size: 1rem;
+    color: var(--color-ink-body);
+    line-height: 1.7;
+}
+
+.note {
+    margin-block-start: var(--space-xl);
+    font-size: 0.875rem;
+    color: var(--color-ink-subtle);
+    text-align: center;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .stepNumber {
+        font-size: 2rem;
+        min-width: 40px;
+    }
+}

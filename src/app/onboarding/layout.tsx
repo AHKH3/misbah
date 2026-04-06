@@ -9,7 +9,7 @@ interface OnboardingLayoutProps {
     children: React.ReactNode;
 }
 
-const STEPS = [1, 2, 3, 4, 5];
+const STEPS = [1, 2, 3, 4, 5, 6];
 
 export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
     const { labels, locale } = useI18n();
@@ -24,7 +24,8 @@ export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
         if (pathname.includes('step-3')) return 3;
         if (pathname.includes('step-4')) return 4;
         if (pathname.includes('step-5')) return 5;
-        if (pathname.includes('success')) return 6;
+        if (pathname.includes('step-6')) return 6;
+        if (pathname.includes('success')) return 7;
         return 1;
     };
 
@@ -33,11 +34,12 @@ export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
 
     // Step labels with proper fallbacks
     const stepLabels = {
-        step1: 'البيانات الأساسية',
-        step2: 'الخبرة والمؤهلات',
-        step3: 'الفئة والسعر',
-        step4: 'العينة التعليمية',
-        step5: 'التواصل والإرسال',
+        step1: 'البيانات الشخصية',
+        step2: 'المواد واللغات',
+        step3: 'الخبرة والمؤهلات',
+        step4: 'الجمهور والسعر',
+        step5: 'العينة التعليمية',
+        step6: 'التواصل والإرسال',
     };
 
     return (
@@ -49,7 +51,7 @@ export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
                         انضم إلى دليل مصباح
                     </h1>
                     <p className={styles.subtitle}>
-                        أنشئ بروفايلك المهني خلال 5 خطوات بسيطة
+                        أنشئ بروفايلك المهني خلال 6 خطوات بسيطة
                     </p>
                 </header>
 

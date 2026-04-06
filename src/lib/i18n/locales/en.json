@@ -8,137 +8,151 @@
         "login": "Sign In"
     },
     "footer": {
-        "tagline": "Directory for Quran & Arabic Teachers",
-        "about": "About",
+        "tagline": "Directory for Quran, Arabic & Islamic Studies Teachers",
+        "siteTitle": "Site",
+        "legalTitle": "Legal",
+        "contactTitle": "Contact Us",
+        "contactEmail": "contact@misbah.site",
+        "home": "Home",
+        "find": "Find a Teacher",
+        "about": "About Misbah",
         "faq": "FAQ",
+        "forTeachers": "Join as Teacher",
         "privacy": "Privacy Policy",
         "terms": "Terms of Use",
-        "copyright": "© 2025 Misbah. All rights reserved",
-        "disclaimer": "Disclaimer"
+        "disclaimer": "Disclaimer",
+        "copyright": "misbah.site © 2026"
     },
     "home": {
         "hero": {
-            "title": "Misbah",
-            "subtitle": "Directory for Quran, Arabic & Islamic Studies Teachers",
-            "valueStatement": "Every teacher here has been verified for seriousness. You decide.",
-            "ctaStudents": "Browse Teachers",
-            "ctaTeachers": "Apply as a Teacher",
-            "trustBadges": [
-                "Verified Directory",
-                "Direct Contact",
-                "Free for Students"
-            ]
+            "badge": "Independent Teacher Directory",
+            "name": "Misbah",
+            "title": "Your next teacher is one click away",
+            "subtitle": "A professional directory for Quran, Arabic, and Islamic Studies teachers. Every teacher is manually reviewed. Direct contact with no middleman.",
+            "foundersCounter": "{count} founding seats remaining out of 30",
+            "foundersNote": "Lifetime special pricing",
+            "foundersFull": "Founding seats are full",
+            "ctaStudents": "Find Your Teacher",
+            "ctaTeachers": "Join as Teacher"
+        },
+        "socialProof": {
+            "review": "100% Manual Review",
+            "reviewDesc": "Every teacher goes through a human review before publishing",
+            "commission": "0% Commission",
+            "commissionDesc": "Teachers keep all their earnings",
+            "direct": "Direct Contact",
+            "directDesc": "You contact the teacher directly with no middleman"
         },
         "forStudents": {
-            "label": "For Students & Parents",
-            "title": "Find Your Teacher with Clarity",
-            "points": [
-                "Personal profiles — each teacher has their own page",
-                "Manual review — every profile is reviewed before publishing",
-                "Organized information — easy to read and compare",
-                "Contact information — reach out to teachers directly outside the site"
+            "label": "For Parents & Students",
+            "title": "Choose your teacher with confidence",
+            "cards": [
+                { "title": "Choose your own teacher", "description": "Browse profiles and read about each teacher's experience and specialization before you decide." },
+                { "title": "Detailed teacher profiles", "description": "Learn about each teacher's experience, qualifications, specializations, and teaching style — before you reach out." },
+                { "title": "Lower prices than academies", "description": "Deal with the teacher directly — no middleman commissions inflating the price." },
+                { "title": "Direct contact, no middleman", "description": "WhatsApp, Telegram, or email — agree on everything directly with the teacher." }
             ],
-            "note": "Misbah displays contact information only. Any communication happens outside the site and at your own responsibility.",
             "cta": "Browse Teachers"
         },
         "forTeachers": {
-            "label": "For Teachers",
-            "title": "Your Own Professional Presence",
-            "points": [
-                "Public profile — visible on search engines",
-                "No commissions — annual subscription only",
-                "No bookings — we do not interfere with your schedule",
-                "All teachers welcome — whether independent or employed"
+            "label": "For Independent Teachers",
+            "title": "Teach freely. Earn without a middleman.",
+            "cards": [
+                { "title": "Your own professional page", "description": "A professional profile page showcasing your qualifications and teaching style the way you deserve." },
+                { "title": "No commission — your earnings are yours", "description": "Just a simple annual subscription. Everything you earn from students stays with you." },
+                { "title": "Review adds credibility", "description": "Being accepted on Misbah means you passed a real review — and that sets you apart." },
+                { "title": "Visibility on search engines", "description": "Your page is technically optimized so searching students can find you on Google." }
             ],
-            "note": "Misbah does not send students to you. Students find you.",
-            "cta": "Learn About Joining"
-        },
-        "notSection": {
-            "title": "What Misbah Is Not",
-            "points": [
-                "Not a booking platform — no scheduling, no appointments",
-                "Not a marketplace — no financial transactions between us",
-                "Not an academy — no curriculum, no management",
-                "Not a payment intermediary — we do not handle student fees",
-                "Not an official accreditation or educational body"
-            ]
+            "cta": "Join Now"
         },
         "howItWorks": {
             "title": "How Misbah Works",
             "steps": [
                 {
-                    "number": "1",
-                    "title": "Apply",
-                    "description": "Teacher submits application"
+                    "number": "01",
+                    "title": "Register and apply",
+                    "description": "Fill in your basic information and attach a teaching video that shows your teaching style."
                 },
                 {
-                    "number": "2",
-                    "title": "Review",
-                    "description": "We review each application individually"
+                    "number": "02",
+                    "title": "Manual review within 24 hours",
+                    "description": "Our team reviews every application individually to ensure seriousness and professionalism."
                 },
                 {
-                    "number": "3",
-                    "title": "Publish",
-                    "description": "Profile goes public with contact info"
+                    "number": "03",
+                    "title": "Your profile goes live",
+                    "description": "After approval and subscription, your page appears in the directory and students contact you directly."
                 }
             ],
-            "note": "Misbah's role ends at displaying contact information. Communication happens outside the site through the contact methods on the profile, and Misbah bears no responsibility for any contact that occurs."
+            "note": "Misbah's role ends at displaying contact information. The relationship between you and the student is completely independent."
         },
-        "pricing": {
-            "label": "For Teachers Only",
-            "title": "Symbolic Subscription",
-            "description": "A symbolic annual contribution to ensure seriousness and sustainability. Paid only after your membership is accepted."
-        },
-        "finalCta": {
-            "studentsLabel": "For Students",
-            "studentsButton": "Browse Teachers",
-            "teachersLabel": "For Teachers",
-            "teachersButton": "Apply to Join"
-        },
-        "disclaimer": "Misbah is a public directory. Information displayed is provided by teachers and has not been independently verified. Students are responsible for verifying suitability. Misbah bears no educational or legal responsibility for any contact between student and teacher."
-    },
-    "about": {
-        "pageTitle": "About Misbah",
-        "whatIs": {
-            "title": "What is Misbah",
-            "description": "Misbah is an online directory that brings together teachers of the Holy Quran, Arabic language, and Islamic studies in one place.",
-            "subDescription": "We display contact information for each teacher, allowing students or parents to reach out directly outside the platform."
-        },
-        "why": {
-            "title": "Why Misbah was Created",
-            "description": "Many excellent teachers lack a clear digital presence, and many students search for a suitable teacher without knowing where to start.",
-            "subDescription": "Misbah bridges this gap: we provide an organized space that presents teachers professionally and allows students to reach them easily."
-        },
-        "how": {
-            "title": "How Misbah Works",
-            "steps": [
-                "The teacher creates an introductory profile with their information and experience.",
-                "The application is manually reviewed to ensure seriousness and accuracy of basic information.",
-                "After publishing, the profile becomes publicly available and can appear in search engines."
+        "principles": {
+            "title": "Misbah, clearly",
+            "is": [
+                "Independent teacher directory",
+                "Manual review for every teacher",
+                "Direct contact between student and teacher",
+                "No commission on sessions"
+            ],
+            "isNot": [
+                "Not an academy or institute",
+                "Not a scheduling system",
+                "Not a teaching quality guarantee",
+                "Not a payment middleman"
             ]
         },
-        "nature": {
-            "title": "What is Misbah's Nature",
-            "intro": "Misbah is:",
+        "finalCta": {
+            "title": "The right teacher is one click away",
+            "ctaStudents": "Browse Teachers",
+            "ctaTeachers": "Join as Teacher"
+        },
+        "disclaimer": ""
+    },
+    "about": {
+        "hero": {
+            "title": "We believe every serious teacher deserves to be seen",
+            "subtitle": "Misbah exists to bridge the gap between serious independent teachers and students seeking real education."
+        },
+        "story": {
+            "title": "Why we built Misbah",
+            "paragraphs": [
+                "Many independent teachers have real expertise and a unique teaching style, but they lack a digital presence that reflects that. Meanwhile, many students and parents are looking for a suitable teacher and can't find a reliable way to reach one.",
+                "Academies take large commissions from teachers and add costs for students. The teacher loses independence, and the student pays more than they should.",
+                "Misbah bridges this gap: a professional directory showcasing only serious teachers, with manual review and clear standards, and direct contact with no middleman."
+            ]
+        },
+        "philosophy": {
+            "title": "What we believe in",
+            "cards": [
+                { "title": "Transparency", "description": "Every piece of information is clear and direct — no surprises and no hidden fees." },
+                { "title": "Trust through review", "description": "Every teacher goes through a real manual review before publishing — that's what makes Misbah different." },
+                { "title": "Simplicity", "description": "The site is simple and direct. Browse, watch, connect. No complexity." },
+                { "title": "Teacher first", "description": "Teachers keep all their earnings and independence. We just provide the platform." }
+            ]
+        },
+        "standards": {
+            "title": "Acceptance Standards",
+            "intro": "To join Misbah, you must meet:",
             "points": [
-                "Not an educational platform — we don't manage lessons or provide content.",
-                "Not a financial intermediary — we don't handle payments or fees.",
-                "Not an accreditation body — we don't grant certificates or validate credentials.",
-                "Not a booking platform — we don't manage appointments or schedules."
-            ],
-            "conclusion": "We are simply a directory: we display information and leave the decision of contact and choice to the student."
+                "Individual independent teacher — not an academy or institution",
+                "Professional educational video — shows actual teaching style",
+                "Acceptable presentation quality — clear writing, clear audio, organized content",
+                "Commitment to professionalism — no exaggeration, no suspicious claims"
+            ]
         },
-        "review": {
-            "title": "What We Review",
-            "description": "We review each application to ensure: completion of basic information, clarity of specialization and experience, and seriousness of the applicant. However, we do not independently verify certificates or credentials, nor do we guarantee teaching quality."
-        },
-        "limits": {
-            "title": "Limits of Our Responsibility",
-            "description": "Misbah bears no responsibility for teaching quality, any financial transactions, or any disputes that arise between student and teacher. The relationship between them is completely independent of the platform."
+        "boundaries": {
+            "title": "What Misbah does not do",
+            "points": [
+                "We don't intervene in the relationship between student and teacher",
+                "We don't book lessons or schedule appointments",
+                "We don't process student payments",
+                "We don't guarantee teaching quality — we only provide clear acceptance standards",
+                "We don't rank or rate teachers"
+            ]
         },
         "contact": {
             "title": "Contact Us",
-            "description": "If you have any questions or feedback, you can reach us at:",
+            "description": "Have a question or feedback? We'd love to hear from you.",
             "email": "contact@misbah.site"
         }
     },
@@ -147,37 +161,37 @@
         "items": [
             {
                 "question": "What is Misbah?",
-                "answer": "Misbah is an online directory that displays teachers of the Holy Quran, Arabic language, and Islamic studies, with contact information for each teacher."
+                "answer": "Misbah is a professional directory for serious independent teachers of Quran, Arabic, and Islamic Studies. Not a general directory — we review quality and professionalism before acceptance."
             },
             {
-                "question": "Is Misbah an educational platform?",
-                "answer": "No. Misbah is not an educational platform. We only display teacher information. Lessons and communication happen directly between student and teacher outside the site."
+                "question": "What are the acceptance standards for Misbah?",
+                "answer": "We require: individual independent teacher, professional educational video showing teaching style, acceptable presentation quality, and commitment to professionalism. We reject those who don't meet the standards."
             },
             {
-                "question": "Is Misbah responsible for teaching quality?",
-                "answer": "No. Misbah does not guarantee teaching quality and bears no responsibility for the relationship between student and teacher."
+                "question": "Is every teacher accepted?",
+                "answer": "No. We review each application and reject those who don't meet quality and professionalism standards."
             },
             {
-                "question": "Does Misbah handle payments?",
-                "answer": "No. Any financial arrangement between student and teacher is completely independent of Misbah."
+                "question": "How much are the joining fees?",
+                "answer": "Currently: First 30 founding teachers get 3-6 months free + lifetime special pricing. After beta: 1500-3000 EGP/year (much cheaper than academy commissions of 30-70%)."
             },
             {
-                "question": "How can I join as a teacher?",
-                "answer": "You can apply through the registration page. We'll review your application and contact you."
+                "question": "Does Misbah guarantee teaching quality?",
+                "answer": "No. We review professionalism in presentation and seriousness, but we don't guarantee teaching quality or results. Students are responsible for choosing the right teacher."
             },
             {
                 "question": "Are there fees for students?",
-                "answer": "No. Browsing and accessing teacher information is completely free for students."
+                "answer": "No. Browsing is completely free for students. Subscription is for teachers only."
             },
             {
-                "question": "Are there fees for teachers?",
-                "answer": "Yes, there is a symbolic annual subscription for teachers after their application is accepted."
+                "question": "Does Misbah handle payments between student and teacher?",
+                "answer": "No. Any financial arrangement between student and teacher happens completely independently outside the site."
             }
         ]
     },
     "directory": {
         "title": "Teacher Directory",
-        "browseDesc": "Browse a curated selection of manually reviewed teachers",
+        "browseDesc": "Serious teachers who passed quality and professionalism standards",
         "filters": {
             "subject": "Subject",
             "format": "Teaching Format",
@@ -190,10 +204,65 @@
         },
         "teachers": "teachers"
     },
+    "find": {
+        "meta": {
+            "allTeachers": {
+                "title": "Find Quran & Arabic Teacher Online | Misbah",
+                "description": "Professional directory for independent Quran, Arabic, and Islamic Studies teachers. Manual review for every teacher, clear standards, direct contact."
+            },
+            "quran": {
+                "title": "Online Quran Teacher | Misbah",
+                "description": "Find manually reviewed Quran teachers. Tahfiz, Tilawa, Tajweed, and Ijazah. Direct contact with the teacher."
+            },
+            "arabic": {
+                "title": "Online Arabic Teacher | Misbah",
+                "description": "Teachers specialized in Arabic for non-native speakers, reading, grammar, and conversation. Clear quality standards."
+            },
+            "islamicStudies": {
+                "title": "Online Islamic Studies Teacher | Misbah",
+                "description": "Teachers in Fiqh, Aqeedah, Tafsir, Hadith, and Seerah. Manual review before publishing."
+            },
+            "male": {
+                "title": "{subject} Teacher (Male Teacher) | Misbah",
+                "description": "Male teachers specialized in {subject}. Manual review, direct contact."
+            },
+            "female": {
+                "title": "{subject} Teacher (Female Teacher) | Misbah",
+                "description": "Female teachers specialized in {subject}. Manual review, direct contact."
+            },
+            "kids": {
+                "title": "{subject} Teacher for Kids Online | Misbah",
+                "description": "Teachers specialized in teaching {subject} to children. Clear standards, manual review."
+            },
+            "adults": {
+                "title": "{subject} Teacher for Adults Online | Misbah",
+                "description": "Teachers specialized in teaching {subject} to adults. Direct contact without middleman."
+            }
+        },
+        "title": "Find a Teacher",
+        "subtitle": "Serious teachers who passed quality standards",
+        "filters": {
+            "subject": "Subject",
+            "gender": "Teacher Gender",
+            "audience": "Age Group",
+            "language": "Language",
+            "price": "Price",
+            "all": "All",
+            "male": "Male",
+            "female": "Female",
+            "kids": "Kids",
+            "adults": "Adults",
+            "clearFilters": "Clear Filters"
+        },
+        "results": {
+            "showing": "Showing {count} teachers",
+            "noResults": "No results for selected filters"
+        }
+    },
     "teacher": {
         "online": "Online",
         "inPerson": "In Person",
-        "hybrid": "Both",
+        "hybrid": "Hybrid (Online & In Person)",
         "accepting": "Accepting Students",
         "limited": "Limited",
         "notAccepting": "Not Accepting",
@@ -201,8 +270,15 @@
         "audience": "Target Audience",
         "teachingMethod": "Teaching Method",
         "experience": "Experience & Qualifications",
+        "educationAndExperience": "Education & Experience",
+        "education": "Education",
+        "teachingExperience": "Teaching Experience",
+        "pricing": "Approximate Price",
+        "targetAge": "Target Age",
+        "allAges": "All Ages",
         "teachingSample": "Teaching Sample",
         "contactMethods": "Contact Methods",
+        "revealContact": "Reveal Contact Information",
         "whatsapp": "WhatsApp",
         "email": "Email",
         "telegram": "Telegram",
@@ -220,7 +296,8 @@
             "femalesOnly": "Females Only",
             "malesOnly": "Males Only",
             "everyone": "Everyone"
-        }
+        },
+        "other": "Other"
     },
     "common": {
         "loading": "Loading...",
@@ -237,54 +314,284 @@
         "filter": "Filter",
         "sort": "Sort",
         "more": "More",
-        "less": "Less"
+        "less": "Less",
+        "year": "year",
+        "years": "years",
+        "present": "Present"
     },
     "onboarding": {
+        "errors": {
+            "fullName": "Full name (Arabic) is required",
+            "fullNameEn": "Full name (English) is required",
+            "title": "Professional title is required",
+            "gender": "Gender is required",
+            "country": "Country is required",
+            "birthDate": "Birth date is required",
+            "birthDateAge": "You must be at least 18 years old",
+            "subjects": "Select at least one subject",
+            "quranTypes": "Select at least one type of Quran teaching",
+            "arabicAreas": "Select at least one area of Arabic teaching",
+            "islamicSections": "Select at least one section of Islamic studies",
+            "institution": "Enter the institution",
+            "specialization": "Enter the specialization",
+            "organization": "Enter the organization",
+            "role": "Enter the role",
+            "timeline": "Add at least one education entry to continue",
+            "ageRange": "Minimum age must be less than or equal to maximum age",
+            "price": "Price must be a positive number",
+            "videoUrl": "Video URL is required",
+            "videoUrlYouTube": "Must be a valid YouTube URL",
+            "contact": "At least one contact method is required",
+            "email": "Invalid email address",
+            "format": "Teaching format is required",
+            "legal": "You must agree to the legal acknowledgment"
+        },
         "profile": {
-            "title": "Profile Information",
-            "subtitle": "Enter your details to create your profile in Misbah directory",
+            "title": "Create Teacher Profile",
+            "subtitle": "Apply to join the directory of serious teachers",
             "fullName": "Full Name",
-            "country": "Country",
-            "subjectsLabel": "Subjects",
+            "country": "Country of Residence",
+            "subjectsLabel": "Main Subjects",
             "audienceLabel": "Target Audience",
             "teachingFormatLabel": "Teaching Format",
-            "teachingFormatPlaceholder": "Select format",
-            "experienceLabel": "Experience & Qualifications",
-            "experiencePlaceholder": "Tell us about your background, years of experience, and methodology...",
-            "videoUrlLabel": "Educational Video URL (YouTube)",
+            "teachingFormatPlaceholder": "Online, In-person...",
+            "experienceLabel": "Years of Experience",
+            "experiencePlaceholder": "e.g., 5 years",
+            "videoUrlLabel": "Intro Video / Teaching Sample (YouTube)",
             "contactTitle": "Contact Methods",
-            "contactHint": "Provide at least one",
-            "submit": "Save & Continue",
-            "submitting": "Saving..."
+            "contactHint": "This data will only appear in public after your request is accepted",
+            "submit": "Submit Request for Review",
+            "submitting": "Submitting..."
         },
         "payment": {
-            "title": "Activate Your Profile",
-            "subtitle": "Transfer the subscription fee and upload payment proof",
-            "pricingTitle": "Annual Subscription",
-            "price": "300 EGP",
-            "discount": "First year (50% discount)",
-            "renewal": "Renewal: 600 EGP / year",
-            "transferStart": "Transfer to:",
-            "methodName": "Vodafone Cash:",
-            "uploadLabel": "Upload Payment Proof",
-            "uploadHint": "Screenshot or PDF of transfer receipt",
+            "title": "Activate Profile",
+            "subtitle": "Subscribe now to appear in the teacher directory",
+            "pricingTitle": "Subscription Plans",
+            "price": "199 $",
+            "discount": "50% discount for a limited time",
+            "renewal": "$ 99 / year",
+            "transferStart": "To pay, transfer to:",
+            "methodName": "Vodafone Cash (Egypt)",
+            "uploadLabel": "Upload payment proof",
+            "uploadHint": "Screenshot of the transfer message",
             "submit": "Submit Payment Proof",
             "submitting": "Uploading..."
+        },
+        "step2": {
+            "title": "Add your education and teaching experiences. They will appear as a timeline on your profile."
+        },
+        "step3": {
+            "title": "Specify the age groups you teach and your approximate prices."
+        },
+        "options": {
+            "genderBoth": "Males & Females",
+            "genderMales": "Males only",
+            "genderFemales": "Females only",
+            "currencyEGP": "Egyptian Pound (EGP)",
+            "currencyUSD": "US Dollar (USD)"
+        },
+        "proficiency": {
+            "beginner": "Beginner",
+            "intermediate": "Intermediate",
+            "advanced": "Advanced",
+            "native": "Native"
+        },
+        "labels": {
+            "fullName": "Name (Arabic) *",
+            "fullNameEn": "Name (English) *",
+            "gender": "Gender *",
+            "title": "Professional Title *",
+            "country": "Country *",
+            "birthDate": "Birth Date *",
+            "subjects": "Specializations *",
+            "quranTypes": "Quran Teaching *",
+            "arabicAreas": "Arabic Areas *",
+            "arabicCurricula": "Arabic Curricula *",
+            "readingCurricula": "Reading Curricula *",
+            "arabicOther": "Other",
+            "islamicSections": "Islamic Studies *",
+            "timeline": "Education & Professional History *",
+            "addEducation": "Add Certificate / Education",
+            "addExperience": "Add Work Experience",
+            "ageMin": "Age (From)",
+            "ageMax": "Age (To)",
+            "studentGender": "Student Gender",
+            "price": "Approximate Price per Session",
+            "videoUrl": "YouTube Link for Teaching *",
+            "whatsapp": "WhatsApp",
+            "telegram": "Telegram",
+            "email": "Email *",
+            "teachingFormat": "Teaching Format *",
+            "languages": "Languages *",
+            "addLanguage": "Add Language",
+            "languageName": "Language",
+            "proficiency": "Proficiency Level"
+        },
+        "placeholders": {
+            "fullName": "e.g. Ahmed Mohamed",
+            "fullNameEn": "e.g. Ahmed Mohamed",
+            "country": "Select Country",
+            "institution": "e.g. Al-Azhar University",
+            "specialization": "e.g. Islamic Theology",
+            "organization": "e.g. Academy Name",
+            "role": "e.g. Tajweed Teacher",
+            "notes": "e.g. Hafiẓ of the entire Quran",
+            "description": "e.g. Teaching beginners and intermediates",
+            "ageMin": "e.g. 6",
+            "ageMax": "e.g. 60",
+            "price": "Price",
+            "videoUrl": "https://youtube.com/watch?v=...",
+            "whatsapp": "+201234567890",
+            "telegram": "@username",
+            "email": "example@email.com",
+            "teachingFormat": "Select..."
+        },
+        "hints": {
+            "price": "This price is for guidance only. Misbah does not mediate payment.",
+            "video": "💡 No video? Record your screen while explaining for 10 minutes, then upload to YouTube.",
+            "contact": "Enter at least one method. Contact will be direct between you and the student.",
+            "email": "💡 This email is for contact only — an account will only be created after acceptance."
+        },
+        "preview": {
+            "title": "Profile Summary",
+            "fullName": "Name",
+            "country": "Country",
+            "subjects": "Subjects",
+            "experience": "Years of Experience",
+            "video": "Video",
+            "videoAttached": "✓ Attached",
+            "videoMissing": "✗ Missing",
+            "price": "Price",
+            "format": "Teaching Format",
+            "ageRange": "Student Age",
+            "education": "Certificates",
+            "experiences": "Experiences"
+        },
+        "step4": {
+            "info": {
+                "title": "📹 What is Required?",
+                "points": [
+                    "At least 10 minutes — real teaching, not an introduction",
+                    "Recitation, verse explanation, Tajweed lesson, or any educational content",
+                    "Shows your actual teaching style"
+                ],
+                "acceptedTitle": "✅ Accepted:",
+                "acceptedPoints": [
+                    "Screen recording (no face required)",
+                    "Old video from a previous session",
+                    "Presentation explanation",
+                    "Recitation with explanation",
+                    "Without students / without editing"
+                ],
+                "rejectedTitle": "❌ Not Accepted:",
+                "rejectedPoints": [
+                    "Still image with audio",
+                    "Less than 10 minutes",
+                    "Clip quoted from another person"
+                ],
+                "why": "Why is the video mandatory? Misbah is for serious teachers only. The video proves you are a real teacher and helps visitors evaluate your style."
+            }
+        },
+        "step5": {
+            "legal": {
+                "title": "Legal Acknowledgement",
+                "text": "By submitting this application, I acknowledge that:\n• All information provided is true and accurate\n• I am not impersonating any other person\n• I bear full responsibility for any communication with students\n• Misbah is a public directory and is not responsible for the relationship between me and students",
+                "checkbox": "I agree to the legal acknowledgement above",
+                "personalTeaching": "I confirm that I will personally teach all students who contact me",
+                "noRedirection": "I will not redirect students to other teachers, academies, or institutions",
+                "violationConsequences": "I understand that violating this condition will result in permanent account suspension without refund"
+            }
         },
         "success": {
             "title": "Submission Received",
             "subtitle": "Thank you for registering with Misbah",
-            "nextStepsTitle": "What happens next?",
-            "step1Title": "1. Application Review",
-            "step1Desc": "Misbah team will review your profile and payment proof",
-            "step2Title": "2. Expected Timeline",
+            "nextStepsTitle": "What happens now?",
+            "step1Title": "1. Review Request",
+            "step1Desc": "Misbah team will review your data and payment proof",
+            "step2Title": "2. Expected Duration",
             "step2Desc": "Within 24 hours of submission",
             "step3Title": "3. Notification",
             "step3Desc": "We will contact you via email with the review result",
-            "noticeTitle": "Important Notice",
+            "noticeTitle": "Important Acknowledgment",
             "noticeText": "I acknowledge that Misbah is a public directory and not an academy or employment platform. The information I provided is accurate and I have not exaggerated my qualifications. I understand that Misbah does not mediate communication or agreements between me and students.",
             "backButton": "Back to Home"
         }
+    },
+    "forTeachersPage": {
+        "hero": {
+            "title": "Join a Directory for Serious Teachers",
+            "subtitle": "A professional listing that helps students find you directly — no intermediaries, no commissions.",
+            "cta": "Start Your Application"
+        },
+        "why": {
+            "title": "Why Misbah?",
+            "cards": [
+                { "title": "Professional Digital Presence", "description": "A dedicated profile page optimized for search engines, showcasing your qualifications and teaching style." },
+                { "title": "SEO-Optimized Visibility", "description": "Each profile is built with structured data so students searching online can discover you naturally." },
+                { "title": "Direct Student Contact", "description": "Students reach you through WhatsApp, Telegram, or email — no platform middleman." },
+                { "title": "No Commissions", "description": "You keep 100% of what you earn. We charge a small annual subscription, not per-session fees." }
+            ]
+        },
+        "howItWorks": {
+            "title": "How It Works",
+            "steps": [
+                { "number": "1", "title": "Submit Application", "description": "Fill out a 6-step form with your details, qualifications, and a teaching sample video." },
+                { "number": "2", "title": "Manual Review", "description": "Our team reviews your application within 24 hours to ensure it meets our standards." },
+                { "number": "3", "title": "Approval", "description": "If approved, you receive an invitation link to set up your account." },
+                { "number": "4", "title": "Payment", "description": "Complete the annual subscription to activate your profile." },
+                { "number": "5", "title": "Profile Published", "description": "Your profile goes live in the directory, visible to students worldwide." },
+                { "number": "6", "title": "Students Find You", "description": "Students discover your profile and contact you directly." }
+            ]
+        },
+        "pricing": {
+            "title": "Pricing",
+            "betaPrice": "600 EGP/year",
+            "betaNote": "Beta pricing — introductory rate for early teachers.",
+            "includes": "Includes: professional profile page, SEO optimization, directory listing, direct contact methods.",
+            "noCommission": "No commissions. No hidden fees. No per-session charges."
+        },
+        "faq": {
+            "title": "Common Questions",
+            "items": [
+                { "question": "Do I need a specific qualification?", "answer": "We look for seriousness and relevant experience, not formal degrees. You need a teaching sample video and clear information about your background." },
+                { "question": "Can I teach in person?", "answer": "Currently, Misbah focuses on online teaching only. This may expand in the future." },
+                { "question": "What if my application is rejected?", "answer": "You will receive feedback on what needs to change. You can reapply after making adjustments." },
+                { "question": "Can I cancel my subscription?", "answer": "Yes. Your profile will be hidden after the subscription period ends. No refunds for partial periods." }
+            ]
+        },
+        "finalCta": {
+            "title": "Ready to Join?",
+            "subtitle": "Start your application now. It takes about 10 minutes.",
+            "cta": "Apply Now"
+        }
+    },
+    "contactPage": {
+        "title": "Contact Us",
+        "subtitle": "Have a question or feedback? We would love to hear from you.",
+        "emailLabel": "Email",
+        "email": "contact@misbah.site",
+        "note": "We typically respond within 24-48 hours."
+    },
+    "errorPage": {
+        "title": "Something went wrong",
+        "description": "An unexpected error occurred. Please try again.",
+        "retry": "Try Again"
+    },
+    "notFoundPage": {
+        "title": "Page Not Found",
+        "code": "404",
+        "description": "The page you are looking for does not exist or has been moved.",
+        "backHome": "Back to Home"
+    },
+    "auth": {
+        "title": "Sign In",
+        "email": "Email",
+        "password": "Password",
+        "signIn": "Sign In",
+        "signingIn": "Signing in...",
+        "signOut": "Sign Out",
+        "dashboard": "Dashboard",
+        "errorInvalid": "Invalid email or password"
     },
     "legal": {
         "privacy": {

@@ -6,7 +6,18 @@
 -- PART 1: Update Profile Status Enum
 -- ============================================
 
--- Step 1: Create new enum type
+-- Step 1: Drop ALL existing policies on profiles table
+-- Must be done before altering column type that is used in policies
+DROP POLICY IF EXISTS "Users can view own profile" ON public.profiles;
+DROP POLICY IF EXISTS "Users can update own profile" ON public.profiles;
+DROP POLICY IF EXISTS "Users can insert own profile" ON public.profiles;
+DROP POLICY IF EXISTS "Public can view active profiles" ON public.profiles;
+DROP POLICY IF EXISTS "Public can view published profiles" ON public.profiles;
+DROP POLICY IF EXISTS "Anyone can create draft profile" ON public.profiles;
+DROP POLICY IF EXISTS "Admins can view all profiles" ON public.profiles;
+DROP POLICY IF EXISTS "Admins can update all profiles" ON public.profiles;
+
+-- Step 2: Create new enum type
 CREATE TYPE profile_status_new AS ENUM (
   'draft',
   'under_review',
@@ -16,33 +27,37 @@ CREATE TYPE profile_status_new AS ENUM (
   'suspended'
 );
 
--- Step 2: Migrate existing data
--- Map old statuses to new ones:
---   pending_payment -> draft
---   payment_submitted -> under_review
---   active -> published
---   inactive -> suspended
-
+-- Step 3: Migrate existing data using safer approach
+-- Instead of ALTER TYPE (which fails), we:
+-- 3a. Add new column with new type
 ALTER TABLE public.profiles 
-  ALTER COLUMN status DROP DEFAULT;
+  ADD COLUMN status_new profile_status_new;
 
+-- 3b. Populate new column by casting old status to text first
+UPDATE public.profiles 
+SET status_new = 
+  CASE 
+    WHEN status::text = 'pending_payment' THEN 'draft'::profile_status_new
+    WHEN status::text = 'payment_submitted' THEN 'under_review'::profile_status_new
+    WHEN status::text = 'active' THEN 'published'::profile_status_new
+    WHEN status::text = 'inactive' THEN 'suspended'::profile_status_new
+    ELSE 'draft'::profile_status_new
+  END;
+
+-- 3c. Drop old column
 ALTER TABLE public.profiles 
-  ALTER COLUMN status TYPE profile_status_new 
-  USING (
-    CASE status::text
-      WHEN 'pending_payment' THEN 'draft'::profile_status_new
-      WHEN 'payment_submitted' THEN 'under_review'::profile_status_new
-      WHEN 'active' THEN 'published'::profile_status_new
-      WHEN 'inactive' THEN 'suspended'::profile_status_new
-      ELSE 'draft'::profile_status_new
-    END
-  );
+  DROP COLUMN status;
 
+-- 3d. Rename new column to old name
+ALTER TABLE public.profiles 
+  RENAME COLUMN status_new TO status;
+
+-- 3e. Set default
 ALTER TABLE public.profiles 
   ALTER COLUMN status SET DEFAULT 'draft'::profile_status_new;
 
--- Step 3: Drop old type and rename new
-DROP TYPE profile_status;
+-- Step 4: Drop old type (if exists) and rename new
+DROP TYPE IF EXISTS profile_status;
 ALTER TYPE profile_status_new RENAME TO profile_status;
 
 -- ============================================
@@ -148,11 +163,7 @@ CREATE INDEX IF NOT EXISTS idx_audit_log_created_at ON public.admin_audit_log(cr
 -- PART 4: Update RLS Policies
 -- ============================================
 
--- Drop old policies
-DROP POLICY IF EXISTS "Users can view own profile" ON public.profiles;
-DROP POLICY IF EXISTS "Users can update own profile" ON public.profiles;
-DROP POLICY IF EXISTS "Users can insert own profile" ON public.profiles;
-DROP POLICY IF EXISTS "Public can view active profiles" ON public.profiles;
+-- Note: Old policies were already dropped in PART 1 before altering status column
 
 -- New Policies for Profiles
 

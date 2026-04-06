@@ -1,0 +1,369 @@
+/* ===========================================================
+   TEACHER PROFILE PAGE STYLES — Redesigned
+   =========================================================== */
+
+.page {
+    min-height: 100vh;
+    padding-block-start: var(--space-lg);
+    padding-block-end: var(--space-2xl);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+.loadingState {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--color-ink-subtle);
+    font-size: 1.125rem;
+}
+
+/* Back link */
+.backLink {
+    display: inline-block;
+    font-size: 1rem;
+    color: var(--color-ink-subtle);
+    margin-block-end: var(--space-md);
+    transition: color var(--duration) var(--curve-smooth);
+}
+
+.backLink:hover {
+    color: var(--color-ink-body);
+}
+
+/* Profile Card */
+.profileCard {
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-rest);
+    margin-block-end: var(--space-md);
+}
+
+.profileHeader {
+    display: flex;
+    gap: var(--space-md);
+    padding-block-end: var(--space-md);
+    border-block-end: 1px solid var(--border-ghost);
+    margin-block-end: var(--space-md);
+}
+
+.profileHeaderInfo {
+    flex: 1;
+}
+
+.name {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-micro);
+}
+
+.country {
+    font-size: 1.125rem;
+    color: var(--color-ink-subtle);
+    margin-block-end: var(--space-base);
+}
+
+.availability {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: var(--space-micro) var(--space-sm);
+    background-color: var(--color-ground);
+    border-radius: var(--radius-badge);
+    color: var(--color-ink-body);
+}
+
+/* Quick Info */
+.quickInfo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-base);
+}
+
+.infoLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-subtle);
+}
+
+.infoValue {
+    font-size: 1rem;
+    color: var(--color-ink-body);
+}
+
+/* Sections */
+.section {
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-rest);
+    margin-block-end: var(--space-md);
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-sm);
+}
+
+.sectionContent {
+    font-size: 1.0625rem;
+    color: var(--color-ink-body);
+    line-height: 1.8;
+}
+
+/* Video */
+.videoWrapper {
+    position: relative;
+    width: 100%;
+    padding-block-end: 56.25%;
+    border-radius: var(--radius-badge);
+    overflow: hidden;
+    background-color: var(--color-ground);
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Contact Grid - Direct Display with Icons */
+.contactGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-md);
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background-color: var(--color-ground);
+    border-radius: var(--radius-badge);
+    border: 1px solid var(--border-ghost);
+    transition:
+        background-color var(--duration) var(--curve-smooth),
+        transform var(--duration) var(--curve-smooth),
+        border-color var(--duration) var(--curve-smooth),
+        box-shadow var(--duration) var(--curve-smooth);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.contactItem:hover {
+    background-color: var(--color-card);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-rest);
+    border-color: var(--border-default);
+}
+
+.contactIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contactDetails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-micro);
+    min-width: 0; /* Allow text truncation */
+}
+
+.contactLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-subtle);
+}
+
+.contactValue {
+    font-size: 0.9375rem;
+    color: var(--color-ink-strong);
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Timeline */
+.timelineBlock {
+    margin-block-end: var(--space-lg);
+}
+
+.timelineBlock:last-child {
+    margin-block-end: 0;
+}
+
+.timelineHeading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-subtle);
+    margin-block-end: var(--space-md);
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding-inline-start: var(--space-md);
+    border-inline-start: 1px solid var(--border-ghost);
+}
+
+.timelineItem {
+    position: relative;
+    display: flex;
+    gap: var(--space-md);
+}
+
+.timelineDot {
+    position: absolute;
+    inset-inline-start: calc(-1 * var(--space-md) - 4px);
+    inset-block-start: 6px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-ink-subtle);
+    border-radius: 50%;
+}
+
+.timelineContent {
+    flex: 1;
+}
+
+.timelineHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-micro);
+}
+
+.timelineTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+}
+
+.timelineDate {
+    font-size: 0.875rem;
+    color: var(--color-ink-subtle);
+    white-space: nowrap;
+}
+
+.timelineInstitution {
+    font-size: 0.9375rem;
+    color: var(--color-ink-body);
+    margin-block-end: var(--space-micro);
+}
+
+.timelineNotes {
+    font-size: 0.875rem;
+    color: var(--color-ink-subtle);
+    line-height: 1.6;
+}
+
+/* Disclaimer */
+.disclaimer {
+    margin-block-start: var(--space-md);
+    padding: var(--space-sm);
+    background-color: var(--color-ground);
+    border-radius: var(--radius-badge);
+    border: 1px solid var(--border-ghost);
+}
+
+.disclaimerText {
+    font-size: 0.875rem;
+    color: var(--color-ink-subtle);
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profileHeader {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .quickInfo {
+        grid-template-columns: 1fr;
+    }
+
+    .contactGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Loading indicator */
+.loading {
+    opacity: 0.5;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* Student Warning Notice */
+.studentNotice {
+    padding: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-card);
+    background-color: var(--color-paper-secondary);
+}
+
+.noticeTitle {
+    font-size: var(--font-size-lg, 1.125rem);
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.noticeText {
+    margin: 0 0 var(--space-md) 0;
+    line-height: 1.6;
+}
+
+.noticeText strong {
+    font-weight: 700;
+}
+
+.noticeFooter {
+    margin: 0;
+    font-size: var(--font-size-sm, 0.875rem);
+    color: var(--color-ink-subtle);
+}

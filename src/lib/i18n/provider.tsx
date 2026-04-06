@@ -95,6 +95,16 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 export function useI18n() {
     const context = useContext(I18nContext);
     if (!context) {
+        // During SSR, return default values instead of throwing
+        if (typeof window === 'undefined') {
+            return {
+                locale: defaultLocale,
+                labels: getTranslation(defaultLocale),
+                setLocale: () => {},
+                dir: localeDirections[defaultLocale],
+                isLoading: false,
+            };
+        }
         throw new Error('useI18n must be used within I18nProvider');
     }
     return context;

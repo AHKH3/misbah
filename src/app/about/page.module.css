@@ -1,166 +1,218 @@
 /* ===========================================================
-   ABOUT PAGE STYLES — Unified Card-based Design
+   ABOUT PAGE — Full-bleed sections with alternating backgrounds
    =========================================================== */
 
 .page {
     min-height: 100vh;
-    padding-block-start: var(--space-lg);
-    padding-block-end: var(--space-2xl);
+}
+
+/* ===========================================================
+   SECTION VARIANTS — Full-width with internal containers
+   =========================================================== */
+
+.sectionGround {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-md);
     background-color: var(--color-ground);
 }
 
-.container {
-    max-width: var(--max-width);
-    margin-inline: auto;
+.sectionCard {
+    padding-block: var(--space-2xl);
     padding-inline: var(--space-md);
+    background-color: var(--color-card);
 }
 
-/* Header */
-.header {
-    margin-block-end: var(--space-xl);
+.sectionDark {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-md);
+    background-color: var(--color-ink-strong);
     text-align: center;
 }
 
-.pageTitle {
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-    color: var(--color-ink-strong);
+/* ===========================================================
+   CONTAINERS
+   =========================================================== */
+
+.heroContainer {
+    max-width: var(--max-width-hero);
+    margin-inline: auto;
+    text-align: center;
 }
 
-/* Sections — Card-based (Unified) */
-.section {
-    margin-block-end: var(--space-lg);
-    padding: var(--space-lg);
-    background-color: var(--color-card);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-rest);
+.sectionContainer {
+    max-width: var(--max-width);
+    margin-inline: auto;
 }
+
+/* ===========================================================
+   HERO
+   =========================================================== */
+
+.heroTitle {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-md);
+}
+
+.heroSubtitle {
+    font-size: 1.125rem;
+    color: var(--color-ink-body);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+/* ===========================================================
+   CONTENT
+   =========================================================== */
 
 .sectionTitle {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--color-ink-strong);
-    margin-block-end: var(--space-sm);
+    margin-block-end: var(--space-md);
 }
 
-.sectionText {
+.paragraph {
     font-size: 1rem;
     color: var(--color-ink-body);
     line-height: 1.8;
+    margin-block-end: var(--space-sm);
 }
 
-.sectionSubText {
+.paragraph:last-child {
+    margin-block-end: 0;
+}
+
+/* ===========================================================
+   PHILOSOPHY GRID
+   =========================================================== */
+
+.philosophyGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+    margin-block-start: var(--space-md);
+}
+
+.philosophyCard {
+    padding: var(--space-md);
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-ghost);
+}
+
+.philosophyIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-block-end: var(--space-sm);
+    color: var(--color-ink-strong);
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin-block-end: var(--space-base);
+}
+
+.cardDesc {
     font-size: 0.9375rem;
-    color: var(--color-ink-subtle);
-    line-height: 1.7;
-    margin-block-start: var(--space-sm);
+    color: var(--color-ink-body);
+    line-height: 1.6;
 }
 
-/* Steps List */
-.stepsList {
+/* ===========================================================
+   BULLET LIST (Standards)
+   =========================================================== */
+
+.bulletList {
     list-style: none;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-    counter-reset: step;
+    margin-block-start: var(--space-sm);
 }
 
-.stepItem {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-sm);
-    font-size: 1rem;
+.bulletItem {
+    font-size: 0.9375rem;
     color: var(--color-ink-body);
-    line-height: 1.7;
-    counter-increment: step;
-    padding: var(--space-base);
+    line-height: 1.6;
+    padding: var(--space-base) var(--space-sm);
     background-color: var(--color-ground);
     border-radius: var(--radius-badge);
 }
 
-.stepItem::before {
-    content: counter(step);
+/* ===========================================================
+   BOUNDARY LIST
+   =========================================================== */
+
+.boundaryList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.boundaryItem {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-base);
+    font-size: 0.9375rem;
+    color: var(--color-ink-body);
+    line-height: 1.6;
+}
+
+.boundaryIcon {
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--color-card);
-    background-color: var(--color-ink-strong);
-    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    color: var(--icon-rose);
+    margin-block-start: 2px;
 }
 
-/* Nature Box — Highlighted */
-.natureBox {
-    composes: section;
-    border-inline-start: 4px solid var(--color-ink-subtle);
-}
+/* ===========================================================
+   CONTACT (Dark Section)
+   =========================================================== */
 
-.natureIntro {
-    font-size: 1rem;
+.contactTitle {
+    font-size: 1.5rem;
     font-weight: 600;
-    color: var(--color-ink-strong);
+    color: var(--color-card);
     margin-block-end: var(--space-sm);
 }
 
-.natureList {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-block-end: var(--space-md);
-}
-
-.natureItem {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-base);
-    padding: var(--space-base) var(--space-sm);
-    background-color: var(--color-ground);
-    border-radius: var(--radius-badge);
-    font-size: 0.9375rem;
-    color: var(--color-ink-body);
-}
-
-.natureItem::before {
-    content: '×';
-    font-weight: 700;
-    color: var(--color-ink-subtle);
-}
-
-.natureConclusion {
+.contactDesc {
     font-size: 1rem;
-    color: var(--color-ink-body);
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.7;
-    padding-block-start: var(--space-sm);
-    border-block-start: 1px solid var(--border-ghost);
-}
-
-/* Contact Section */
-.contactSection {
-    composes: section;
-    text-align: center;
+    margin-block-end: var(--space-md);
 }
 
 .emailLink {
     display: inline-block;
-    margin-block-start: var(--space-sm);
     padding: var(--space-sm) var(--space-md);
     font-size: 1rem;
     font-weight: 600;
-    color: var(--color-card);
-    background-color: var(--color-ink-strong);
+    color: var(--color-ink-strong);
+    background-color: var(--color-card);
     border-radius: var(--radius-pill);
     text-decoration: none;
-    transition: all var(--duration) var(--curve-smooth);
+    transition:
+        transform var(--duration) var(--curve-smooth),
+        box-shadow var(--duration) var(--curve-smooth);
 }
 
 .emailLink:hover {
@@ -168,7 +220,10 @@
     box-shadow: var(--shadow-lift);
 }
 
-/* Animations */
+/* ===========================================================
+   ANIMATIONS
+   =========================================================== */
+
 .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -180,13 +235,16 @@
     transform: translateY(0);
 }
 
-/* Responsive */
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+
 @media (max-width: 768px) {
-    .pageTitle {
+    .heroTitle {
         font-size: 1.75rem;
     }
 
-    .natureList {
-        flex-direction: column;
+    .philosophyGrid {
+        grid-template-columns: 1fr;
     }
 }

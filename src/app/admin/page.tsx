@@ -3,16 +3,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import styles from './admin.module.css';
 
-// Admin check - in production should use proper role-based auth
-async function isAdmin() {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-
-    // Check if user is admin (simple email check for MVP)
-    // In production, use a proper admin table or role field
-    const adminEmails = ['admin@misbah.site', 'admin@example.com'];
-    return user && adminEmails.includes(user.email || '');
-}
+import { isAdmin } from '@/lib/auth/is-admin';
 
 type ProfileStatus = 'draft' | 'under_review' | 'needs_changes' | 'approved' | 'published' | 'suspended';
 
@@ -35,13 +26,12 @@ const STATUS_COLORS: Record<ProfileStatus, string> = {
 };
 
 export default async function AdminPage() {
-    const isAdminUser = await isAdmin();
+    const supabase = await createClient();
+    const isAdminUser = await isAdmin(supabase);
 
     if (!isAdminUser) {
         redirect('/');
     }
-
-    const supabase = await createClient();
 
     // Fetch all profiles with subscriptions
     const { data: profiles, error } = await supabase

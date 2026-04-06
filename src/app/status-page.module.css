@@ -1,0 +1,45 @@
+/* ===========================================================
+   STATUS PAGES (Error + 404) — Centered Minimal Layout
+   Follows: conductor/ui-ux.md (monochrome, 8px spacing)
+   =========================================================== */
+
+.page {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-inline: var(--space-md);
+    padding-block: var(--space-2xl);
+}
+
+.code {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-ink-strong);
+    margin: 0;
+    line-height: 1;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-ink-strong);
+    margin: 0;
+    margin-block-start: var(--space-sm);
+}
+
+.description {
+    font-size: 1.0625rem;
+    color: var(--color-ink-body);
+    margin: 0;
+    margin-block-start: var(--space-base);
+    max-width: 400px;
+}
+
+.actions {
+    margin-block-start: var(--space-lg);
+    display: flex;
+    gap: var(--space-sm);
+}

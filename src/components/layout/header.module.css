@@ -1,5 +1,5 @@
 /* ===========================================================
-   HEADER COMPONENT — With Language Dropdown
+   HEADER — Redesigned with prominent login + simple lang toggle
    =========================================================== */
 
 .header {
@@ -17,31 +17,42 @@
     padding-inline: var(--space-md);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 80px;
+    height: 72px;
+    gap: var(--space-sm);
 }
 
 /* Logo */
 .logo {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-ink-strong);
-    letter-spacing: -0.02em;
+    gap: var(--space-base);
+    flex-shrink: 0;
+    margin-inline-end: var(--space-md);
     text-decoration: none;
 }
 
-/* Nav Links */
-.nav {
+.logoText {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-ink-strong);
+}
+
+.drawerBrand {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: var(--space-base);
+}
+
+/* Desktop Nav */
+.desktopNav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-base);
+    flex: 1;
 }
 
 .navLink {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: var(--color-ink-body);
     padding: var(--space-base) var(--space-sm);
@@ -49,6 +60,7 @@
     transition:
         background-color var(--duration) var(--curve-smooth),
         color var(--duration) var(--curve-smooth);
+    white-space: nowrap;
 }
 
 .navLink:hover {
@@ -56,105 +68,249 @@
     color: var(--color-ink-strong);
 }
 
-/* Language Selector */
-.langSelector {
-    position: relative;
-    margin-inline-start: var(--space-sm);
-}
-
-.langButton {
+/* Desktop Actions (lang toggle + login) */
+.desktopActions {
     display: flex;
     align-items: center;
-    gap: var(--space-micro);
-    padding: var(--space-base) var(--space-sm);
-    background-color: var(--color-card);
-    border: 1px solid var(--border-ghost);
-    border-radius: var(--radius-badge);
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--color-ink-body);
-    cursor: pointer;
-    transition:
-        border-color var(--duration) var(--curve-smooth),
-        box-shadow var(--duration) var(--curve-smooth);
+    gap: var(--space-base);
+    flex-shrink: 0;
 }
 
-.langButton:hover {
+/* Language Toggle — Simple pill */
+.langToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-base) var(--space-sm);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--color-ink-body);
+    background: transparent;
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition:
+        border-color var(--duration) var(--curve-smooth),
+        background-color var(--duration) var(--curve-smooth);
+}
+
+.langToggle:hover {
+    border-color: var(--color-ink-subtle);
+    background-color: var(--color-card);
+}
+
+/* Login Button — Primary pill (prominent) */
+.loginButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding-inline: var(--space-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--color-card);
+    background-color: var(--color-ink-strong);
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+        transform var(--duration) var(--curve-elastic),
+        box-shadow var(--duration) var(--curve-smooth);
+    text-decoration: none;
+}
+
+.loginButton:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lift);
+}
+
+/* Ghost Button (Sign Out) */
+.ghostButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding-inline: var(--space-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--color-ink-body);
+    background: transparent;
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+        background-color var(--duration) var(--curve-smooth),
+        border-color var(--duration) var(--curve-smooth);
+}
+
+.ghostButton:hover {
+    background-color: var(--color-card);
     border-color: var(--color-ink-subtle);
 }
 
-.langButton:focus-visible {
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+/* Mobile Actions — hidden on desktop */
+.mobileActions {
+    display: none;
+    align-items: center;
+    gap: var(--space-base);
+    margin-inline-start: auto;
 }
 
-.langArrow {
-    font-size: 0.75rem;
-    transition: transform var(--duration) var(--curve-smooth);
-}
-
-.langArrowOpen {
-    transform: rotate(180deg);
-}
-
-/* Language Dropdown */
-.langDropdown {
-    position: absolute;
-    inset-block-start: calc(100% + var(--space-base));
-    inset-inline-end: 0;
-    min-width: 180px;
-    max-height: 300px;
-    overflow-y: auto;
-    background-color: var(--color-card);
-    border: 1px solid var(--border-ghost);
-    border-radius: var(--radius-badge);
-    box-shadow: var(--shadow-lift);
-    z-index: 200;
-}
-
-.langOption {
-    display: block;
-    width: 100%;
-    padding: var(--space-base) var(--space-sm);
-    text-align: start;
-    font-size: 0.9375rem;
-    color: var(--color-ink-body);
+.menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     background: none;
     border: none;
     cursor: pointer;
+    color: var(--color-ink-body);
+    border-radius: var(--radius-badge);
     transition: background-color var(--duration) var(--curve-smooth);
 }
 
-.langOption:hover {
-    background-color: var(--color-ground);
+.menuButton:hover {
+    background-color: var(--color-card);
 }
 
-.langOptionActive {
+/* ===========================================================
+   MOBILE DRAWER
+   =========================================================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.4);
+    animation: fadeIn 200ms var(--curve-smooth);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.drawer {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-end: 0;
+    width: min(320px, 85vw);
+    background-color: var(--color-card);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 300ms var(--curve-smooth);
+    z-index: 201;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+[dir="rtl"] .drawer {
+    animation-name: slideInRtl;
+}
+
+@keyframes slideInRtl {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.drawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-md);
+    border-block-end: 1px solid var(--border-ghost);
+}
+
+.closeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-ink-body);
+    border-radius: var(--radius-badge);
+}
+
+.drawerLinks {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm);
+    gap: var(--space-micro);
+}
+
+.drawerLinks .navLink {
+    font-size: 1rem;
+    padding: var(--space-sm) var(--space-sm);
+    border-radius: var(--radius-badge);
+}
+
+.drawerFooter {
+    padding: var(--space-sm) var(--space-md);
+    border-block-start: 1px solid var(--border-ghost);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-base);
+}
+
+.drawerLoginButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 100%;
+    font-size: 1rem;
     font-weight: 600;
-    color: var(--color-ink-strong);
-    background-color: var(--color-ground);
+    font-family: inherit;
+    color: var(--color-card);
+    background-color: var(--color-ink-strong);
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    text-decoration: none;
 }
 
-/* Mobile Menu Button (hidden on desktop) */
-.menuButton {
-    display: none;
+.drawerGhostButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--color-ink-body);
+    background: transparent;
+    border: 1px solid var(--border-ghost);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-    .nav {
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+
+@media (max-width: 768px) {
+    .desktopNav,
+    .desktopActions {
         display: none;
     }
 
-    .menuButton {
+    .mobileActions {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: var(--color-ink-body);
-        font-size: 1.5rem;
     }
 }

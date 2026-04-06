@@ -1,0 +1,289 @@
+/* Find Page Styles - Monochrome Design System (8px spacing) */
+
+.page {
+  min-height: 100vh;
+  background-color: var(--color-ground);
+  color: var(--color-ink-strong);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 64px 24px;
+}
+
+/* Header Section */
+.header {
+  margin-block-end: 48px;
+  text-align: start;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-block-end: 16px;
+  color: var(--color-ink-strong);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-ink-subtle);
+  max-width: 600px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-block-end: 24px;
+  font-size: 0.875rem;
+  color: var(--color-ink-subtle);
+}
+
+.breadcrumbs a {
+  color: var(--color-ink-subtle);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-ink-strong);
+}
+
+.breadcrumbSeparator {
+  color: var(--border-ghost);
+}
+
+/* Filter Section */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-block-end: 32px;
+  padding: 24px;
+  background-color: var(--color-card);
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+  flex: 1;
+}
+
+.filterLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-ink-subtle);
+}
+
+.filterSelect {
+  padding: var(--space-base) var(--space-sm);
+  font-size: 1rem;
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+  background-color: var(--color-ground);
+  color: var(--color-ink-strong);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.filterSelect:hover {
+  border-color: var(--color-ink-subtle);
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--color-ink-strong);
+}
+
+.clearFilters {
+  align-self: flex-end;
+  padding: var(--space-base) var(--space-sm);
+  font-size: 0.875rem;
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+  background-color: var(--color-ground);
+  color: var(--color-ink-subtle);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clearFilters:hover {
+  background-color: var(--color-card);
+  border-color: var(--color-ink-subtle);
+}
+
+/* Results Summary */
+.resultsInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 24px;
+  padding-block-end: 16px;
+  border-block-end: 1px solid var(--border-ghost);
+}
+
+.resultCount {
+  font-size: 1rem;
+  color: var(--color-ink-subtle);
+}
+
+.sortSelect {
+  padding: var(--space-base) var(--space-sm);
+  font-size: 0.875rem;
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+  background-color: var(--color-ground);
+  color: var(--color-ink-strong);
+  cursor: pointer;
+}
+
+/* Teacher Grid */
+.teacherGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-block-end: 48px;
+}
+
+.teacherCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background-color: var(--color-card);
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+  text-decoration: none;
+  color: var(--color-ink-strong);
+  transition: all 0.2s ease;
+}
+
+.teacherCard:hover {
+  border-color: var(--color-ink-subtle);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+.teacherInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teacherName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-ink-strong);
+}
+
+.teacherCountry {
+  font-size: 0.875rem;
+  color: var(--color-ink-subtle);
+  margin: 0;
+}
+
+.teacherStatus {
+  font-size: 0.875rem;
+  color: var(--color-ink-subtle);
+  padding: 4px 8px;
+  background-color: var(--color-ground);
+  border-radius: var(--radius-badge);
+  width: fit-content;
+}
+
+.teacherStatus.accepting {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.teacherBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block-start: 8px;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--color-ink-subtle);
+  font-size: 1.125rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-block-start: 48px;
+}
+
+.pageButton {
+  padding: var(--space-base) var(--space-md);
+  font-size: 0.875rem;
+  border: 1px solid var(--border-ghost);
+  border-radius: var(--radius-badge);
+  background-color: var(--color-card);
+  color: var(--color-ink-strong);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageButton:hover:not(:disabled) {
+  background-color: var(--color-ground);
+  border-color: var(--color-ink-subtle);
+}
+
+.pageButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 0.875rem;
+  color: var(--color-ink-subtle);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 32px 16px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filterGroup {
+    min-width: unset;
+  }
+
+  .teacherGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .resultsInfo {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .breadcrumbSeparator {
+  transform: scaleX(-1);
+}

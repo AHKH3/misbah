@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui';
-import { approveListing, rejectListing } from '../actions';
+import { approveProfile, rejectProfile } from '../actions';
 import styles from '../admin.module.css';
 
-interface ProfileWithSubscription {
+interface Profile {
   id: string;
   full_name: string;
   country: string;
@@ -14,38 +14,36 @@ interface ProfileWithSubscription {
   experience_text: string;
   teaching_format: string;
   video_url?: string;
-  subscriptions: Array<{
-    id: string;
-    payment_proof_url: string;
-  }>;
+  availability_status: string;
 }
 
-export default function ReviewList({ items }: { items: ProfileWithSubscription[] }) {
+export default function ReviewList({ items }: { items: Profile[] }) {
   const [rejectModal, setRejectModal] = useState<{
     profileId: string;
-    subId: string;
   } | null>(null);
   const [rejectReason, setRejectReason] = useState('');
+  const [banDuration, setBanDuration] = useState<'30d' | '90d' | 'permanent'>('30d');
   const [loading, setLoading] = useState<string | null>(null);
 
   if (items.length === 0) {
     return <div className={styles.emptyState}>لا توجد طلبات معلقة</div>;
   }
 
-  const handleApprove = async (profileId: string, subId: string) => {
+  const handleApprove = async (profileId: string) => {
     if (!confirm('تفعيل هذا الملف الشخصي؟')) return;
     setLoading(profileId);
-    await approveListing(profileId, subId);
+    await approveProfile(profileId);
     setLoading(null);
   };
 
   const handleReject = async () => {
     if (!rejectModal || !rejectReason) return;
     setLoading(rejectModal.profileId);
-    await rejectListing(rejectModal.profileId, rejectModal.subId, rejectReason);
+    await rejectProfile(rejectModal.profileId, rejectReason, banDuration);
     setLoading(null);
     setRejectModal(null);
     setRejectReason('');
+    setBanDuration('30d'); // Reset to default
   };
 
   const SUBJECT_LABELS: Record<string, string> = {
@@ -59,9 +57,6 @@ export default function ReviewList({ items }: { items: ProfileWithSubscription[]
     <>
       <div className={styles.queue}>
         {items.map((profile) => {
-          const sub = profile.subscriptions?.[0];
-          if (!sub) return null;
-
           return (
             <div key={profile.id} className={styles.queueItem}>
               <div className={styles.queueInfo}>
@@ -73,17 +68,19 @@ export default function ReviewList({ items }: { items: ProfileWithSubscription[]
                     <strong>التخصصات:</strong>{' '}
                     {profile.subjects.map(s => SUBJECT_LABELS[s] || s).join('، ')}
                   </div>
-                  <div style={{ marginBlockEnd: 'var(--space-base)' }}>
-                    <strong>الخبرة:</strong> {profile.experience_text.slice(0, 200)}...
-                  </div>
-                  {sub.payment_proof_url && (
+                  {profile.experience_text && (
+                    <div style={{ marginBlockEnd: 'var(--space-base)' }}>
+                      <strong>الخبرة:</strong> {profile.experience_text.slice(0, 200)}...
+                    </div>
+                  )}
+                  {profile.video_url && (
                     <a
-                      href={sub.payment_proof_url}
+                      href={profile.video_url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.proofLink}
                     >
-                      عرض إثبات الدفع
+                      مراجعة الفيديو
                     </a>
                   )}
                 </div>
@@ -92,14 +89,14 @@ export default function ReviewList({ items }: { items: ProfileWithSubscription[]
               <div className={styles.queueActions}>
                 <Button
                   variant="primary"
-                  onClick={() => handleApprove(profile.id, sub.id)}
+                  onClick={() => handleApprove(profile.id)}
                   disabled={loading === profile.id}
                 >
                   {loading === profile.id ? 'جاري...' : 'تفعيل'}
                 </Button>
                 <Button
                   variant="ghost"
-                  onClick={() => setRejectModal({ profileId: profile.id, subId: sub.id })}
+                  onClick={() => setRejectModal({ profileId: profile.id })}
                   disabled={loading === profile.id}
                 >
                   رفض
@@ -110,17 +107,47 @@ export default function ReviewList({ items }: { items: ProfileWithSubscription[]
         })}
       </div>
 
-      {/* Reject Modal */}
+      {/* Reject Modal with Ban Duration */}
       {rejectModal && (
         <div className={styles.modal} onClick={() => setRejectModal(null)}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <h3 className={styles.modalTitle}>سبب الرفض</h3>
-            <textarea
-              className={styles.modalInput}
-              value={rejectReason}
-              onChange={(e) => setRejectReason(e.target.value)}
-              placeholder="اكتب سبب الرفض..."
-            />
+            <h3 className={styles.modalTitle}>رفض المعلم</h3>
+            
+            <div style={{ marginBlockEnd: 'var(--space-md)' }}>
+              <label htmlFor="rejectReason" style={{ display: 'block', marginBlockEnd: 'var(--space-sm)', fontWeight: 500 }}>
+                سبب الرفض
+              </label>
+              <textarea
+                id="rejectReason"
+                className={styles.modalInput}
+                value={rejectReason}
+                onChange={(e) => setRejectReason(e.target.value)}
+                placeholder="اكتب سبب الرفض بوضوح..."
+                rows={4}
+              />
+            </div>
+
+            <div style={{ marginBlockEnd: 'var(--space-lg)' }}>
+              <label htmlFor="banDuration" style={{ display: 'block', marginBlockEnd: 'var(--space-sm)', fontWeight: 500 }}>
+                مدة الحظر
+              </label>
+              <select
+                id="banDuration"
+                value={banDuration}
+                onChange={(e) => setBanDuration(e.target.value as '30d' | '90d' | 'permanent')}
+                className={styles.modalSelect}
+              >
+                <option value="30d">30 يوم (افتراضي)</option>
+                <option value="90d">90 يوم (متكرر)</option>
+                <option value="permanent">دائم (محتال)</option>
+              </select>
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-ink-subtle)', marginBlockStart: 'var(--space-micro)' }}>
+                {banDuration === '30d' && 'يمكن للمعلم إعادة التسجيل بعد 30 يوم'}
+                {banDuration === '90d' && 'يمكن للمعلم إعادة التسجيل بعد 90 يوم'}
+                {banDuration === 'permanent' && 'لن يتمكن المعلم من التسجيل مجدداً'}
+              </p>
+            </div>
+
             <div className={styles.modalActions}>
               <Button variant="ghost" onClick={() => setRejectModal(null)}>
                 إلغاء

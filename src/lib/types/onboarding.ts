@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const SubjectEnum = z.enum(['Quran', 'Arabic', 'Islamic Studies'])
-export const TeachingFormatEnum = z.enum(['online', 'in_person', 'hybrid'])
+export const TeachingFormatEnum = z.literal('online')
 export const AudienceEnum = z.enum(['Kids', 'Adults', 'Females Only', 'Males Only', 'Everyone'])
 
 export const ProfileSchema = z.object({

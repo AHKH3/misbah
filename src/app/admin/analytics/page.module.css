@@ -1,0 +1,196 @@
+.analyticsPage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+.analyticsPage h1 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.analyticsPage h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Summary Cards */
+.summaryCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.card {
+    padding: var(--spacing-xl);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.cardValue {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.cardLabel {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+/* Section */
+.section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.noData {
+    text-align: center;
+    color: var(--color-text-tertiary);
+    padding: var(--spacing-xl);
+}
+
+/* Chart */
+.chartContainer {
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    min-height: 300px;
+}
+
+.barChart {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 250px;
+    padding: var(--spacing-lg);
+}
+
+.barGroup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.bar {
+    width: 100%;
+    min-height: 2px;
+    background-color: var(--color-text-primary);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    transition: opacity 0.2s;
+}
+
+.bar:hover {
+    opacity: 0.7;
+}
+
+.barLabel {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    margin-top: var(--spacing-xs);
+    writing-mode: sideways-lr;
+    text-orientation: mixed;
+}
+
+/* Table */
+.tableContainer {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background-color: var(--color-background-secondary);
+}
+
+.table th {
+    text-align: start;
+    padding: var(--spacing-md);
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table tbody tr:hover {
+    background-color: var(--color-background-secondary);
+}
+
+.table a {
+    color: var(--color-text-primary);
+    text-decoration: underline;
+}
+
+.table a:hover {
+    opacity: 0.7;
+}
+
+/* Anomalies */
+.anomalyList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.anomaly {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.anomaly.warning {
+    border-color: var(--color-text-primary);
+    background-color: var(--color-background-secondary);
+}
+
+.anomaly.info {
+    border-color: var(--color-border);
+}
+
+.anomalyIcon {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+}
+
+.anomalyContent {
+    flex: 1;
+}
+
+.anomalyContent strong {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.anomalyContent a {
+    color: var(--color-text-primary);
+    text-decoration: underline;
+}
+
+.anomalyContent a:hover {
+    opacity: 0.7;
+}
+
+.anomalyContent p {
+    margin: 0;
+    color: var(--color-text-secondary);
+}
+
+.noAnomalies {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xl);
+}

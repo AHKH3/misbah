@@ -1,0 +1,49 @@
+/* ===========================================================
+   MODAL COMPONENT — Overlay + Card
+   =========================================================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    padding: var(--space-md);
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: var(--color-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-lift);
+    padding: var(--space-lg);
+}
+
+.closeButton {
+    position: absolute;
+    inset-block-start: var(--space-sm);
+    inset-inline-end: var(--space-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    border-radius: var(--radius-badge);
+    font-size: 1.25rem;
+    color: var(--color-ink-subtle);
+    cursor: pointer;
+    transition: color var(--duration) var(--curve-smooth);
+}
+
+.closeButton:hover {
+    color: var(--color-ink-strong);
+}

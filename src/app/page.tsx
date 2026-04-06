@@ -1,183 +1,41 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { useI18n } from '@/lib/i18n';
-import { Button } from '@/components/ui';
+import {
+  Hero,
+  SocialProof,
+  ForStudents,
+  ForTeachers,
+  HowItWorks,
+  Principles,
+  FinalCTA
+} from '@/components/landing';
+import { createClient } from '@/utils/supabase/server';
 import styles from './page.module.css';
 
-export default function HomePage() {
-  const { labels } = useI18n();
-  const { home } = labels;
+const FOUNDERS_TOTAL = 30;
 
-  // Scroll Reveal Logic
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
-            observer.unobserve(entry.target); // Animate once
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
+export default async function HomePage() {
+  let foundersRemaining = FOUNDERS_TOTAL;
 
-    const elements = document.querySelectorAll(`.${styles.reveal}`);
-    elements.forEach((el) => observer.observe(el));
+  try {
+    const supabase = await createClient();
+    const { count } = await supabase
+      .from('profiles')
+      .select('*', { count: 'exact', head: true })
+      .in('status', ['approved', 'published']);
 
-    return () => observer.disconnect();
-  }, []);
+    foundersRemaining = Math.max(0, FOUNDERS_TOTAL - (count ?? 0));
+  } catch {
+    // Fallback to total if DB is unavailable
+  }
 
   return (
     <main className={styles.page}>
-      {/* Section 1: Hero — Legendary */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          {/* Decoration Removed */}
-
-          {/* Title */}
-          <h1 className={styles.heroTitle}>{home.hero.title}</h1>
-
-          {/* Subtitle */}
-          <p className={styles.heroSubtitle}>{home.hero.subtitle}</p>
-
-          {/* Value Statement */}
-          <p className={styles.heroValue}>{home.hero.valueStatement}</p>
-
-          {/* CTAs */}
-          <div className={styles.heroCtas}>
-            <Link href="/directory">
-              <Button variant="primaryInverted">{home.hero.ctaStudents}</Button>
-            </Link>
-            <Link href="/onboarding">
-              <Button variant="ghostInverted">{home.hero.ctaTeachers}</Button>
-            </Link>
-          </div>
-
-          {/* Trust Badges */}
-          <div className={styles.trustRow}>
-            {(home.hero.trustBadges || labels.home.hero.trustBadges || []).map((badge: string, i: number) => (
-              <div key={i} className={styles.trustBadge}>
-                <span className={styles.trustIcon}>✓</span>
-                <span className={styles.trustText}>{badge}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: For Students — Cards Grid */}
-      <section className={styles.studentsSection}>
-        <div className={styles.container}>
-          <span className={styles.sectionLabel}>{home.forStudents.label}</span>
-          <h2 className={styles.sectionTitle}>{home.forStudents.title}</h2>
-
-          <div className={`${styles.cardGrid} ${styles.reveal}`}>
-            {home.forStudents.points.map((point: string, i: number) => (
-              <div key={i} className={styles.card}>
-                <p className={styles.cardText}>{point}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className={`${styles.noteBox} ${styles.reveal}`}>
-            <p className={styles.noteText}>{home.forStudents.note}</p>
-          </div>
-
-          <div className={`${styles.sectionCta} ${styles.reveal}`}>
-            <Link href="/directory">
-              <Button variant="primary">{home.forStudents.cta}</Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: For Teachers — Horizontal Chips */}
-      <section className={styles.teachersSection}>
-        <div className={styles.container}>
-          <span className={styles.sectionLabel}>{home.forTeachers.label}</span>
-          <h2 className={styles.sectionTitle}>{home.forTeachers.title}</h2>
-
-          <div className={`${styles.chipsContainer} ${styles.reveal}`}>
-            {home.forTeachers.points.map((point: string, i: number) => (
-              <span key={i} className={styles.chip}>{point}</span>
-            ))}
-          </div>
-
-          <div className={`${styles.noteBox} ${styles.reveal}`}>
-            <p className={styles.noteText}>{home.forTeachers.note}</p>
-          </div>
-
-          <div className={`${styles.sectionCta} ${styles.reveal}`}>
-            <Link href="/onboarding">
-              <Button variant="ghost">{home.forTeachers.cta}</Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4: What Misbah Is Not — Inline Badges */}
-      <section className={styles.notSection}>
-        <div className={styles.container}>
-          <h2 className={styles.notTitle}>{home.notSection.title}</h2>
-          <div className={`${styles.notList} ${styles.reveal}`}>
-            {home.notSection.points.map((point: string, i: number) => (
-              <span key={i} className={styles.notBadge}>{point}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 5: How It Works — Horizontal Steps */}
-      <section className={styles.howSection}>
-        <div className={styles.container}>
-          <h2 className={styles.howTitle}>{home.howItWorks.title}</h2>
-          <div className={`${styles.horizontalSteps} ${styles.reveal}`}>
-            {home.howItWorks.steps.map((step: { number: string; title: string; description: string }, i: number) => (
-              <div key={i} className={styles.hStep}>
-                <span className={styles.hStepNumber}>{step.number}</span>
-                <span className={styles.hStepTitle}>{step.title}</span>
-              </div>
-            ))}
-          </div>
-          <div className={`${styles.howNote} ${styles.reveal}`}>
-            <p>{home.howItWorks.note}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 6: Pricing — Centered Box */}
-      <section className={styles.pricingSection}>
-        <div className={styles.container}>
-          <div className={`${styles.pricingCard} ${styles.reveal}`}>
-            <span className={styles.pricingLabel}>{home.pricing.label}</span>
-            <h2 className={styles.pricingTitle}>{home.pricing.title}</h2>
-            <p className={styles.pricingDescription}>{home.pricing.description}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 7: Final CTA */}
-      <section className={styles.finalCta}>
-        <div className={styles.container}>
-          <div className={`${styles.ctaGrid} ${styles.reveal}`}>
-            <div className={styles.ctaBlock}>
-              <span className={styles.ctaLabel}>{home.finalCta.studentsLabel}</span>
-              <Link href="/directory">
-                <Button variant="primary" fullWidth>{home.finalCta.studentsButton}</Button>
-              </Link>
-            </div>
-            <div className={styles.ctaBlock}>
-              <span className={styles.ctaLabel}>{home.finalCta.teachersLabel}</span>
-              <Link href="/onboarding">
-                <Button variant="ghost" fullWidth>{home.finalCta.teachersButton}</Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero foundersRemaining={foundersRemaining} />
+      <SocialProof />
+      <ForStudents />
+      <ForTeachers />
+      <HowItWorks />
+      <Principles />
+      <FinalCTA />
     </main>
   );
 }

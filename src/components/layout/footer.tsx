@@ -6,66 +6,61 @@ import { useI18n } from '@/lib/i18n';
 import styles from './footer.module.css';
 
 export function Footer() {
-    const { labels } = useI18n();
+    const { locale, labels } = useI18n();
     const { footer } = labels;
+
+    const siteName = locale === 'ar' ? 'مصباح' : 'Misbah';
 
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
-                {/* Logo - Link to Home */}
-                <Link href="/" className={styles.logoLink}>
-                    <Image
-                        src="/logo-footer.png"
-                        alt="Misbah"
-                        width={64}
-                        height={64}
-                        className={styles.logo}
-                    />
-                </Link>
-
-                {/* Main Footer Text */}
-                <p className={styles.brand}>{footer.tagline}</p>
-
-                {/* Disclaimer - Using home.disclaimer as it contains the long text or just rely on footer keys if they were designed to hold this? 
-                    Wait, looking at json files, 'footer' object DOES NOT have the disclaimer long text. 
-                    'home.disclaimer' has it.
-                    Let's check 'ar.json'.
-                    home.disclaimer: "مصباح دليل عام..."
-                    footer object only has tagline, about, faq, privacy, terms, copyright.
-                    
-                    The original footer component had a LONG disclaimer.
-                    "مصباح دليل عام يعرض معلومات التواصل..."
-                    
-                    I should use labels.home.disclaimer for this or labels.about.limits.description?
-                    Let's check loader.ts types again.
-                    home.disclaimer is a string.
-                    
-                    I will use labels.home.disclaimer.
-                 */}
-                <p className={styles.disclaimer}>
-                    {labels.home.disclaimer}
-                </p>
-
-                {/* Legal Links */}
-                <nav className={styles.legalNav}>
-                    <Link href="/privacy" className={styles.legalLink}>
-                        {footer.privacy}
+                {/* Brand */}
+                <div className={styles.brand}>
+                    <Link href="/" className={styles.logoLink}>
+                        <Image src="/logo.png" alt="Misbah" width={56} height={56} />
+                        <span className={styles.logoText}>{siteName}</span>
                     </Link>
-                    <span className={styles.separator}>•</span>
-                    <Link href="/terms" className={styles.legalLink}>
-                        {footer.terms}
-                    </Link>
-                    <span className={styles.separator}>•</span>
-                    <Link href="/disclaimer" className={styles.legalLink}>
-                        {footer.disclaimer}
-                    </Link>
-                </nav>
+                    <p className={styles.tagline}>{footer.tagline}</p>
+                </div>
+
+                {/* Columns */}
+                <div className={styles.columns}>
+                    {/* Site Links */}
+                    <div className={styles.column}>
+                        <h4 className={styles.columnTitle}>{footer.siteTitle}</h4>
+                        <nav className={styles.columnLinks}>
+                            <Link href="/">{footer.home}</Link>
+                            <Link href="/find">{footer.find}</Link>
+                            <Link href="/about">{footer.about}</Link>
+                            <Link href="/faq">{footer.faq}</Link>
+                            <Link href="/for-teachers">{footer.forTeachers}</Link>
+                        </nav>
+                    </div>
+
+                    {/* Legal Links */}
+                    <div className={styles.column}>
+                        <h4 className={styles.columnTitle}>{footer.legalTitle}</h4>
+                        <nav className={styles.columnLinks}>
+                            <Link href="/privacy">{footer.privacy}</Link>
+                            <Link href="/terms">{footer.terms}</Link>
+                            <Link href="/disclaimer">{footer.disclaimer}</Link>
+                        </nav>
+                    </div>
+
+                    {/* Contact */}
+                    <div className={styles.column}>
+                        <h4 className={styles.columnTitle}>{footer.contactTitle}</h4>
+                        <nav className={styles.columnLinks}>
+                            <a href={`mailto:${footer.contactEmail}`}>{footer.contactEmail}</a>
+                        </nav>
+                    </div>
+                </div>
 
                 {/* Copyright */}
-                <p className={styles.copyright}>
-                    {footer.copyright.replace('2025', new Date().getFullYear().toString())}
-                </p>
+                <div className={styles.bottom}>
+                    <p className={styles.copyright}>{footer.copyright}</p>
+                </div>
             </div>
-        </footer >
+        </footer>
     );
 }

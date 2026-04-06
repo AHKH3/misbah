@@ -1,4 +1,5 @@
 import { createClient } from '@/utils/supabase/server';
+import { isAdmin } from '@/lib/auth/is-admin';
 import { NextResponse } from 'next/server';
 
 export async function GET(
@@ -9,10 +10,8 @@ export async function GET(
     const supabase = await createClient();
 
     // Check admin auth
-    const { data: { user } } = await supabase.auth.getUser();
-    const adminEmails = ['admin@misbah.site', 'admin@example.com'];
-
-    if (!user || !adminEmails.includes(user.email || '')) {
+    const isAdminUser = await isAdmin(supabase);
+    if (!isAdminUser) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 

@@ -47,3 +47,11 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Debug logs
+firebase-debug.log
+*.log
+
+# Temp files
+install_log.txt
+link_log.txt

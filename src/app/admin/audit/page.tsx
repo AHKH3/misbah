@@ -1,19 +1,12 @@
 import { createClient } from '@/utils/supabase/server';
+import { isAdmin } from '@/lib/auth/is-admin';
 import { redirect } from 'next/navigation';
 import styles from '../admin.module.css';
 
-async function isAdmin() {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    const adminEmails = ['admin@misbah.site', 'admin@example.com'];
-    return user && adminEmails.includes(user.email || '');
-}
-
 export default async function AuditLogPage() {
-    const isAdminUser = await isAdmin();
-    if (!isAdminUser) redirect('/');
-
     const supabase = await createClient();
+    const isAdminUser = await isAdmin(supabase);
+    if (!isAdminUser) redirect('/');
 
     const { data: logs, error } = await supabase
         .from('admin_audit_log')

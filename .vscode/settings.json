@@ -1,0 +1,23 @@
+{
+  // GLM Configuration for Z.ai Chat Provider
+  "zai-vscode-chat.apiKey": "3186267bb1004f81ae540de7ff6c72b7.iWK4rNiaLgDzhl2r",
+  "zai-vscode-chat.model": "glm-4-plus",
+  
+  // Zhipu AI Configuration
+  "zhipu-ai.apiKey": "3186267bb1004f81ae540de7ff6c72b7.iWK4rNiaLgDzhl2r",
+  "zhipu-ai.model": "glm-4-plus",
+  "zhipu-ai.baseURL": "https://open.bigmodel.cn/api/paas/v4",
+
+  // GitHub Copilot Chat - Use GLM as provider
+  "github.copilot.chat.enabled": true,
+  
+  // Language Model API Settings
+  "languageModelAPI.providers": [
+    {
+      "name": "GLM-4.7",
+      "apiKey": "3186267bb1004f81ae540de7ff6c72b7.iWK4rNiaLgDzhl2r",
+      "model": "glm-4-plus",
+      "baseURL": "https://open.bigmodel.cn/api/paas/v4"
+    }
+  ]
+}

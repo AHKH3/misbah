@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--color-ink-strong);
-    color: #ffffff;
+    color: var(--color-card);
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -40,8 +40,7 @@
 }
 
 .button:hover {
-    background-color: #27272a;
-    /* Slightly lighter black */
+    background-color: var(--color-ink-body);
     transform: translateY(-4px) scale(1.05);
 }
 

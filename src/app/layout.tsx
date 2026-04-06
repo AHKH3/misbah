@@ -3,6 +3,7 @@ import { Inter, Amiri } from 'next/font/google';
 import { I18nProvider } from '@/lib/i18n';
 import { Header, Footer } from '@/components/layout';
 import { ScrollToTop } from '@/components/ui/scroll-to-top';
+import { ToastProvider } from '@/components/ui/toast';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
@@ -52,10 +53,12 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className={`${inter.variable} ${amiri.variable}`}>
       <body>
         <I18nProvider>
-          <Header />
-          {children}
-          <Footer />
-          <ScrollToTop />
+          <ToastProvider>
+            <Header />
+            {children}
+            <Footer />
+            <ScrollToTop />
+          </ToastProvider>
         </I18nProvider>
         <Analytics />
       </body>

@@ -17,8 +17,10 @@
   --space-xl: 48px;
   --space-2xl: 64px;
 
-  /* 2.3 LAYOUT — Wider content */
-  --max-width: 960px;
+  /* 2.3 LAYOUT — Content width per spec */
+  --max-width: 1080px;
+  --max-width-narrow: 680px;
+  --max-width-hero: 800px;
 
   /* 3. COLOR SYSTEM — Luminance-Based Monochrome ONLY */
   /* 3.1 Surfaces */
@@ -30,10 +32,22 @@
   --color-ink-body: #52525b;
   --color-ink-subtle: #a1a1aa;
 
+  /* 3.4 Icon Colors — soft/muted palette for icons only */
+  --icon-blue: #4A90D9;
+  --icon-green: #3DAA6D;
+  --icon-amber: #D4960A;
+  --icon-purple: #7C5CC5;
+  --icon-teal: #2BA396;
+  --icon-rose: #D4685E;
+
   /* 3.3 Borders & Shadows */
   --border-ghost: rgba(0, 0, 0, 0.06);
   --shadow-rest: 0 4px 12px rgba(0, 0, 0, 0.04);
   --shadow-lift: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.1);
+  --border-dashed: rgba(0, 0, 0, 0.15);
+  --shadow-focus: 0 0 0 3px rgba(0, 0, 0, 0.05);
+  --bg-hover: rgba(0, 0, 0, 0.05);
 
   /* 5. COMPONENT SPECS */
   --radius-card: 24px;

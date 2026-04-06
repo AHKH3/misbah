@@ -7,7 +7,7 @@
     border-radius: 50%;
     object-fit: cover;
     /* White ring as per spec */
-    box-shadow: 0 0 0 2px #fff;
+    box-shadow: 0 0 0 2px var(--color-card);
 }
 
 /* Sizes */
@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--color-ink-subtle);
-    color: #fff;
+    color: var(--color-card);
     font-weight: 600;
 }
 

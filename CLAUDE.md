@@ -9,12 +9,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **Misbah (مصباح)** is a bilingual (Arabic/English) professional directory platform for independent Quran, Arabic, and Islamic studies teachers. It is built on Next.js 16 (App Router) with TypeScript, Supabase (PostgreSQL), and CSS Modules.
 
 **Critical Product Philosophy:**
-- Read `/conductor/product.md` and `/conductor/product-guidelines.md` FIRST before making any feature decisions
+- Read `/context/product.md` and `/context/product-guidelines.md` FIRST before making any feature decisions
 - This is a **directory**, NOT a marketplace/academy/booking platform
 - Individual teachers only (no institutions)
-- SEO-first approach with no visibility guarantees (see `/conductor/seo-philosophy.md`)
+- SEO-first approach with no visibility guarantees (see `/context/seo-philosophy.md`)
 - Manual human review required for all teacher profiles
-- Strict UI/UX guidelines in `/conductor/ui-ux.md` (monochrome, 8px spacing system, CSS Modules only)
+- Strict UI/UX guidelines in `/context/ui-ux.md` (monochrome base + soft icon colors, 8px spacing system, CSS Modules only)
 
 ---
 
@@ -112,7 +112,7 @@ All data mutations use Next.js Server Actions (`'use server'`):
 
 **Styling:** CSS Modules ONLY (no Tailwind, no CSS-in-JS)
 - File-per-component: `button.tsx` → `button.module.css`
-- 8px spacing system (see `/conductor/ui-ux.md`)
+- 8px spacing system (see `/context/ui-ux.md`)
 - Monochrome color palette with luminance-based hierarchy
 - RTL-safe properties: `margin-inline-start`, `padding-inline-end`
 
@@ -123,7 +123,7 @@ All data mutations use Next.js Server Actions (`'use server'`):
 - `Card`, `Badge`, `Avatar`, `Accordion`
 
 **Forbidden:**
-- Colored buttons/accents
+- Colored buttons, colored text, or colored backgrounds (icon colors `--icon-*` are allowed for icons only per Section 3.4 of `/context/ui-ux.md`)
 - Arbitrary spacing values (use 4px/8px/16px/24px/32px/48px/64px only)
 - Centered paragraphs
 - Linear animations
@@ -153,7 +153,7 @@ All data mutations use Next.js Server Actions (`'use server'`):
 
 ### SEO Philosophy
 
-**Read `/conductor/seo-philosophy.md` before any SEO work:**
+**Read `/context/seo-philosophy.md` before any SEO work:**
 - "Eligibility to win, NOT guarantee of visibility"
 - Each teacher page MUST have unique metadata
 - Avoid keyword cannibalization between teacher pages
@@ -174,7 +174,7 @@ All data mutations use Next.js Server Actions (`'use server'`):
 
 ### Commit Protocol
 
-**From `/conductor/workflow.md`:**
+**From `/context/workflow.md`:**
 - Phase-based commits (group of related tasks), not per-task
 - Summaries in git commit messages (not Git Notes)
 - Prioritize production stability and SEO integrity
@@ -224,13 +224,13 @@ Before making changes to specific areas, read these files:
 
 | Area | Reference Files |
 |------|----------------|
-| Product scope | `/conductor/product.md`, `/conductor/product-guidelines.md` |
-| UI/Design | `/conductor/ui-ux.md` |
-| SEO | `/conductor/seo-philosophy.md` |
-| Onboarding logic | `/conductor/onboarding-spec.md` |
-| Identity/legal | `/conductor/identity.md` |
-| Tech decisions | `/conductor/tech-stack.md` |
-| Workflow | `/conductor/workflow.md` |
+| Product scope | `/context/product.md`, `/context/product-guidelines.md` |
+| UI/Design | `/context/ui-ux.md` |
+| SEO | `/context/seo-philosophy.md` |
+| Onboarding logic | `/context/05_onboarding_flow.md` |
+| Identity/legal | `/context/identity.md` |
+| Tech decisions | `/context/02_technical_spec.md` |
+| Workflow | `/context/workflow.md` |
 
 ---
 
@@ -357,7 +357,7 @@ export async function submitProfileAction(formData: FormData) {
 
 ## Final Notes
 
-- **Simplicity is strategic:** Avoid overengineering (see `/conductor/tech-stack.md`)
+- **Simplicity is strategic:** Avoid overengineering (see `/context/02_technical_spec.md`)
 - **Bilingual from ground up:** All UI supports Arabic/English
 - **No external UI framework:** Custom CSS Modules components only
 - **Profile ≠ User:** Profiles exist before authentication (decoupled until approval)
